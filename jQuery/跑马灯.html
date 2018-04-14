@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跑马灯</title>
+    <style>
+        .outBox{width:400px;height:40px;overflow: hidden;margin:0 auto;border:1px solid #419BF9;position:relative;background-color: #2B2F33;color:#ffffff;border-radius:4px;}
+        .ulPmd{width:600px;height:40px;position:absolute;left:0;top:0}
+        .ulPmd li{width:auto;height:40px;float:left;list-style: none;margin-left:20px;line-height:8px}
+    </style>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            var i=0;
+            var timer;
+            timer=setInterval(function(){
+                //根据ul的位移来判断一秒钟向左移动的距离；
+                if(i>$('li').length){
+                    i=1;
+                }else{
+                    i++;
+                }
+                var ulLeft=-($('li').width())*i;
+                $('.ulPmd').css('left',ulLeft)
+            },1000);
+            //鼠标滑过li的时候，清除定时器
+            $('li').on('mouseover',function () {
+                clearInterval(timer)
+            });
+            //鼠标滑出li的时候，继续定时器
+            $('li').on('mouseout',function () {
+                timer=setInterval(function() {
+                    //根据ul的位移来判断一秒钟向左移动的距离；
+                    if(i>$('li').length){
+                        i=1;
+                    }else{
+                        i++;
+                    }
+                    var ulLeft=-($('li').width())*i;
+                    $('.ulPmd').css('left',ulLeft)
+                },1000);
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div class="outBox">
+    <ul class="ulPmd">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+        <li>item10</li>
+    </ul>
+</div>
+
+</body>
+</html>
