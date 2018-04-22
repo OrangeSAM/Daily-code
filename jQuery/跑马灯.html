@@ -14,20 +14,23 @@
             var i=0;
             var timer;
             timer=setInterval(function(){
-                //根据ul的位移来判断一秒钟向左移动的距离；
+                    //根据ul的位移来判断一秒钟向左移动的距离；
                 if(i>$('li').length){
                     i=1;
+                    //如果所有li元素向左移动一遍完成，那滚动重新开始
                 }else{
                     i++;
+                    alert(i);
                 }
+                    //通过i的值来改变整体li元素的位置
                 var ulLeft=-($('li').width())*i;
                 $('.ulPmd').css('left',ulLeft)
             },1000);
-            //鼠标滑过li的时候，清除定时器
+                    //鼠标滑过li的时候，清除定时器
             $('li').on('mouseover',function () {
                 clearInterval(timer)
             });
-            //鼠标滑出li的时候，继续定时器
+                    //鼠标滑出li的时候，继续定时器
             $('li').on('mouseout',function () {
                 timer=setInterval(function() {
                     //根据ul的位移来判断一秒钟向左移动的距离；
