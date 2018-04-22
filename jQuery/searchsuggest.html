@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索框制作</title>
+    <style>
+        body{
+            background-color:lightgray; 
+        }
+        form{
+            background-color:white;
+        }
+        .search-input-text{
+            border: 0;
+            outline: none;
+            line-height: 24px;
+            height:32px;
+            font-size: larger;
+        }
+        .search-input-button{
+            border: 0;
+            background-image: url(img/search.png);
+            background-repeat: no-repeat;
+            background-position-y: center;
+            background-position-x: center;
+            width: 36px;
+            height:37px;
+            /* 记录background的使用 */
+        }
+        .search-box{
+            position: absolute;
+            left: 550px;
+            top: 200px;
+        }
+        .suggest{
+            width: 211px;
+            background-color: #fff;
+            border:1px solid #999;
+        }
+        .suggest ul{
+            list-style: none;
+            margin: 0;
+            padding: 0; 
+        }.suggest ul li{
+            padding: 3px;
+            font-size: 14px;
+            line-height: 25px;
+            cursor: pointer;
+        }
+        .suggest ul li:hover{
+            text-decoration: underline;
+            background-color: #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-box">
+        <form id="search-form" class="search-form" action="" target="_blank" method="GET">
+                <input type="text" name="" id="search-input" class="search-input-text" autocomplete="off">
+                <input type="submit" name="" id="search-button" class="search-input-button" value=" ">
+        </form>
+        <!-- 当search-suggest（2） div放到search-box（1）盒子外时，（2）的定位会出现问题 -->
+        
+    </div>
+    <div id="search-suggest" class="suggest" style="display:none;">
+            <ul>
+                <li>搜索结果1</li>
+                <li>搜索结果3</li>
+            </ul>
+    </div>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $('#search-input').bind('keyup',function(){
+            var jqueryInput=$(this);
+            var searchText=jqueryInput.val();
+            $.get('http://api.bing.com/qsonhs.aspx?q='+searchText);
+        });
+        $('#search-suggest').css({
+            top:$('#search-form').offset.top+$('#search-form').height()+10,
+            left:$('#search-form').offset().left 
+        }).show();
+        // $('#search_input').bind('keyup',function(){
+        //     $('#search-suggest').show().css({
+        //         top:$('#search-form').offset.top+$('#search-form').height()+330,
+        //         left:$('#search-form').offset().left,
+        //         position:'absolute'
+        //     });
+        // })
+    </script>
+</body>
+</html>
