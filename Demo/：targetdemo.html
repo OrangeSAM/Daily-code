@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .tab_content{
+            background: red;
+            margin: 200px;
+        }
+        #tab1:target,#tab2:target,#tab3:target{
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul class="tabs">
+        <li><a href="#tab1">标签1</a></li>
+        <li><a href="#tab2">标签2</a></li>
+        <li><a href="#tab3">标签3</a></li>
+    </ul>
+    <div id="tab1" class="tab_content">1</div>
+    <div id="tab2" class="tab_content">2</div>
+    <div id="tab3" class="tab_content">3</div>
+
+    <div>父元素div
+        <div>子元素div</div>
+        <div>子元素div</div>
+    </div>
+</body>
+</html>

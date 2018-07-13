@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        width: 300px;
+        position: relative;
+    }
+    .aside{
+        width: 100px;
+        height: 150px;
+        float: left;
+        background: #f66;
+    }
+    .main{
+        height: 200px;
+        background: #fcc;
+        overflow: hidden;
+    }
+
+    .par{
+        border: 5px solid #fcc;
+        width: 300px;
+        overflow: hidden;
+    }
+    .child{
+        border: 5px solid #f66;
+        width:100px;
+        height: 100px;
+        float: left;
+    }
+    </style>
+</head>
+<body>
+    <div class="aside">这是aside</div>
+    <div class="main">这是main</div>
+
+    <div class="par" style="margin-top: 10px;">
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+
+    <div style="/* height: 200px; */border: 1px solid;">
+        <p style="border: 1px solid;margin: 10px;padding: 10px;">
+            这是第一个p元素
+        </p>
+        <p style="border: 10px solid red;padding: 10px;margin: 10px;margin-bottom: 12px;width: 50px;padding-bottom: -26px;height: 100px; ">
+            这是p元素哦红哦度奥大大我倒
+        </p>
+        <span style="border: 1px solid;margin: 10px;padding: 10px;padding-top: 40px;height: 100px;padding-right: 30px;">
+          这是span元素
+        </span>
+        <span>这是第二个span</span>
+        <label>这是第三个span元素</label>
+        <span>这是第四个行内元素</span>
+        </div>
+</body>
+</html>
