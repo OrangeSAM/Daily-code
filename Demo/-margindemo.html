@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .div1{
+            width: 400px;
+            margin: 0 auto;
+            background-color: pink;
+            margin-bottom: 40px;
+        }
+        .div1child{
+            width: 60%;
+            margin: 0 auto;
+            background-color: lightgray;
+            /* 在父元素width有明确数值的情况下，子元素使用百分比仍然可以 */
+        }
+        .div2{
+            text-align: center;
+            background-color: beige;
+            margin-bottom: 40px;
+        }
+        .div2 div{
+            display: inline-block;
+            background-color: blueviolet;
+        }
+        .div3{
+            background-color: pink;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .div3>div{
+            float: left;
+            position: relative;
+            left: 50%;
+        }
+        .div3 div div{
+            position: relative;
+            right: 50%;
+            background-color: beige;
+        }
+        .div4{
+            position: absolute;
+            width: 200px;
+            left: 50%;
+            margin-left: -100px;
+            background-color: cadetblue;
+            margin-bottom: 40px;
+        }
+        .div5{
+            position: absolute;
+            left: 50%;
+            top: 40%;
+        }
+        .div5>div{
+            float: left;
+            position: relative;
+            right: 50%;
+        }
+        .div6{
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            -webkit-box-pack: center;
+            background-color: crimson;
+        }
+        .div7{
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="div1">
+        this is first test divsion
+        <div class="div1child">this is the child divsion</div>
+    </div>
+    <div class="div2">
+        <div>now ill use inline-block property to make the second divsion present in the center</div>
+    </div>
+    <div class="div3">
+        <div>
+            <div>this is the third divsion</div>
+        </div>
+    </div>
+    <div class="div4">
+        <div>
+            this is the fourth divsion            
+        </div>
+    </div>
+    <div class="div5">
+        <div>
+            this is the fifth divsion
+        </div>
+    </div>
+    <div class="div6">
+        this is sixth divsion
+    </div>
+    <div class="div7">
+        this is the seventh divsion
+    </div>
+</body>
+</html>
