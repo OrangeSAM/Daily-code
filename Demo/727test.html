@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 300px;height: 300px; border: 1px solid;">
+        <div>this is child element</div>
+    </div>
+    <input id="firstinput" disabled="disabled" type="text" value="testing the value now"/>
+    <input id="secondinput" readonly="readonly" type="text" value="testing the readonly value now" >
+    <span onclick="change()">点这里</span>
+    <span>this<mark> is a mark tag</mark></span>
+    <em>this is a em tag</em>
+    <i>this is a i tag</i>
+    <span>this is test <i style="word-break: keep-all;">daodoiwjidjaiwjdiadjp</i>word-break</span>
+    <ul>
+        here is some text
+        <p>here is some text in a block tag</p>
+        <li>item1</li>
+        <li>item2</li>
+    </ul>
+</body>
+<script>
+    function change() {
+        alert("1");  
+        document.getElementById("firstinput").value="Have i changed the value";
+        document.getElementById("secondinput").value="Have i changed the second value";
+    }   
+</script>
+</html>
