@@ -1,0 +1,25 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>计时器</title>
+<script type="text/javascript">
+   function clock(){
+      var time=new Date();               	  
+      document.getElementById("clock").value = time;
+   }
+    var i=setInterval("clock()",1001);
+</script>
+</head>
+<body>
+  <form>
+    <input type="text" id="clock" size="50"  />
+    <input type="button" value="Stop"  onclick="clearInterval(i)"/>
+  </form>
+
+  <div style="position:relative;">我是相对的
+	<span style="position:absolute;top:40px;left:80px;">我是绝对的
+	</span>
+  </div>
+</body>
+</html>

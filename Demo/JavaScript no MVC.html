@@ -1,0 +1,35 @@
+﻿<html>
+<body>
+<h3>JavaScript no MVC</h3>
+ <div>
+  <select name="" id="setAnimal">
+   <option value="cat">cat2</option>
+   <option value="fish">fish2</option>
+   <option value="bird">bird2</option>
+  </select>
+  <p id="animalAction"></p>
+ </div>
+ <script type="text/javascript">
+  var animal = document.getElementById('setAnimal');
+  console.dir(animal);
+  animal.onchange = function() {
+   var action = null;
+   switch (this.value) {
+   case 'cat':
+    action = 'cat meows';
+    break;
+   case 'fish':
+    action = 'fish swim';
+    break;
+   case 'bird':
+    action = 'bird fly';
+    break;
+   default:
+    action = 'unknow';
+   }
+   console.log(action);
+   document.getElementById('animalAction').innerHTML = action;
+  };
+ </script>
+</body>
+</html>

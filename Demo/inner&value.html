@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jsdemo</title>
+</head>
+<body>
+    <script>
+        function myFunction() {
+            var btn1 = document.getElementById("btn1");
+            alert(btn1.innerText); //我是按钮   
+            alert(btn1.innerHTML); //我是按钮
+            alert(btn1.value); //空，按钮不能用Value!
+            btn1.value = "value"; //按钮不可以这样改变值
+            btn1.innerText = "innerText"; //按钮可以用innerText改变值
+            btn1.innerHTML = "innertHTML"; //按钮也可以用 innerHTML改变值
+
+            var input1 = document.getElementById("input1");
+            alert(input1.value); //可以获取值
+            alert(input1.innerText); //没有值
+            alert(input1.innerHTML); //没有值
+            input1.value = 5; //可以改变值
+            input1.innerText = 6; //不可以改变值
+            input1.innerHTML = 7; //不可以改变值
+
+            var html2 = document.getElementById("test");
+            alert(test.innerHTML); // <span style="color:red">test1</span> test2 
+            alert(test.innerText); //test1 test2
+            alert(test.outerHTML);
+            //结果如下：
+            //<div id="test"> 
+            //   <span style="color:red">test1</span> test2 
+            //</div>
+        }
+    </script>
+    <input id="input1" type="text" />
+    <button id="btn1" type="button" onclick="myFunction()">
+        我是按钮</button>
+    <p id="mess">
+    </p>
+    <div id="test">
+        <span style="color: red">test1</span> test2
+    </div>
+</body>
+</html>
