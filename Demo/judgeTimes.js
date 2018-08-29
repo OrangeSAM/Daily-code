@@ -4,11 +4,11 @@ for(var i=0;i<str.length;i++){
     //判断json这个对象中是否存在这个key，存在则value+1
     if(!json[str.charAt(i)]){
         debugger;
-        json[str.charAt(i)]=i;
+        json[str.charAt(i)]=1;
     }else{
         json[str.charAt(i)]++;
     }
-};
+}
 var iMax=0;
 var iIndex='';
 for(var i in json){
