@@ -10,7 +10,7 @@
             platform : function(){
                 var u=navigator.userAgent,app=navigator.appVersion;
                 return{
-                    //pc:u.
+                    pc:u.indexOf('Windows')>-1,
                     //android:u.indexOf('Android')>-1||u.indexOf('Linux'),
                     iPhone:u.indexOf('iPhone')>-1,
                     iPad:u.indexOf('iPad')>-1,
@@ -20,10 +20,9 @@
             language:(navigator.browserLanguage||navigator.language).toLowerCase()
         }
         var theUrl=window.location.href;
-        //if(terminal.platform.android){
-          //  theUrl='https://www.baidu.com';
-        //}else 
-        if(terminal.platform.iPhone){
+        if(terminal.platform.pc){
+           theUrl='https://www.smartisan.com';
+        }else if(terminal.platform.iPhone){
             theUrl='www.1234.me';
         }else if(terminal.platform.wechat){
             theUrl='www.qq.com';
