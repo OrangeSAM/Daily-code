@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        var terminal={
+            platform : function(){
+                var u=navigator.userAgent,app=navigator.appVersion;
+                return{
+                    android:u.indexOf('Android')>-1||u.indexOf('Linux'),
+                    iPhone:u.indexOf('iPhone')>-1,
+                    iPad:u.indexOf('iPad')>-1,
+                };
+            }(),
+            language:(navigator.browserLanguage||navigator.language).toLowerCase()
+        }
+        var theUrl=window.location.href;
+        if(terminal.platform.android){
+            theUrl='www.baidu.com';
+        }else if(terminal.platform.iPhone){
+            theUrl='www.1234.me';
+        }else if(Terminal.platform.iPad){
+            // 还可以通过language，区分开多国语言版
+            switch(Terminal.language){
+                case 'en-us':
+                    theUrl = 'blog.csdn.net';
+                    break;
+                case 'ko-kr':
+                    theUrl = 'jsjds.cn';
+                    break;
+                case 'ja-jp':
+                    theUrl = '36kr.com';
+                    break;
+                default:
+                    theUrl = 'www.runoob.com';
+            }
+        }
+        location.href = theUrl;
+    </script>
+</head>
+<body>
+    <p>i do not know  wheither you can see this</p>
+</body>
+</html>

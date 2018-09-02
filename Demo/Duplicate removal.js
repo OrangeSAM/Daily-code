@@ -14,6 +14,7 @@ console.log(tmp);
 //方法二
 var arrs=[0,2,3,2,3,5],arr2=[];
 for(var i=0;i<arrs.length;i++){
+    //indexOf方法查找不到返回-1，
     if(arr2.indexOf(arrs[i])<0){
         arr2.push(arrs[i]);
     }
