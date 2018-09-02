@@ -10,9 +10,11 @@
             platform : function(){
                 var u=navigator.userAgent,app=navigator.appVersion;
                 return{
+                    //pc:u.
                     android:u.indexOf('Android')>-1||u.indexOf('Linux'),
                     iPhone:u.indexOf('iPhone')>-1,
                     iPad:u.indexOf('iPad')>-1,
+                    wechat:u.indexOf('MicroMessenger')>-1,
                 };
             }(),
             language:(navigator.browserLanguage||navigator.language).toLowerCase()
@@ -22,6 +24,8 @@
             theUrl='https://www.baidu.com';
         }else if(terminal.platform.iPhone){
             theUrl='www.1234.me';
+        }else if(terminal.platform.wechat){
+            theUrl='www.qq.com';
         }else if(Terminal.platform.iPad){
             // 还可以通过language，区分开多国语言版
             switch(Terminal.language){
