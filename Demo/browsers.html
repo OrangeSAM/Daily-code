@@ -11,7 +11,7 @@
                 var u=navigator.userAgent,app=navigator.appVersion;
                 return{
                     //pc:u.
-                    android:u.indexOf('Android')>-1||u.indexOf('Linux'),
+                    //android:u.indexOf('Android')>-1||u.indexOf('Linux'),
                     iPhone:u.indexOf('iPhone')>-1,
                     iPad:u.indexOf('iPad')>-1,
                     wechat:u.indexOf('MicroMessenger')>-1,
@@ -20,9 +20,10 @@
             language:(navigator.browserLanguage||navigator.language).toLowerCase()
         }
         var theUrl=window.location.href;
-        if(terminal.platform.android){
-            theUrl='https://www.baidu.com';
-        }else if(terminal.platform.iPhone){
+        //if(terminal.platform.android){
+          //  theUrl='https://www.baidu.com';
+        //}else 
+        if(terminal.platform.iPhone){
             theUrl='www.1234.me';
         }else if(terminal.platform.wechat){
             theUrl='www.qq.com';
