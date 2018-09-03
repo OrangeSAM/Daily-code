@@ -7,6 +7,7 @@
     <title>Document</title>
     <script type="text/javascript">
         var terminal={
+            //获取用户当前平台
             platform : function(){
                 var u=navigator.userAgent,app=navigator.appVersion;
                 return{
@@ -17,6 +18,7 @@
                     wechat:u.indexOf('MicroMessenger')>-1,
                 };
             }(),
+            //获取用户当前语言
             language:(navigator.browserLanguage||navigator.language).toLowerCase()
         }
         var theUrl=window.location.href;
@@ -46,6 +48,6 @@
     </script>
 </head>
 <body>
-    <p>i do not know  wheither you can see this</p>
+    <p>i do not know wheither you can see this</p>
 </body>
 </html>
