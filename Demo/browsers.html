@@ -26,9 +26,9 @@
             theUrl='https://www.v2ex.com/';
         }else if(terminal.platform.wechat){
             theUrl='http://weixin.qq.com';
-        }else if(Terminal.platform.iPad){
+        }else if(terminal.platform.iPad){
             // 还可以通过language，区分开多国语言版
-            switch(Terminal.language){
+            switch(terminal.language){
                 case 'en-us':
                     theUrl = 'https://blog.csdn.net';
                     break;
