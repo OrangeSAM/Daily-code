@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .popup{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="click">点击添加微信</div>
+    <div id="popup">
+        <span class="close">关闭</span>
+        <div>uncle-tomlinson</div>
+        <div>复制成功</div>
+        <div><a href="weixin://">打开微信</a></div>
+    </div>
+    <script>
+        var terminal={
+            platform:function(){
+                var u=navigator.userAgent,
+                return{
+                    pc:u.indexOf('Windows')>-1,
+                    mobile:u.indexOf('Mobile')>-1,
+                    wechat:u.indexOf(MicroMessenger)>-1,
+                };
+            }(),
+        }
+        var addc=document.getElementById("click");
+        var popp=document.getElementById("popup");
+        addc.onclick=function(){
+            popp.style.display=block;
+        }
+    </script>
+</body>
+</html>

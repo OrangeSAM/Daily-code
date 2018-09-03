@@ -7,7 +7,6 @@
     <title>Document</title>
     <script type="text/javascript">
         var terminal={
-            //获取用户当前平台
             platform : function(){
                 var u=navigator.userAgent,app=navigator.appVersion;
                 return{
@@ -18,19 +17,18 @@
                     wechat:u.indexOf('MicroMessenger')>-1,
                 };
             }(),
-            //获取用户当前语言
             language:(navigator.browserLanguage||navigator.language).toLowerCase()
         }
         var theUrl=window.location.href;
         if(terminal.platform.pc){
-           theUrl='https://www.smartisan.com';
+           theUrl='https://www.smartisan.com';  
         }else if(terminal.platform.iPhone){
-            theUrl='https://www.v2ex.com/';
+            theUrl='www.1234.me';
         }else if(terminal.platform.wechat){
-            theUrl='http://weixin.qq.com';
-        }else if(terminal.platform.iPad){
+            theUrl='www.qq.com';
+        }else if(Terminal.platform.iPad){
             // 还可以通过language，区分开多国语言版
-            switch(terminal.language){
+            switch(Terminal.language){
                 case 'en-us':
                     theUrl = 'https://blog.csdn.net';
                     break;
@@ -41,13 +39,13 @@
                     theUrl = '36kr.com';
                     break;
                 default:
-                    theUrl = 'https://www.g-cores.com/';
+                    theUrl = 'www.runoob.com';
             }
         }
         location.href = theUrl;
     </script>
 </head>
 <body>
-    <p>i do not know wheither you can see this</p>
+    <p>i do not know  wheither you can see this</p>
 </body>
 </html>
