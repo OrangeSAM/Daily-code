@@ -15,26 +15,22 @@
     <div id="click">点击添加微信</div>
     <div id="popup">
         <span id="close">关闭</span>
-        <div>uncle-tomlinson</div>
+        <div id="wcid">uncle-tomlinson</div>
         <div>复制成功</div>
         <div><a href="weixin://">打开微信</a></div>
     </div>
     <script>
-        // var terminal={
-        //     platform:function(){
-        //         var u=navigator.userAgent,
-        //         return{
-        //             pc:u.indexOf('Windows')>-1,
-        //             mobile:u.indexOf('Mobile')>-1,
-        //             wechat:u.indexOf(MicroMessenger)>-1,
-        //         };
-        //     }(),
-        // }
         var addc=document.getElementById("click");
         var popp=document.getElementById("popup");
         addc.onclick=function(){
             popp.style.display="block";
-            console.log("1");
+            var cont=document.getElementById("wcid").innerText;
+            var cinput=document.createElement("input");
+            cinput.value=cont;
+            document.body.appendChild(cinput);
+            cinput.select();
+            document.execCommand("Copy");
+            cinput.style.display='none';
         }
         var close=document.getElementById("close");
         close.onclick=function(){
