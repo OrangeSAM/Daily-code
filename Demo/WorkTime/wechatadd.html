@@ -22,24 +22,25 @@
     </div>
     <script>
         //复制功能
-        var clipboard = new ClipboardJS('.btn');
-        clipboard.on('success', function(e) {
-            console.log(e);
-        });
-        clipboard.on('error', function(e) {
-            console.log(e);
-        });
+        
         var addc=document.getElementById("click");
         var popp=document.getElementById("popup");
         addc.onclick=function(){
             popp.style.display="block";
-            var cont=document.getElementById("wcid").innerText;
-            var cinput=document.createElement("input");
-            cinput.value=cont;
-            document.body.appendChild(cinput);
-            cinput.select();
-            document.execCommand("Copy");
-            cinput.style.display='none';
+            // var cont=document.getElementById("wcid").innerText;
+            // var cinput=document.createElement("input");
+            // cinput.value=cont;
+            // document.body.appendChild(cinput);
+            // cinput.select();
+            // document.execCommand("Copy");
+            // cinput.style.display='none';
+            var clipboard = new ClipboardJS('.btn');
+            clipboard.on('success', function(e) {
+                console.log(e);
+            });
+            clipboard.on('error', function(e) {
+                console.log(e);
+            });
         }
         var close=document.getElementById("close");
         close.onclick=function(){
