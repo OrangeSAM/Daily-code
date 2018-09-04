@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>target-div</title>
+</head>
+<body>
+    <!-- 1. Define some markup -->
+    <div id="divv">hello</div>
+    <button class="btn" data-clipboard-action="copy" data-clipboard-target="#divv">Copy</button>
+    <script src="js/clipboard.min.js"></script>
+    <!-- 3. Instantiate clipboard -->
+    <script>
+        var clipboard = new ClipboardJS('.btn');
+        clipboard.on('success', function(e) {
+            console.log(e);
+        });
+        clipboard.on('error', function(e) {
+            console.log(e);
+        });
+    </script>
+</body>
+</html>
