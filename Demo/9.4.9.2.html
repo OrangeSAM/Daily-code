@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 方法一 -->
+    <!-- <div cols="20" id="biao1">12345678</div>
+    <input type="button" onClick="copyUrl2()" value="点击复制代码" />
+    <script type="text/javascript">
+        function copyUrl2()
+            {
+                var Url2=document.getElementById("biao1").innerText;
+                var oInput = document.createElement('input');
+                oInput.value = Url2;
+                document.body.appendChild(oInput);
+                oInput.select(); // 选择对象
+                document.execCommand("Copy"); // 执行浏览器复制命令
+                oInput.className = 'oInput';
+                oInput.style.display='none';
+                alert('复制成功');
+            }
+    </script> -->
+    <div id="cardList">
+            <div class="btn">点击我，复制我</div>
+        </div>
+        <script type="text/javascript">
+            function copy(str){
+                var save = function (e){
+                    e.clipboardData.setData('text/plain',str);//下面会说到clipboardData对象
+                    e.preventDefault();//阻止默认行为
+                }
+                document.addEventListener('copy',save);
+                document.execCommand("copy");//使文档处于可编辑状态，否则无效
+            }
+            document.getElementById('cardList').addEventListener('click',function(ev){
+                 copy(ev.target.innerText)
+            })
+        </script>
+</body>
+</html>
+
+
