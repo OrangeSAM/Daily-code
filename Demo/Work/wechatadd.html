@@ -26,6 +26,7 @@
         var popp=document.getElementById("popup");
         addc.onclick=function(){
             popp.style.display="block";
+            //document.execCommand()方法
             // var cont=document.getElementById("wcid").innerText;
             // var cinput=document.createElement("input");
             // cinput.value=cont;
@@ -33,6 +34,8 @@
             // cinput.select();
             // document.execCommand("Copy");
             // cinput.style.display='none';
+
+            //clipboard.js方法
             var clipboard = new ClipboardJS('.btn');
             // clipboard.on('success', function(e) {
             //     console.log(e);
