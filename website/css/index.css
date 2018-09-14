@@ -1,0 +1,56 @@
+body{
+    font-family: 微软雅黑;
+    font-size: 14px;
+    color: rgb(51,51,51);
+    min-width: 1200px;
+    background: rgb(255,255,255);
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: rgb(51,51,51);
+}
+.top{
+    border-bottom: 1px solid #e9e9e9;
+}
+.top>div:nth-child(1){
+    min-width: 1200px;
+    margin: 0 6%;
+    height: 42px;
+    line-height: 42px;
+}
+.top>div>div{
+    display: inline;
+}
+.top>div .left{
+    width:460px;overflow: hidden;
+}
+.top>div .right{
+    float: right;
+}
+.left ul{
+    padding: 0;margin: 0;
+    overflow: hidden;display: inline;
+}
+.left ul li{
+    margin-right: 20px;
+}
+.left ul li::after{
+    content: url(../img/arrow.png);
+    padding-left: 6px;
+    /* 需要transform效果 */
+}
+
+.left ul li{
+    float: left;
+}
+.sitenav{
+    display: none;
+}
+
+.right .mr{
+    margin-right: 20px;
+}
