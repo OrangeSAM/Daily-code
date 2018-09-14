@@ -36,21 +36,25 @@ a{
     overflow: hidden;display: inline;
 }
 .left ul li{
-    margin-right: 20px;
-}
-.left ul li::after{
-    content: url(../img/arrow.png);
-    padding-left: 6px;
-    /* 需要transform效果 */
-}
-
-.left ul li{
     float: left;
+    margin-right: 20px;
+    position: relative;
+}
+.leftnav:hover>img{
+    transform: rotate(180deg);
+    transition: transform .3s ease-in-out;
+}
+.leftnav:hover+div{
+    display: block;
 }
 .sitenav{
     display: none;
+    position: absolute;
+    width: 1200px;  
 }
-
+.sitenav h4{
+    margin: 0;
+}
 .right .mr{
     margin-right: 20px;
 }
