@@ -118,3 +118,27 @@ a{
     line-height: 40px;
     font-size: 18px;
 }
+
+/* main contents */
+main{
+    width: 1200px;
+    margin: 0 auto;
+}
+.maintitle{
+    border: 1px solid;
+    width: 30%;
+    margin: 0 auto; 
+    text-align:center;
+}
+.maintitle h2{
+    display: inline-block;
+}
+.contbox button{
+    border:none;
+    outline: none;
+    background-color: #d9534f;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+
