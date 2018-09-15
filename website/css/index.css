@@ -133,12 +133,16 @@ main{
 .maintitle h2{
     display: inline-block;
 }
+.boxa a div{
+    background: url(../img/s-1.jpg) no-repeat 100% 100%;
+    color: white;
+}
 .contbox button{
     border:none;
     outline: none;
     background-color: #d9534f;
     color: white;
     border-radius: 5px;
-    padding: 8px 15px;
+    padding: 8px 15px;  
 }
 
