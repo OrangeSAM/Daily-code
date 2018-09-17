@@ -186,12 +186,12 @@ main{
     padding: 8px 15px;  
     margin: 19px 19px 19px 0px;
 }
-.aleft span:first-child{
+.ahead span:first-child{
     font-size: 22px;
     font-weight: 600;
     padding-left: 50px;
 }
-.aleft span:first-child::before{
+.ahead span:first-child::before{
     content: ' ';
     position: absolute;
     width: 5px;
@@ -200,7 +200,8 @@ main{
     border-radius: 10px;
     left: 7%;
 }
-.aleft span:not(:first-child){
+.ahead span:not(:first-child){
     padding: 0 10px;
+    font-size: 18px;
 }
 
