@@ -124,10 +124,27 @@ main{
     width: 1200px;
     margin: 0 auto;
 }
+.intro>div{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px;
+}
+.intro>div>div:not(:last-child){
+    padding-right: 45px;
+    border-right: 1.5px solid;
+    border-image: linear-gradient(#ddd,#a5a5a5,#ddd) 1;
+}
+.intro>div p{
+    font-size: 18px;
+    font-weight: 800;
+    color: #ff5b6f;
+    margin: 0px;
+}
 .maintitle{
     border: 1px solid;
     width: 30%;
-    margin: 0 auto; 
+    margin: 30px auto; 
     text-align:center;
 }
 .maintitle h2{
@@ -139,9 +156,26 @@ main{
     width: 48%;
     background-color: antiquewhite;
     margin: 0 10.9px 10px;
+    box-shadow: none;
+    transition:box-shadow .5s;
+    border-radius: 4px;
+}
+.contbox>div:hover{
+    box-shadow: 0 0 24px #ccc;
+}
+.contbox .box{
+    border: 1px solid transparent;
+    margin: 10px;
+    transition: all 0.5s;
+}
+.contbox .box:hover{
+    border: 1px solid whitesmoke;
 }
 .box a>div{
     padding: 2% 10%;
+}
+.contbox li{
+    list-style: disc;
 }
 .contbox button{
     border:none;
@@ -150,6 +184,23 @@ main{
     color: white;
     border-radius: 5px;
     padding: 8px 15px;  
-    margin: 19px;
+    margin: 19px 19px 19px 0px;
+}
+.aleft span:first-child{
+    font-size: 22px;
+    font-weight: 600;
+    padding-left: 50px;
+}
+.aleft span:first-child::before{
+    content: ' ';
+    position: absolute;
+    width: 5px;
+    height: 30px;
+    background-color: #ff5b6f;
+    border-radius: 10px;
+    left: 7%;
+}
+.aleft span:not(:first-child){
+    padding: 0 10px;
 }
 
