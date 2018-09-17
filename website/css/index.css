@@ -169,6 +169,7 @@ main{
     transition: all 0.5s;
 }
 .contbox .box:hover{
+    border-radius: 4px;
     border: 1px solid whitesmoke;
 }
 .box a>div{
@@ -186,6 +187,12 @@ main{
     padding: 8px 15px;  
     margin: 19px 19px 19px 0px;
 }
+.aleft{
+    width: 65%;
+}
+.ahead{
+    padding: 8px;
+}
 .ahead span:first-child{
     font-size: 22px;
     font-weight: 600;
@@ -201,7 +208,22 @@ main{
     left: 7%;
 }
 .ahead span:not(:first-child){
-    padding: 0 10px;
+    padding: 0 15px;
     font-size: 18px;
+    padding-bottom: 8px;
 }
-
+.ahead span:not(:first-child):hover{
+    color:#ff5b6f;
+    border-bottom: 2px solid red;
+    transition: all .2s;
+}
+.amid{
+    border-bottom:1px solid #ccc;
+}
+.single>div{
+    position: relative;
+}
+.single>div img{
+    width:20%;
+}
+ 
