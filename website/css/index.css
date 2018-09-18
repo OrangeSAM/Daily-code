@@ -191,7 +191,7 @@ main{
     width: 65%;
 }
 .ahead{
-    padding: 8px;
+    padding: 1%;
 }
 .ahead span:first-child{
     font-size: 22px;
@@ -205,7 +205,7 @@ main{
     height: 30px;
     background-color: #ff5b6f;
     border-radius: 10px;
-    left: 7%;
+    left: 6%;
 }
 .ahead span:not(:first-child){
     padding: 0 15px;
@@ -220,10 +220,21 @@ main{
 .amid{
     border-bottom:1px solid #ccc;
 }
-.single>div{
+.articont{
+    padding: 1%;
+}
+.singlebox>div{
     position: relative;
 }
-.single>div img{
+.singlebox>div img{
     width:20%;
+}
+.singlebox>div>div{
+    position: absolute;
+    bottom: 2%;
+    background-color: rgba(115,115,115,0.7);
+    width: 100%;
+    text-align:center;
+    font-size: 15px;
 }
  
