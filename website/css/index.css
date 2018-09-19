@@ -141,6 +141,7 @@ main{
     color: #ff5b6f;
     margin: 0px;
 }
+/* 大标题专用 */
 .maintitle{
     border: 1px solid;
     width: 30%;
@@ -150,7 +151,6 @@ main{
 .maintitle h2{
     display: inline-block;
 }
-
 .contbox>div{
     display: inline-block;
     width: 48%;
@@ -285,7 +285,17 @@ main{
     font-size: 22px;
     font-weight: 600;
 }
-.tag div a{
+.rtag>div:first-child{
+    overflow: hidden;
+    padding: 5%;
+}
+.rtag div a{
+    float: left;
     padding: 5px;
-    
+    margin: 6px 9px;
+    background-color: darkkhaki;
+    border-radius: 10px;
+}
+.rtag>div:nth-child(2){
+    text-align: center;
 }
