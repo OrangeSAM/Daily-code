@@ -187,18 +187,21 @@ main{
     padding: 8px 15px;  
     margin: 19px 19px 19px 0px;
 }
+.article{
+    display: flex;
+}
 .aleft{
     width: 65%;
 }
-.ahead{
+.lhead{
     padding: 1%;
 }
-.ahead span:first-child{
+.lhead span:first-child{
     font-size: 22px;
     font-weight: 600;
     padding-left: 50px;
 }
-.ahead span:first-child::before{
+.lhead span:first-child::before{
     content: ' ';
     position: absolute;
     width: 5px;
@@ -207,27 +210,35 @@ main{
     border-radius: 10px;
     left: 6%;
 }
-.ahead span:not(:first-child){
+.lhead span:not(:first-child){
     padding: 0 15px;
     font-size: 18px;
     padding-bottom: 8px;
 }
-.ahead span:not(:first-child):hover{
+.lhead span:not(:first-child):hover{
     color:#ff5b6f;
     border-bottom: 2px solid red;
     transition: all .2s;
 }
-.amid{
+.lmid{
     border-bottom:1px solid #ccc;
 }
 .articont{
     padding: 1%;
 }
+.artibox ul{
+    overflow: hidden;
+}
+.artibox>ul>li{
+    width: 32%;
+    float: left;
+    margin: 4px;
+}
 .singlebox>div{
     position: relative;
 }
 .singlebox>div img{
-    width:20%;
+    width: 100%;
 }
 .singlebox>div>div{
     position: absolute;
@@ -237,4 +248,44 @@ main{
     text-align:center;
     font-size: 15px;
 }
- 
+.singlebox>div:nth-child(2) a{
+    display: block;
+    padding-left: 6px;
+    padding-top: 3px;
+}
+.singlebox>div:nth-child(2) a::before{
+    content: "";
+    width: 2px;
+    height: 2px;
+    display: block;
+    background-color: black;
+    position: relative;
+    top: 11px;
+    left: -5px;
+}
+.aright{
+    width: 30%;
+    margin-left: 2%;
+}
+.rhead{
+    padding: 3% 0 1.5% 16%;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+.rhead::before{
+    content: "";
+    width: 5px;
+    height: 30px;
+    background-color: #ff5b6f;
+    position: absolute;
+    left:2%;
+    border-radius: 10px;
+}
+.rhead span{
+    font-size: 22px;
+    font-weight: 600;
+}
+.tag div a{
+    padding: 5px;
+    
+}
