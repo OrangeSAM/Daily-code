@@ -6,10 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.css">
     <style>
-    .swiper-container {
-    width: 600px;
-    height: 300px;
-}  
+
     </style>
     <title>Document</title>
 </head>
@@ -20,15 +17,9 @@
             <div class="swiper-slide">Slide 2</div>
             <div class="swiper-slide">Slide 3</div>
         </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
-        
         <!-- 如果需要导航按钮 -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-        
-        <!-- 如果需要滚动条 -->
-        <!-- <div class="swiper-scrollbar"></div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.js"></script>
     <script>        
@@ -40,6 +31,7 @@
           pagination: {
             el: '.swiper-pagination',
           },
+          grabCursor:true,
           
           // 如果需要前进后退按钮
           navigation: {
