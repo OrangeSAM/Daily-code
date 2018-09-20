@@ -10,7 +10,9 @@ li{
     list-style: none;
 }
 ul{
-    margin: 0;padding: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 a{
     text-decoration: none;
@@ -340,6 +342,24 @@ main{
 .rli ul li{
     margin: 2% 3%;
 }
+.service ul li{
+    float: left;
+    text-align: center;
+    width: 20%;
+}
+.service ul li div span{
+    display: block;
+}
+.service::after{
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+}
+.service ul>li>span:first-child{
+    font-size: 5em;
+
+}
 /* 底部情感导师推荐 */
 .bteacher{
     display: flex;
@@ -356,4 +376,22 @@ main{
 }
 .bteacher .btleft table td:nth-child(2){
     color: #ff5b6f;
+}
+/* 媒体报道 */
+.mediaintro ul li{
+    float: left;
+    width: 13.66%;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 1%;
+    margin: 5px;
+    border-radius:2px;
+}
+.mediaintro ul li img{
+    width: 100%;
+    transition: all .3s;
+}
+.mediaintro ul li:hover img{
+    transform: scale(1.1);
+    transition: all .3s;
 }
