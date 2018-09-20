@@ -291,11 +291,17 @@ main{
     font-size: 22px;
     font-weight: 600;
 }
+.rtag{
+    padding: 1%;
+    border: 1px solid #ccc;
+    margin-top: 3%;
+    border-radius: 3px;
+}
 .rtag>div:first-child{
     overflow: hidden;
-    padding: 5%;
+    padding: 4%;
 }
-.rtag div a{
+.rtag>div:first-child a{
     float: left;
     padding: 5px;
     margin: 6px 9px;
@@ -304,8 +310,36 @@ main{
 }
 .rtag>div:nth-child(2){
     text-align: center;
+    margin-bottom: 5%;
 }
-
+.rtag>div:first-child .pink{
+    background-color: #ff999f;
+}
+.rtag>div:first-child .blue{
+    background-color: #bcddff;
+}
+.rtag>div:first-child .purple{
+    background-color: #ccbdf4;
+}
+.rtag>div:first-child .orange{
+    background-color: #ffd1af;
+}
+.rtag>div:nth-child(2) button{
+    color: #ccc;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: 2% 15%;
+}
+.rli{
+    padding: 1% 13%;
+    border: 1px solid #ccc;
+    margin-top: 5%;
+    border-radius: 3px;
+}
+.rli ul li{
+    margin: 2% 3%;
+}
 /* 底部情感导师推荐 */
 .bteacher{
     display: flex;
