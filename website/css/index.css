@@ -342,10 +342,20 @@ main{
 .rli ul li{
     margin: 2% 3%;
 }
+.service ul{
+    display: flex;
+    justify-content: center;
+}
 .service ul li{
     float: left;
     text-align: center;
+}
+.service ul li:nth-child(odd){
     width: 20%;
+    padding: 2% 0;
+}
+.service ul li:nth-child(even){
+    padding: 5% 1%;
 }
 .service ul li div span{
     display: block;
@@ -356,9 +366,27 @@ main{
     clear: both;
     height: 0;
 }
-.service ul>li>span:first-child{
-    font-size: 5em;
-
+.service ul>li:nth-child(odd)>span{
+    font-size: 3.5em;
+    border: 2px solid;
+    padding: 10%;
+    border-radius: 50%;
+    font-weight: bolder;
+}
+.service ul>li:nth-child(odd)>span:hover{
+    border: 2px solid #ff5b6f;
+    background-color: #ff5b6f;
+    color: white;
+}
+.service ul>li:nth-child(odd)>div>span:first-child{
+    font-size: 18px;
+    font-weight: bold;
+}
+.service ul>li:nth-child(odd)>div{
+    margin-top: 15%;
+}
+.service ul>li:nth-child(even)>span{
+    font-size: 1.5em;
 }
 /* 底部情感导师推荐 */
 .bteacher{
@@ -394,4 +422,15 @@ main{
 .mediaintro ul li:hover img{
     transform: scale(1.1);
     transition: all .3s;
+}
+.certifi{
+    text-align: center;
+}
+.fabout{
+    text-align: center;
+    background-color: #333;
+    color: #eee;
+}
+.fabout p a{
+    color: #eee;
 }
