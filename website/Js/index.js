@@ -19,5 +19,5 @@ function randomtag(){
     rtag[13].innerHTML=tag[Math.floor(Math.random()*tag.length)];
 }
 var btn=document.getElementsByClassName('randomtag');
-debugger;
-btn.click=randomtag();
+window.onload=randomtag();
+//btn.click=randomtag();
