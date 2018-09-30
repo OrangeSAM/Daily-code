@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .outer{
+            width:200px;
+            height:100px;
+            border:1px solid black;
+            margin:20px;
+        }
+        #inner-100percent{
+            width: 100%;
+            height:100px;
+            background: darkcyan;
+        }
+        #inner-auto{
+            width:auto;
+            padding:0px 10px;
+            height:100px;
+            background:salmon;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div id="inner-100percent">inner-100percent</div>
+</div>
+<div class="outer">
+    <div id="inner-auto">inner-auto</div>
+</div>
+<button>click here</button>
+<script>
+    var inner=document.getElementById('inner-100percent');
+    var flag=false;
+    var btn=document.getElementsByTagName('button');
+    function add() {
+        if(flag){
+            inner.style.padding='0px 10px';
+            flag=false;
+            console.log(1);
+        }else{
+            inner.style.padding='';
+            console.log(2);
+            flag=true;
+        }
+    }
+    btn[0].onclick=add();
+</script>
+</body>
+</html>
+<!-- 此demo演示width值分别为auto和100%时对width本身的影响 -->
+<!-- #1 width值默认为auto,设置百分比时相对父元素宽度 -->
+<!-- #2 width值为100%时，宽度其实是一个定值 -->
+<!-- #3 不论width值为auto还是100%，盒子整体宽度=margin-left + padding-left + content(width值) + padding-right + margin-right-->
+<!-- #4 但由于为100%时是定值，所以子div会无视父div宽度的限制，仍然以父元素100%宽度存在，加上margin和padding的宽度，子元素内容溢出-->
+<!-- #5 而当width为auto时，子元素content宽度会根据父元素宽度以及margin和padding宽度调节自身宽度 -->
+
+<!-- 偶然习得getElementsByClassName和getElementByID 获取的东西是不一样的 -->
+<!-- 前者获得的是元素数组，后者获取的单个元素对象 -->
