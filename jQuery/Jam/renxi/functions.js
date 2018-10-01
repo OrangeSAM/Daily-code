@@ -38,6 +38,7 @@ $(window).resize(function() {
 })(jQuery);
 
 function timeElapse(date){
+	//若要时间变动，则current改为Date();
 	var current = "Mon Oct 01 2018 10:53:36 GMT+0800 (中国标准时间)";
 	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
 	var days = Math.floor(seconds / (3600 * 24));
