@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>divpainting</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        /* linear-gradient渐变需要至少三个值，分别为渐变方向和渐变颜色 */
+        /* 可以设置渐变颜色的区域大小 */
+        div{
+            width: 250px;
+            height: 40px;
+            margin: 0 auto;
+            background: #237449;
+            background-image:
+                            linear-gradient(to bottom,transparent 62%,rgba(0,0,0,0.3) 100%),
+                            linear-gradient(to right, transparent 12px,rgba(41,237,133,0.6) 12px,rgba(41,237,133,0.6) 235px,transparent 235px),
+                            linear-gradient(to right, transparent 25px,rgba(0,0,0,0.6) 25px,rgba(0,0,0,0.6) 30px,transparent 30px,transparent 35px,rgba(0,0,0,0.6) 35px,rgba(0,0,0,0.6) 40px,transparent 40px,transparent 210px,rgba(0,0,0,0.6) 210px,rgba(0,0,0,0.6) 215px,transparent 215px,transparent 220px,rgba(0,0,0,0.6) 220px,rgba(0,0,0,0.6) 225px,transparent 225px),
+                            radial-gradient(ellipse at top,rgba(0,0,0,0.6) 50px,transparent 54px);
+            box-shadow: 2px 2px 3px rgba(1,1,1,.3);
+        }
+        div::before{
+            content: '';
+            height: 10px;
+            position: relative;
+            left: -48px;
+            top:11px;
+            border-right: 48px solid #237449;
+            border-bottom: 11px solid transparent;
+            border-top: 11px solid transparent;
+        }
+        div::after{
+            content: 'green';
+            width: 251px;
+            height: 23px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            color: rgba(0,0,0,0.3);
+            text-align: right;
+            padding-right: 47px;
+            padding-top: 17px;
+            left: -48px;
+            background-image: 
+                    linear-gradient(to right,
+                            transparent 46px,
+                            rgba(0,0,0,0.3) 48px,
+                            transparent 48px
+                            ),    
+                    linear-gradient(to bottom,
+                            rgba(255,255,255,0) 12px,
+                            rgba(255,255,255,.2) 17px,
+                            rgba(255,255,255,.2) 19px,
+                            rgba(255,255,255,0) 24px);
+        }
+    </style>
+    <!-- 伪元素的position相对于谁？ -->
+</head>
+<body>
+    <div>
+    </div>
+    <p>
+        <div class="posi">
+                dhwaijdiawjdiw  
+                <!-- 行内元素的上下左右居中如何实现？ -->
+        </div>
+    </p>
+</body>
+</html>
