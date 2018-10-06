@@ -10,10 +10,14 @@
 </head>
 <body>
     <div class="wrapper">
-        <img src="images/topimg.jpg" alt="瞳爱情感"><br>
-        <img src="images/huswife.jpg" alt=""><br>
+        <img src="images/topimg.jpg" alt="瞳爱情感" class="images"><br>
+        <img src="images/huswife.jpg" alt="" class="images"><br>
+        <div>
+            <span>点击添加导师微信：<span class=""></span>
+            </span>
+        </div>
         <!-- 故事预留 -->
-        <div class="swiper-container">
+        <div class="swiper-container banner1">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <p>
@@ -39,6 +43,10 @@
                             老公开始看着她了，每天电话信息遥控着，她开始有自己的闺蜜圈，和同事的相处也极好，
                             甚至有了几位异性爱慕者。现在四年了，近期她又生了二胎，算是圆满幸福了吧。
                     </p>
+                    <div>
+                        <img src="images/case01.png" alt="">
+                        <span>来着南昌市的李女士</span>
+                    </div>
                 </div>
                 <div class="swiper-slide">
                     <p>
@@ -57,6 +65,10 @@
                             专家评语：生活中，热恋中的男女好，家庭中的夫妻也罢，与相爱的人讲道理很难，当关系中的双方都携带了原生家庭带来的创伤和
                             心理需求，就更难看到关系中真实的对方，用成熟的方式去经营一段亲密关系。
                     </p>
+                    <div>
+                        <img src="images/case02.png" alt="">
+                        <span>来自郑州市的黄先生</span>
+                    </div>
                 </div>
                 <div class="swiper-slide">
                     <p>
@@ -73,27 +85,56 @@
                             夫妻双方一起来进行咨询。咨询师站在完全中立的角度，帮助妻子逐渐认识到她身上的问题，她与丈夫之间由她制造的起因，丈夫的问题，
                             夫妻之间的性格问题，家庭关系问题。之后丈夫向妻子坦白了所有的内容，并且与小三彻底分手，给了小三一笔分手费，彻底结束关系。
                     </p>
+                    <div>
+                        <img src="images/case03.png" alt="">
+                        <span>来自杭州市对的蔡先生</span>
+                    </div>
                 </div>  
             </div>
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
         </div>
-        <img src="images/intro.jpg" alt=""><br>
-        <img src="images/certify.jpg" alt=""><br>
-        <img src="images/process.jpg" alt=""><br>
+        <img src="images/intro.jpg"   alt="" class="images"><br>
+        <img src="images/certify.jpg" alt="" class="images"><br>
+        <img src="images/process.jpg" alt="" class="images"><br>
         <!-- 聊天记录 -->
+        <div class="swiper-container banner2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/chat1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/chat2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/chat3.jpg" alt="">    
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/chat4.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/chat5.jpg" alt="">
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
     <script>
-        var mySwiper = new Swiper ('.swiper-container', {
-            // 循环模式选项
-            loop: true, 
+        var mySwiper = new Swiper ('.banner1', {
             // 如果需要分页器
             pagination: {
-            el: '.swiper-pagination',
+                el: '.swiper-pagination',
             },
             loop: true,
-        })      
+        })     
+        var mySwiper2 = new Swiper('.banner2', {
+            loop:true,
+            pagination:{
+                el:'.swiper-pagination',
+            }
+        }) 
     </script>
 </body>
 </html>
