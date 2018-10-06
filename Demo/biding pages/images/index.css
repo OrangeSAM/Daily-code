@@ -1,0 +1,9 @@
+.wrapper{
+    width:85%;
+    margin: 0 auto;
+    text-align: center;
+}
+img{
+    border-radius: 3px;
+    width: 100%;
+}
