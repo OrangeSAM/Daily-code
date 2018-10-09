@@ -37,10 +37,12 @@ body{
 .banner2 img{
     border-radius: 6px;
 }
-.addstyle{
-    background-color: cornsilk;
-    border-radius: 6px;
-    font-size: 1.5rem;
+.click span{
+    background-color: pink;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 15px;
+    color: white;
 }
 .weixin-tc{
     width:100%; 
@@ -121,10 +123,11 @@ body{
     padding: 1rem 0;
 }
 .bottomfix>div:first-child{
-    width: 75%;
+    width: 70%;
     background-color: #ffdfdf;
 }
 .bottomfix>div:nth-child(2){
-    width: 25%;
+    width: 30%;
     background-color: #e5286d;
+    color: white;
 }

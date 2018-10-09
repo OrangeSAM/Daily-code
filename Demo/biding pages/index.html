@@ -12,10 +12,8 @@
     <div class="wrapper">
         <img src="images/topimg.jpg" alt="瞳爱情感" class="images"><br>
         <img src="images/question.jpg" alt="婚姻问题" class="images"><br>
-        <div class="clickshow">
-            <span class="addstyle">点击添加导师微信：
-                <span class="wechatcode"></span>
-            </span>
+        <div class="clickshow click">
+            <span>立即咨询</span>
         </div>
         <img src="images/story.jpg" alt="客户故事" class="images">
         <!-- 故事预留 -->
@@ -100,10 +98,8 @@
         <img src="images/intro.jpg"    alt="" class="images"><br>
         <img src="images/certify.jpg"  alt="" class="images"><br>
         <img src="images/process.jpg"  alt="" class="images"><br>
-        <div class="clickshow">
-            <span class="addstyle">点击添加导师微信：
-                <span class="wechatcode"></span>
-            </span>
+        <div class="clickshow click">
+            <span>立即咨询</span>
         </div>
         <img src="images/feedback.jpg" alt="客户反馈" class="images"><br>
         <!-- 聊天记录 -->
@@ -186,8 +182,6 @@
             var randnum=Math.floor(Math.random()*codearray.length);
             wxcode[0].innerHTML=codearray[randnum];
             wxcode[1].innerHTML=codearray[randnum];
-            wxcode[2].innerHTML=codearray[randnum];
-            wxcode[3].innerHTML=codearray[randnum];
         }
         //clipboard.js
         var clipboard=new ClipboardJS('.btn');
