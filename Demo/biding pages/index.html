@@ -22,7 +22,7 @@
         <div class="swiper-container banner1">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <p>
+                    <p class="story">
                         李女士当年33岁，和老公是高中同学，高中就相恋，有十几年的感情，结婚五年，小孩两岁半。
                         穿一件黑色长款羽绒服，头发随意的扎着，脸很黄没有一丝笑容，典型的“黄脸婆”的姿态。
                         李女士当时还想要自杀，觉得活的没有意义，她也不管孩子。是小三发信息，李女士才知道原来老公已出轨四年。
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <p>
+                    <p class="story">
                         郑女士经过咨询，夫妻双方化解了矛盾，从离婚边缘走了出来。郑女士在咨询一开始，就不断陈述自己对夫妻关系陷入僵局的愤怒，
                         面对丈夫“出轨”的质疑的感叹。情感专家能够感受到她的内心澎湃着的对亲密关系的惋惜，
                         对婚姻瓶颈的哀伤和对丈夫恨铁不成钢的埋怨。但是，从郑女士的陈述中，情感专家也感受到，她内心依然存在对对方的爱，
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <p>
+                    <p class="story">
                         双方经家人介绍认识，当时丈夫在部队当兵，为部队司务长以上军职，丈夫为外地人非杭州本地及周边人，家族庞大，
                         普通农民，后随着社会发展，丈夫家族开始好转。妻子为解放前大资本家，因此自幼就受父母家族遗传对自身有种优越感和孤傲的性格。
                         当时双方交往，为丈夫非常热烈的追求妻子，妻子同意结婚，妻子自认并没有爱情。结婚后由于丈夫常年在部队，因此双方分居，
@@ -201,6 +201,21 @@
         document.getElementsByClassName('close')[0].addEventListener("click",function(){
             document.getElementById('yhqs').style.display='none';
         })   
+        //故事展开收起
+        var story=document.getElementsByClassName('story');
+        for(var s=0;s<story.length;s++){
+            flag=true;
+            story[s].addEventListener("click",function(){
+                if(flag){
+                    this.classList.add("pclamp");  
+                    flag=false;         
+                }else{
+                    this.classList.remove("pclamp");
+                    flag=true;
+                    console.log("22");
+                }
+            });
+        }
     </script>
 </body>
 </html>

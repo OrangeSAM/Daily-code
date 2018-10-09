@@ -25,6 +25,9 @@ body{
     overflow: hidden;
     padding: 0 1rem;
 }
+.pclamp{
+    -webkit-line-clamp:20 !important;
+}
 .swiper-slide div{
     background-color: #efefef;
 }
