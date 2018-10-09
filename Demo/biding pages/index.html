@@ -17,7 +17,7 @@
                 <span class="wechatcode"></span>
             </span>
         </div>
-        <img src="images/story.jpg" alt="客户故事">
+        <img src="images/story.jpg" alt="客户故事" class="images">
         <!-- 故事预留 -->
         <div class="swiper-container banner1">
             <div class="swiper-wrapper">
@@ -127,11 +127,7 @@
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
         </div>
-        <div class="clickshow">
-            <span>点击添加导师微信：
-                <span class="wechatcode"></span>
-            </span>
-        </div>
+        
         <div class="weixin-tc" style="display: ;" id="yhqs">
             <div style="position: relative;top: 0;bottom: 0;left: 0;right: 0;margin: 0 auto;max-width: 640px;">
                 <div class="tc-in">
@@ -152,6 +148,15 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="bottomfix">
+            <div class="clickshow">
+                <span>长按复制微信号</span>
+                <span class="wechatcode"></span>
+            </div>
+            <div class="clickshow">
+                <span>点击添加微信</span>
+            </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
@@ -187,8 +192,9 @@
         var clipboard=new ClipboardJS('.btn');
 
         //点击弹窗
-        for(var i=0;i<wxcode.length;i++){
-            wxcode[i].addEventListener("click",function(){
+        var popup=document.getElementsByClassName('clickshow');
+        for(var i=0;i<popup.length;i++){
+            popup[i].addEventListener("click",function(){
                 document.getElementById('yhqs').style.display='block';
             })
         }

@@ -6,6 +6,7 @@ body{
     width:85%;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 4rem;
 }
 .images{
     border-radius: 3px;
@@ -22,16 +23,13 @@ body{
     -webkit-box-orient: vertical;
     -webkit-line-clamp:6;
     overflow: hidden;
-    padding: 0 60px;
+    padding: 0 1rem;
 }
 .swiper-slide div{
     background-color: #efefef;
 }
 .swiper-slide div img{
     vertical-align: middle;
-}
-.clickshow{
-    margin: 1rem;
 }
 .weixin-tc{
     width:100%; 
@@ -99,4 +97,23 @@ body{
     .weixin-tc .tc-in .num span{
         margin-top: 29%;
     }
+}
+.bottomfix{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+.bottomfix>div{
+    padding: 1rem 0;
+}
+.bottomfix>div:first-child{
+    width: 75%;
+    background-color: #ffdfdf;
+}
+.bottomfix>div:nth-child(2){
+    width: 25%;
+    background-color: #e5286d;
 }
