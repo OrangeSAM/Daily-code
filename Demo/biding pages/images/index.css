@@ -30,3 +30,70 @@ body{
 .swiper-slide div img{
     vertical-align: middle;
 }
+.weixin-tc{
+    width:100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.6); 
+    position: fixed; 
+    left:0; 
+    top:0; 
+    z-index: 999;  
+    display: none;
+}
+.weixin-tc img{ 
+    width:100%; 
+    display: block; 
+}
+.weixin-tc .tc-in{ 
+    width:70%; 
+    margin:0 auto; 
+    position: relative;
+}
+.weixin-tc .tc-in .bg{ 
+    width:100%;
+    height: 300px; 
+    display: block; 
+    margin-top: 25%;
+}
+.weixin-tc .tc-in .close{ 
+    width:15%; 
+    margin:0 auto; 
+}
+.weixin-tc .tc-in .num{ 
+    width:100%; 
+    position: absolute; 
+    left:0;top:0; 
+}
+.weixin-tc .tc-in .num span{ 
+    background: #fff; 
+    color:#666666; 
+    width:85%;
+    padding: 2% 0; 
+    margin:0 auto; 
+    border-radius: 30px; 
+    border:1px solid #ff79c5; 
+    display: block; 
+    text-align: center; 
+    margin-top: 9%;
+}
+.weixin-tc .tc-in .num p{ 
+    font-size: 16px; 
+    text-align: center; 
+    color:#fff; 
+    margin:3% 0;
+}
+.weixin-tc .tc-in .num a{ 
+    display: block;
+    width:65%; 
+    margin:0 auto; 
+    margin-top: 5%;
+}
+.weixin-tc .tc-in .num a img{ 
+    width:100%; 
+    display: block; 
+}
+@media only screen and (min-width: 100px) and (max-width: 750px) {
+    .weixin-tc .tc-in .num span{
+        margin-top: 29%;
+    }
+}

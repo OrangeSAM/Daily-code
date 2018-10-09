@@ -12,7 +12,7 @@
     <div class="wrapper">
         <img src="images/topimg.jpg" alt="瞳爱情感" class="images"><br>
         <img src="images/question.jpg" alt="" class="images"><br>
-        <div>
+        <div class="clickshow">
             <span>点击添加导师微信：
                 <span class="wechatcode"></span>
             </span>
@@ -98,7 +98,7 @@
         <img src="images/intro.jpg"    alt="" class="images"><br>
         <img src="images/certify.jpg"  alt="" class="images"><br>
         <img src="images/process.jpg"  alt="" class="images"><br>
-        <div>
+        <div class="clickshow">
             <span>点击添加导师微信：
                 <span class="wechatcode"></span>
             </span>
@@ -126,10 +126,30 @@
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
         </div>
-        <div >
+        <div class="clickshow">
             <span>点击添加导师微信：
                 <span class="wechatcode"></span>
             </span>
+        </div>
+        <div class="weixin-tc" style="display: ;" id="yhqs">
+            <div style="position: relative;top: 0;bottom: 0;left: 0;right: 0;margin: 0 auto;max-width: 640px;">
+                <div class="tc-in">
+                    <img src="images/tc.png" alt="" class="bg" />
+                    <div class="close">
+                        <img src="images/chacha.png" alt="" />
+                    </div>
+                    <div class="num">
+                        <span class="weixin-number wechatcode" style="width: 55%;font-size: 24px;"></span>
+                        <p style="font: size 30px;">长按复制微信号！</p>
+                        <p style="font-size: 20px;color: #eee;padding: 0 10%;">
+                            复制微信号后，点开微信右上角有个"十"的符号，选择"添加朋友"，然后粘贴即可
+                        </p>
+                        <a class="btn_goWechat" id="dkwx" style="width:38%;">
+                            <img src="images/open.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
@@ -153,16 +173,23 @@
         var wxcode=document.getElementsByClassName('wechatcode');
         var codearray=['jvip999','ta2017978'];
         window.onload=function(){
-            var randnum=Math.floor(Math.random*codearray.length);
+            var randnum=Math.floor(Math.random()*codearray.length);
             wxcode[0].innerHTML=codearray[randnum];
             wxcode[1].innerHTML=codearray[randnum];
             wxcode[2].innerHTML=codearray[randnum];
-            //wxcode[3].innerHTML=codearray[randnum];
+            wxcode[3].innerHTML=codearray[randnum];
         }
         
 
         //点击弹窗
-
+        for(var i=0;i<wxcode.length;i++){
+            wxcode[i].addEventListener("click",function(){
+                document.getElementById('yhqs').style.display='block';
+            })
+        }
+        document.getElementsByClassName('close')[0].addEventListener("click",function(){
+            document.getElementById('yhqs').style.display='none';
+        })   
     </script>
 </body>
 </html>
