@@ -337,6 +337,8 @@
         </div>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script>
+        // 声明clipboard
+        var clipboard=new ClipboardJS('.btn');
         //点击弹窗
         var popup=document.getElementsByClassName('btn');
         for(var i=0;i<popup.length;i++){
