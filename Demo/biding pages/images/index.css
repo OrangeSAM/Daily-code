@@ -108,7 +108,7 @@ body{
 }
 @media only screen and (min-width: 100px) and (max-width: 750px) {
     .weixin-tc .tc-in .num span{
-        margin-top: 29%;
+        margin-top: 10%;
     }
 }
 .bottomfix{
@@ -124,10 +124,11 @@ body{
 }
 .bottomfix>div:first-child{
     width: 70%;
-    background-color: #ffdfdf;
+    background-color: #e5286d;
+    color: white;
 }
 .bottomfix>div:nth-child(2){
     width: 30%;
-    background-color: #e5286d;
+    background-color: #4a4a4a;
     color: white;
 }

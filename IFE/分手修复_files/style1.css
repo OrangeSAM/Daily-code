@@ -1,0 +1,46 @@
+/*
+* @Author: admin
+* @Date:   2018-01-03 15:34:42
+* @Last Modified by:   admin
+* @Last Modified time: 2018-01-08 11:47:53
+*/
+body,html{ font-family: "微软雅黑" }
+img{ display: block; width: 100%; }
+.hid{ display: none; }
+.header1{ text-align: center; width:100%;  padding:3% 0;background:none;height:initial}
+.header1 h1{ display: inline-block; color:#f83850; font-size: 0.75rem;line-height: 1.4rem ; width: 80%; margin:0 auto; }
+.header1 .back{ position: absolute; left:0; top:0.65rem; width:9%;  height: 2.4rem; }
+.header1 .back img{ width:30%; margin:0 auto; }
+.wrap .box{ width:100%; height: 92%; background: url(../images/img_01.jpg) no-repeat left top; background-size: 100%; height: 60%; }
+.wrap .box h2{ font-size: 0.9rem;color:#808080; text-align: center; padding: 0.5rem 0;  color:#fff; margin:0; text-shadow:0px 0px 18px #930e3d;]}
+.wrap .box01 .box-con{  padding-top: 0.5rem; }
+/* .wrap .box02,.wrap .box03,.wrap .box04,.wrap .box05{ left:-1100%; } */
+.wrap .box-con .sex-list{ text-align: center; }
+.wrap .box-con .sex-list .sex{ width:40%; display: inline-block;}
+.wrap .box-con .sex-list .sex img{ width:70%; margin:0 auto; }
+.wrap .box-con .sex-list .sex p{ text-indent:0;font-size: 0.75rem; color:#333; padding-top: 0.3rem; }
+.wrap .box-con .sex-list .sex.active p{ color:#f8485e; }
+.wrap .box-con ul{ text-align: center; margin:1% auto;}
+.wrap .box-con ul li{display: inline-block; text-align: center; width:45%; margin:0 1%; border:1px solid #b6afaa; font-size: 0.75rem; color:#333; height: 1.8rem; border-radius: 50px; line-height: 1.8rem; margin-bottom: .5rem; }
+.wrap .box-con ul li.active{ background: #f8839d; color:#fff;}
+.box .page{ z-index:9;  width:100%; text-align: center; color:#999; background: #fff; font-size: 0.7rem; padding-top: 5%;}
+.wrap .box05 h2{ font-weight: bold; color:#000; font-size: 0.85rem;color:#fff;}
+.wrap .box05 h2 b{ color:#f8445d; }
+.wrap .box05 span{ display: block; text-align: center; color:#393939;  font-size: 0.7rem;}
+.wrap .box05 .contact .phone{ width:80%; margin:5% auto 0;  height: 2rem;  background: #eeeeee;}
+.wrap .box05 .contact .phone b{  font-size: 0.8rem; padding-left: 0.3rem; }
+.wrap .box05 .contact .phone input{  border:0; outline: none; height: 2rem;width:8rem; display: inline-block;  font-size: 0.8rem; margin-left: 3%; background: #eeeeee;}
+.wrap .box05 .contact p{font-size: 0.75rem;margin:0;color:#808080; text-align: center; padding: 0.6rem 0 0.3rem; font-weight: normal;}
+.wrap .box05 .contact textarea{ width: 80%; display: block; margin: 0 auto; outline: none; height: 4rem; font-size: 0.7rem; resize:none; padding: 0.3rem;color:#666; background: #eeeeee; border:none;}
+.wrap .box05 .text{position: relative; }
+.wrap .box05 .text span{ position:  absolute; bottom: 2%; right:13%; font-size: 0.6rem; color:#666; }
+.wrap .box05 .text span b{ font-weight: normal; }
+.wrap .box05 .submit1{ width:80%; background: #f9475f; color:#fff; text-align: center; font-size: 0.75rem; height: 1.8rem;  line-height: 1.8rem; border-radius: 50px; margin:0.8rem auto 0.5rem;}
+/* .wrap .box01{ z-index: 1}
+.wrap .box02{z-index: 2}
+.wrap .box03{ z-index: 3}
+.wrap .box04{z-index: 4}
+.wrap .box05{z-index: 5}
+ */
+.wrap .box .box-con{ background: #fff; width:90%;position:relative;z-index:10;  margin:1.3rem auto 0; padding: 1rem 0; box-shadow: 0 0 15px #999; border-radius: 5px;}
+.wrap .box01 .box-con{  padding: 1.5rem 0; }

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <img src="images/topimg.jpg" alt="瞳爱情感" class="images"><br>
+        <img src="images/topimg.jpg" alt="瞳爱情感" class="images clickshow"><br>
         <img src="images/question.jpg" alt="婚姻问题" class="images"><br>
         <div class="clickshow click">
             <span>立即咨询</span>
@@ -124,7 +124,9 @@
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
         </div>
-        
+        <div>
+            <span>版权所有：江西三好教育咨询有限公司</span>
+        </div>
         <div class="weixin-tc" style="display: ;" id="yhqs">
             <div style="position: relative;top: 0;bottom: 0;left: 0;right: 0;margin: 0 auto;max-width: 640px;">
                 <div class="tc-in">
@@ -177,7 +179,7 @@
        
         //更换页面内微信号
         var wxcode=document.getElementsByClassName('wechatcode');
-        var codearray=['jvip999','ta2017978'];
+        var codearray=['jvip903'];
         window.onload=function(){
             var randnum=Math.floor(Math.random()*codearray.length);
             wxcode[0].innerHTML=codearray[randnum];
