@@ -8,7 +8,76 @@
         <link rel="stylesheet" href="./files/reast.css">
         <link rel="stylesheet" href="./files/style.css">
         <link rel="stylesheet" href="./files/style1.css">
-        <script src="./files/jquery-2.1.1.min.js"></script>
+        <style>
+            /* 弹窗样式 */
+        .weixin-tc{
+            width:100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.6); 
+            position: fixed; 
+            left:0; 
+            top:0; 
+            z-index: 999;  
+            display: none;
+        }
+        .weixin-tc img{ 
+            width:100%; 
+            display: block; 
+        }
+        .weixin-tc .tc-in{ 
+            width:70%; 
+            margin:0 auto; 
+            position: relative;
+        }
+        .weixin-tc .tc-in .bg{ 
+            width:100%;
+            height: 300px; 
+            display: block; 
+            margin-top: 25%;
+        }
+        .weixin-tc .tc-in .close{ 
+            width:15%; 
+            margin:0 auto; 
+        }
+        .weixin-tc .tc-in .num{ 
+            width:100%; 
+            position: absolute; 
+            left:0;top:0; 
+        }
+        .weixin-tc .tc-in .num span{ 
+            background: #fff; 
+            color:#666666; 
+            width:85%;
+            padding: 2% 0; 
+            margin:0 auto; 
+            border-radius: 30px; 
+            border:1px solid #ff79c5; 
+            display: block; 
+            text-align: center; 
+            margin-top: 9%;
+        }
+        .weixin-tc .tc-in .num p{ 
+            font-size: 16px; 
+            text-align: center; 
+            color:#fff; 
+            margin:3% 0;
+        }
+        .weixin-tc .tc-in .num a{ 
+            display: block;
+            width:65%; 
+            margin:0 auto; 
+            margin-top: 5%;
+        }
+        .weixin-tc .tc-in .num a img{ 
+            width:100%; 
+            display: block; 
+        }
+        @media only screen and (min-width: 100px) and (max-width: 750px) {
+            .weixin-tc .tc-in .num span{
+                margin-top: 10%;
+            }
+        }
+        </style>
     </head>
     <body>
     <script>
@@ -118,14 +187,14 @@
                    <p>
                        对方对现状不满意，希望通过分手获得更多关注，重新定义双方关系，改变彼此的相处方式。
                    </p>
-                   <div class="yy">预约分析</div>
+                   <div class="btn">预约分析</div>
                </li>
                <li>
                    <span>『真性分手』</span>
                    <p>
                        长久以来的矛盾得不到疏解，或者对方有了巨大的价值提升后，想要完全想放弃这段关系。
                    </p>
-                   <div class="yy">预约分析</div>
+                   <div class="btn">预约分析</div>
                </li>
            </ul>
            <ul class="two">
@@ -245,14 +314,38 @@
             </div>
         </div>
     </div>
+    <!-- 弹窗部分 -->
+    <div class="weixin-tc" style="display: ;" id="yhqs">
+            <div style="position: relative;top: 0;bottom: 0;left: 0;right: 0;margin: 0 auto;max-width: 640px;">
+                <div class="tc-in">
+                    <img src="./files/tc.png" alt="" class="bg" />
+                    <div class="close">
+                        <img src="./files/chacha.png" alt="关闭按钮" />
+                    </div>
+                    <div class="num">
+                        <span class="weixin-number wechatcode" style="width: 55%;font-size: 24px;" id="copycont">jvip2017998</span>
+                        <p style="font-size: 25px;" class="btn" data-clipboard-action="copy" data-clipboard-target="#copycont">点击这里复制上方微信号！</p>
+                        <p style="font-size: 20px; color:#eee;padding: 0 10%;">
+                            点击下方打开微信，微信右上角有个"十"的符号，选择"添加朋友"，然后粘贴即可
+                        </p>
+                        <a class="btn_goWechat" id="dkwx" style="width:38%;" href="weixin://">
+                            <img src="./files/open.png" alt="打开微信" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     <script>
-    $('.btn,.yy').click(function(event) {
-        $('.tc').show();
-    });
-    $('.tc .close').click(function(event) {
-            $('.tc').hide();
-            
-        });
+        //点击弹窗
+        var popup=document.getElementsByClassName('btn');
+        for(var i=0;i<popup.length;i++){
+            popup[i].addEventListener("click",function(){
+                document.getElementById('yhqs').style.display='block';
+            })
+        }
+        document.getElementsByClassName('close')[0].addEventListener("click",function(){
+            document.getElementById('yhqs').style.display='none';
+        }) 
     </script>
 </body>
 </html>
