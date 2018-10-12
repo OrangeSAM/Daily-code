@@ -1,0 +1,403 @@
+.imgCon{
+    display: block;
+    width: 100%;
+}
+.title{
+    padding: .2rem 0;
+}
+.conW{
+    padding: 0 .1rem;
+}
+.p1{
+    font-size: .32rem;
+    font-weight: bold;
+    padding: .3rem 0;
+}
+.p1 span{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    color: #9f75f9;
+}
+.p1 span:nth-of-type(2){
+    float: right;
+    color: #fd4882;
+}
+.w1{
+    padding-bottom: .6rem;
+}
+.text1 p{
+    text-align: center;
+    font-size: .3rem;
+    margin-top: .1rem;
+}
+.froms{
+    font-size: 0;
+    padding: 0 .2rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: left bottom;
+}
+.mintit{
+    font-size: .24rem;
+    text-align: center;
+    color: #6424c5;
+    margin-top: .2rem;
+}
+.hasC{
+    font-size: 0;
+}
+.inp{
+    display: inline-block;
+    width: 60%;
+    border: 1px solid #000;
+    font-size: .28rem;
+    padding: .14rem .1rem;
+    background: #fff;
+    margin-top: .2rem;
+}
+.inpLong{
+    width: 100%;
+}
+.inp input{
+    border: none;
+    display: inline-block;
+    width: 100%;
+    background: none;
+}
+.inp2{
+    text-align: center;
+    display: inline-block;
+    width: 40%;
+    font-size: 0;
+    padding-left: .1rem;
+}
+.selsex{
+    display: inline-block;
+    width: 50%;
+    font-size: .28rem;
+}
+.selsex input{
+    position: absolute;
+     clip: rect(0,0,0,0); 
+    z-index: -1;
+}
+.selsex label:before{
+    content:"";
+    display: inline-block;
+    width: .4rem;height: .3rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    vertical-align: text-bottom;
+    margin-right: .1rem;
+}
+.selsex:nth-of-type(1) label:before{
+    background-image: url('../img/icon_03.png');
+}
+.selsex input:checked + label{
+    color: #f00;
+}
+.selsex:nth-of-type(1) input:checked + label:before{
+    background-image: url('../img/icon_01.png');
+}
+.selsex:nth-of-type(2) label:before{
+    background-image: url('../img/icon_02.png');
+}
+.selsex:nth-of-type(2) input:checked + label:before{
+    background-image: url('../img/icon_04.png');
+}
+.inp3{
+    padding: .14rem .05rem;
+    padding-left: .2rem;
+}
+.inp3 input{
+    width: 68%;
+}
+.code-btn{
+    display: inline-block;
+    font-size: .28rem;
+    padding: .14rem .05rem;
+    color: #fff;
+    background: #ff555d;
+    width: 38%;
+    text-align: center;
+    margin-left: .1rem;
+}
+.sub{
+    display: block;
+    text-align: center;
+    margin-top: .2rem;
+    font-size: .28rem;
+    color: #fff;
+    background: #ff555d;
+    padding: .15rem;
+} 
+.sub span{
+    display: inline-block;
+    text-align: center;
+}  
+.sub span:nth-of-type(1){
+    width: 60%;
+}
+.sub span:nth-of-type(2){
+    width: 30%;
+}
+.con1{
+    background: #f9eeff;
+    padding: .3rem .1rem;
+    color: #464646;
+}
+.conText{
+    margin-top: .2rem;
+    font-size: .24rem;
+}
+.conText span:nth-of-type(1){
+    color: #fff;
+    width: 36%;
+    display: inline-block;
+    background: #bd61f8;
+    padding: .1rem .2rem;
+    border-radius: 50px;
+    margin-right: .1rem;
+}
+.swiper-pagination{
+    position: initial;
+    font-size: 0;
+    padding-top: .1rem;
+}
+.swiper-pagination-bullet{
+    border: 1px solid #000;
+    width: .2rem;height: .2rem;
+    background: #fff !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active{
+    background: #ed86b6 !important;
+}
+.p2{
+    margin-top: .2rem;
+    font-size: .26rem;
+    color: #3a3a3a;
+    text-indent: .4rem;
+    line-height: .4rem;
+}
+.list{
+    font-size: 0;
+    padding: .2rem 0;
+}
+.list>div{
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    font-size: .24rem;
+    color: #666666;
+}
+.list>div p{
+    margin-top: .1rem;
+}
+.list>div img{
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+.w3{
+    padding-bottom: .3rem;
+}
+.popup .popup-label{
+    width: 90%;
+    height: 3rem;
+    font-size: .3rem;
+    line-height: .3rem;
+    padding: 1rem .2rem;
+}
+.popup .popup-label .popup-btn{
+    width: initial;
+    height: .4rem;
+    line-height: .4rem;
+}
+.form2{
+    position: fixed;
+    z-index: 99;
+    display: none;
+    width: 100%;height: 100%;
+    background: rgba(0,0,0,.5);
+    left: 0;top: 0;
+    padding: 2rem .3rem 0;
+}
+.form2 .froms{
+    position: relative;
+}
+.closeDiv{
+    position: absolute;
+    width: 100%;
+    left: 0;bottom: -1rem;
+    text-align: center;
+    height: 1rem;
+}
+.closeDiv i{
+    display: block;
+    margin: auto;
+    width: 2px;
+    height: 1rem;
+    background: #fff;
+}
+.closea{
+    display: block;
+    width: .5rem;
+    margin: auto;
+    height: .5rem;
+}
+.closea img{
+    display: inline-block;
+    width: .5rem;
+}
+.btnss{
+    display: block;
+    width: 90%;
+    margin: 0 auto .3rem;
+    padding: .1rem 0;
+    border-radius: .1rem;
+    text-align: center;
+    font-size: .24rem;
+    line-height: initial;
+    background: #ff555d;
+    color: #fff;
+}
+.mask{
+    display: none;
+    position: fixed;
+    left: 0;top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+}
+.maskform{
+    background: #fff;
+    width: 90%;
+    border-radius: .1rem;
+    margin: 1.5rem auto;
+    padding-bottom: .2rem;
+}
+.formTit{
+    font-size: .34rem;
+    font-weight: bold;
+    text-align: center;
+    padding: .1rem 0;
+}
+.close{
+    width: .4rem;
+}
+
+
+
+.tc-yxd{ width:100%; height: 100%; background: rgba(0,0,0,0.6); position: fixed; left:0; top:0;  z-index: 99; display: none;}
+.tc-yxd .contact_in{ width:90%; background: #fff; position: absolute; left:50%; top:15%; margin-left: -45%; padding-bottom: 5%;}
+.contact_in h2{ font-size: 15px; font-weight: normal; color:#ff5562; text-align: center; padding-top: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px;}
+.contact_in .close{    
+    position: absolute;
+    right: 5px;
+    top: -45px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    width: 30px;
+    height: 30px;
+}
+.contact_in .close img{
+    vertical-align: top;
+    margin-top: 5px;
+}
+.borders{
+    position: absolute;
+    border-left: 1px solid #ddd;
+    height: 100%;
+    top: 20px;
+    left: 14px;
+}
+.contact_in form{  margin-top: 12px;}
+
+.contact_in label{ width:100%;  font-size: 15px; }
+.contact_in label input{ outline: none; cursor: pointer;}
+.contact_in label .name{ display: inline-block; width:233px; height: 34px; border:1px solid #999; margin: 5px 0; margin-bottom: 10px; padding-left: 5px;}
+.contact_in label .phone{    
+    display: inline-block;
+    width: 73%;
+    height: 44px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    padding-left: 10px;
+    font-size: 0.3rem;
+    background-color: #f8f8f8;}
+.contact_in .line{ width:92%; margin: 0 auto; line-height: 34px; }
+.contact_in .line span{ line-height: 34px; font-size: 15px;}
+.contact-box input[type=radio]{padding: 0 10px; margin-right: 2%;}
+.btn-submit{text-align: center;}
+.btn-submit{cursor: pointer; color:#fff; width:92%; height: 44px; background: #ff5562; margin: 0 auto; border-radius: 5px; font-size: 15px; outline: none;border:0; line-height: 44px; margin-top: 4%;}
+.contact_in .time .time-scroll{  width:67%; float:left; height: 110px; overflow-y:scroll; border:1px solid #ccc;    text-align: left ; padding: 3px 0;}
+.contact_in .time{ margin-bottom: 0px; overflow: hidden;}
+.contact_in .time label{ display: block; }
+.contact_in .time label input{ margin:0 5%; }
+
+.contact_in h2{
+    background: #ddd;
+    color: #000;
+    padding: 10px 0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 20px;
+}
+.contact_in{
+    border-radius: 5px;
+}
+.contact_in .line span.titles{
+    height: 44px;
+    line-height: 44px;
+    margin-right: 10px;
+}
+.contact_in .line.sex-line{
+    height: 44px;
+   
+}
+.contact_in .line div.sex_chose{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 35px;
+    background-color: #e9e9e9;
+    color: #999;
+    margin-top: 5px;
+    margin-right: 15px;
+    line-height: 34px; font-size: 15px;
+}
+.contact_in .line div.sex_chose.active{
+    background: #f8485e;
+    color: #fff;
+}
+.contact_in .line div.time_chose{
+    display: inline-block;
+    width: 47%;
+    margin-right: 6%;
+    text-align: center;
+    border-radius: 5px;
+    background: #e9e9e9;
+    color: #999;
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
+}
+.contact_in .line div.active{
+    color: #fff;
+    background: #f8485e;
+}
+.contact_in .line div.time_chose:nth-child(even){
+    margin-right: 0;
+}
+
+
+.contact-box2{ padding-bottom: 5%; }

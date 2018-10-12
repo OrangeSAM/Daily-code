@@ -1,0 +1,13 @@
+body,h1,h2,h3,h4,p,dl,dd,ul,ol,form,input,textarea,th,td,select{margin: 0;padding: 0;}
+*{box-sizing:border-box;font-family: "微软雅黑","Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+em{font-style: normal;}
+li{list-style: none;}
+a{text-decoration: none; color:#333;}
+img{border: none;vertical-align: top;}
+table{border-collapse: collapse;}
+input,textarea{outline: none;}
+textarea{resize:none;overflow: auto;}
+
+.clearfix{overflow: hidden;*zoom: 1;}
+.clearfix:after{content: '';display: black;clear: both;height: 0;}  

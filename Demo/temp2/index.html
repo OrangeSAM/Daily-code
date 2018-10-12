@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>分手挽回</title>
+    <link rel="stylesheet" type="text/css" href="./files/reset.css">
+    <link rel="stylesheet" type="text/css" href="./files/media-640.css">
+    <link rel="stylesheet" type="text/css" href="./files/index.css">
+    <link rel="stylesheet" type="text/css" href="./files/swiper-3.4.0.min.css">
+    <style>
+            /* 弹窗样式 */
+        .weixin-tc{
+            width:100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.6); 
+            position: fixed; 
+            left:0; 
+            top:0; 
+            z-index: 999;  
+            display: none;
+        }
+        .weixin-tc img{ 
+            width:100%; 
+            display: block; 
+        }
+        .weixin-tc .tc-in{ 
+            width:70%; 
+            margin:0 auto; 
+            position: relative;
+        }
+        .weixin-tc .tc-in .bg{ 
+            width:100%;
+            height: 300px; 
+            display: block; 
+            margin-top: 25%;
+        }
+        .weixin-tc .tc-in .close{ 
+            width:15%; 
+            margin:0 auto; 
+        }
+        .weixin-tc .tc-in .num{ 
+            width:100%; 
+            position: absolute; 
+            left:0;top:0; 
+        }
+        .weixin-tc .tc-in .num span{ 
+            background: #fff; 
+            color:#666666; 
+            width:85%;
+            padding: 2% 0; 
+            margin:0 auto; 
+            border-radius: 30px; 
+            border:1px solid #ff79c5; 
+            display: block; 
+            text-align: center; 
+            margin-top: 9%;
+        }
+        .weixin-tc .tc-in .num p{ 
+            font-size: 16px; 
+            text-align: center; 
+            color:#fff; 
+            margin:3% 0;
+        }
+        .weixin-tc .tc-in .num a{ 
+            display: block;
+            width:65%; 
+            margin:0 auto; 
+            margin-top: 5%;
+        }
+        .weixin-tc .tc-in .num a img{ 
+            width:100%; 
+            display: block; 
+        }
+        @media only screen and (min-width: 100px) and (max-width: 750px) {
+            .weixin-tc .tc-in .num span{
+                margin-top: 10%;
+            }
+        }
+        </style>
+</head>
+
+<body>
+    <img class="imgCon" src="./files/img__01.jpg">
+    <img class="imgCon" src="./files/img__02.jpg">
+    <img class="imgCon" src="./files/img__03.jpg">
+    <a href="javascript:void(0)" class="btnss btn">
+        马上预约，<br>
+        免费领取一次情感分析（仅限今天）
+    </a>
+    <img class="imgCon" src="./files/img__06.jpg">
+    <img class="imgCon" src="./files/img__07.jpg">
+    <img class="imgCon" src="./files/img__08.jpg">
+    <img class="imgCon" src="./files/img__11.jpg">
+    <img class="imgCon" src="./files/img__12.jpg">
+    <!-- <img class="imgCon" src="./files/img__13.jpg"> -->
+    <div style="font-size: 10px;text-align: center;padding-bottom: 5%;color: #999;line-height: 1.8;">
+        版权所有：江西三好教育咨询有限公司
+    </div>
+    <div class="weixin-tc" style="display: ;" id="yhqs">
+        <div style="position: relative;top: 0;bottom: 0;left: 0;right: 0;margin: 0 auto;max-width: 640px;">
+            <div class="tc-in">
+                <img src="./files/tc.png" alt="" class="bg" />
+                <div class="close">
+                    <img src="./files/chacha.png" alt="关闭按钮" />
+                </div>
+                <div class="num">
+                    <span class="weixin-number wechatcode" style="width: 55%;font-size: 24px;" id="copycont">jvip2017998</span>
+                    <p style="font-size: 25px;" class="btn" data-clipboard-action="copy" data-clipboard-target="#copycont">点击这里复制上方微信号！</p>
+                    <p style="font-size: 20px; color:#eee;padding: 0 10%;">
+                        点击下方打开微信，微信右上角有个"十"的符号，选择"添加朋友"，然后粘贴即可
+                    </p>
+                    <a class="btn_goWechat" id="dkwx" style="width:38%;" href="weixin://">
+                        <img src="./files/open.png" alt="打开微信" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:void(0)" class="btnss btn">
+            马上预约，<br>
+            免费领取一次情感分析（仅限今天）
+    </a>
+    <script type="text/javascript" src="./files/swiper-3.4.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script>
+        // 声明clipboard
+        var clipboard=new ClipboardJS('.btn');
+
+        var popup=document.getElementsByClassName('btn');
+        for(var i=0;i<popup.length;i++){
+            popup[i].addEventListener("click",function(){
+                document.getElementById('yhqs').style.display='block';
+            })
+        }
+        document.getElementsByClassName('close')[0].addEventListener("click",function(){
+            document.getElementById('yhqs').style.display='none';
+        }) 
+    </script>
+</body>
+</html>
