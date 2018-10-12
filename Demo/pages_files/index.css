@@ -1,0 +1,275 @@
+﻿body{
+    background-color: #fce0ef;
+}
+.btn1{
+    color:#ffffff;
+    background-color: #b00000;
+    padding: 6px;
+    margin: 0 auto;
+    font-size: 16px;
+    height: 40px;
+    line-height: 30px !important;
+    border: 1px solid #aaa;
+    font-weight: 600;
+}
+.btn2{
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #b00000;
+    padding: 6px;
+    height: 40px;
+    line-height: 30px !important;
+    margin: 0 auto;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    /*background: url("../images/btn1.jpg");*/
+}
+/*表单*/
+.forml {
+    /*margin:15px 0;*/
+}
+.forml,.from-box .forml{
+    text-align: center;
+}
+.forml input,.from-box .forml input{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    padding: 6px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 6px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.forml .btn1,.from-box .forml .btn1{
+    width: 80%;
+    height: 40px;
+    border: none;
+    margin-top: 15px;
+}
+.forml input[type="radio"]{
+    -webkit-appearance: radio;
+    box-sizing: border-box;
+    clip: auto;
+    height: 20px;
+    display: inline-block;
+    width: 20px;
+    position:static;
+    margin-bottom: 0;
+    vertical-align: sub;
+    margin: 5px 5px 20px 5px;
+}
+.forml .radio{
+
+}
+.forml .radio div{
+    display: inline-block;
+}
+.forml select{
+    padding: 6px;
+    width: 80%;
+    height: 40px;
+    line-height: 30px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+}
+/*====*/
+
+#window{
+    position: absolute;
+    z-index: 10;
+    width: 80%;
+    left: 10%;
+    top: 3%;
+    background-color: #fff;
+    padding: 20px;
+}
+@keyframes leftrun
+{
+    from {
+        left: -110%;
+    }
+    to {
+        left: 0;
+    }
+}
+@keyframes rightrun
+{
+    from {
+        left: 110%;
+    }
+    to {
+        left: 0;
+    }
+}
+@keyframes mymove
+{
+    from {
+        margin-bottom: 10px;
+    }
+    to {
+        margin-bottom: 0px;
+    }
+}
+/*=======*/
+.stoast{
+    position: fixed;
+    top: 35%;
+    left: 15%;
+    display: none;
+    width: 70%;
+    border-radius: 6px;
+    background-color: #ffffff;
+    z-index: 999;
+    text-align: center;
+    transform: scale(0.1);
+}
+.stoast p{
+    margin: 0 auto;
+    font-size: 1.37rem;
+    padding: 1rem 0 1rem;
+}
+.stoast p:nth-child(1) {
+    width: 82%;
+    border-bottom: solid 1px #d73646;
+    color: #333333;
+}
+.stoast p:nth-child(2) {
+    margin: 10px;
+}
+.stoast p:last-child{
+    background-color:#d73646;
+    color: #ffffff;
+    border-radius: 0 0 6px 6px;
+}
+.show {
+    -o-animation: reback .1s linear forwards;
+    -ms-animation: reback .1s linear forwards;
+    -moz-animation: reback .1s linear forwards;
+    -webkit-animation: reback .1s linear forwards;
+    animation: reback .1s linear forwards;
+}
+@keyframes reback {
+    100% {
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+.backBg {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 998;
+    top: 0;
+    left: 0;
+}
+.red, .red2{
+    color: red;
+}
+
+
+.imgSize2{
+    width: 4rem;
+    height: 4rem;
+    opacity: 0;
+    vertical-align: middle;
+}
+.imgSize2-box{
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    background:url("../images/2wq.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.imgSize2-box0{
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    background:url("../images/qw.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.yisheng{
+    text-align: left;
+    margin: 0.5rem 0.3rem;
+}
+.yisheng2{
+    text-align: left;
+    margin: 0.5rem 0.3rem;
+}
+.guke{
+   text-align: right;
+    margin: 0.5rem 0.3rem;
+}
+.bg1{
+    background: url("../images/wqqw.png");
+}
+.bg2{
+    background: url("../images/wq.png");
+}
+.bg1,.bg2{
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    max-width: 66%;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+.btn-window{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4.5rem;
+    background-color: #ffffff;
+}
+.btn-window>div{
+    text-align: center;
+    height: 100%;
+}
+.btn-window a{
+    width: 44%;
+    margin: 0.4rem auto;
+    /* color: white; */
+    height: 2.5rem;
+    line-height: 2.5rem;
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 1.2rem;
+    background-color: #83ea1d;
+}
+.content{
+
+}
+.btn-window .left,.btn-window .right{
+    margin: 0.8rem auto;
+}
+.secend{
+    display: none;
+}
+.three{
+    display: none;
+}
+.btn-window .three a{
+    width: 90%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin: 0.7rem auto;
+}
+.bottom-box{
+    margin-bottom: 4rem;
+    display: none;
+}
+.here{
+    height: 8rem;
+    width: 100%;
+    opacity: 0;
+}

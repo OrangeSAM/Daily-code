@@ -1,0 +1,340 @@
+﻿/* CSS Document */
+
+body,
+html {
+    width: 100%;
+    overflow-x: hidden;
+    color: #000;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Arial, HelveticaNeue, Helvetica-Neue, Helvetica, "BBAlpha Sans", sans-serif;
+    font-size: 62.5%;
+    margin: 0 auto;
+    min-height: 100%;
+    -webkit-user-select: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%; //关闭自动调整字体
+-webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+form,
+input,
+i,
+textarea,
+td,
+th,
+em,
+i,
+b {
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    font-weight: normal
+}
+
+img {
+    padding: 0;
+    margin: 0;
+    border: none;
+    vertical-align: top;
+}
+ul {
+    list-style: none;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none; //去掉浏览器默认样式
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    box-sizing: border-box;
+}
+
+.text-center {
+    text-align: center;
+    font-weight: bold;
+}
+.fontWii{
+    font-weight: bold;
+}
+
+/*------------------- clearfix -------------------*/
+
+.clearFix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearFix {
+    min-height: 1px;
+}
+
+* html .clearFix {
+    height: 1px;
+}
+/*-------------------媒体查询--------------*/
+@media screen and (min-width:360px) and (max-width:374px) and (orientation:portrait) {
+    html,
+    body {
+        font-size: 70.3%;
+    }
+}
+
+@media screen and (min-width:375px) and (max-width:399px) and (orientation:portrait) {
+    html,
+    body {
+        font-size: 73.2%;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:413px) and (orientation:portrait) {
+    html,
+    body {
+        font-size: 78.125%;
+    }
+}
+
+@media screen and (min-width:414px) and (max-width:480px) and (orientation:portrait) {
+    html,
+    body {
+        font-size: 80.85%;
+    }
+}
+
+@media screen and (min-width:480px) and (max-width:639px) and (orientation:portrait) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media screen and (min-width:640px) and (orientation:portrait) {
+    html {
+        font-size: 125%;
+    }
+}
+/*------------------------------*/
+@media (min-width:240px) and (max-width:320px){html{font-size:12.8px!important}}
+@media (min-width:321px) and (max-width:360px){html{font-size:14.4px!important}}
+@media (min-width:361px) and (max-width:375px){html{font-size:15px!important}}
+@media (min-width:376px) and (max-width:384px){html{font-size:15.36px!important}}
+@media (min-width:385px) and (max-width:414px){html{font-size:16.56px!important}}
+@media (min-width:415px) and (max-width:450px){html{font-size:18px!important}}
+@media (min-width:451px) and (max-width:500px){html{font-size:20px!important}}
+@media (min-width:501px) and (max-width:550px){html{font-size:22px!important}}
+@media (min-width:551px) and (max-width:569px){html{font-size:22.72px!important}}
+@media (min-width:569px) and (max-width:640px){html{font-size:25.6px!important}}
+@media (min-width:641px) and (max-width:667px){html{font-size:26.68px!important}}
+@media (min-width:668px) and (max-width:736px){html{font-size:29.44px!important}}
+@media (min-width:738px) and (max-width:768px){html{font-size:30.72px!important}}
+@media (min-width:769px) and (max-width:900px){html{font-size:36px!important}}
+@media (min-width:901px) and (max-width:1080px){html{font-size:43.24px!important}}
+/*------------------- mWrap -------------------*/
+
+#mWrap {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+@media only screen and (min-width:1001px) {
+    html {
+        font-size: 110%;
+    }
+    .mWrap {
+        max-width: 750px
+    }
+    .box input {
+        height: 4rem;
+    }
+}
+/*------focus------*/
+input:focus{
+    outline: none;
+}
+/*-----------*/
+.swiper-slide {
+    text-align: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+}
+
+.swiper-pagination {
+    text-align: right;
+    padding-right: 15px;
+}
+.swiper-slide {
+    text-align: center;
+    background: #fff;
+    width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
+/* -----backBg----- */
+
+.backBg {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 998;
+    top: 0;
+    left: 0;
+}
+
+/*------------------- header -------------------*/
+
+header {
+    width: 100%;
+    position: relative;
+}
+/*-----适配IE6及以下的版本浏览器--------*/
+* html {
+    _background-image: url(about:blank);
+    _background-attachment: fixed;
+}
+/*-------------------------*/
+/*.pic {*/
+    /*width:100px;*/
+    /*height:100px;*/
+    /*position:absolute;*/
+    /*top:0;*/
+    /*bottom:0;*/
+    /*left:0;*/
+    /*right:0;*/
+    /*margin:auto;*/
+    /*!*background-image: url(../images/load.gif);*!*/
+    /*background-size: cover;*/
+    /*font-size:30px;*/
+    /*text-align:center;*/
+    /*line-height:100px;*/
+/*}*/
+/*.pic span {*/
+    /*display:block;*/
+    /*width:80px;*/
+    /*height:80px;*/
+    /*position:absolute;*/
+    /*left:10px;*/
+    /*top:10px;*/
+    /*box-shadow:1px 5px 2px #058FFF;*/
+    /*!*background: -webkit-gradient(linear,center top,center bottom,from(#fff), to(#FFBACD));*!*/
+
+    /*border-radius:50%;*/
+    /*animation:rotate 1s infinite linear;*/
+    /*-webkit-animation:rotate 1s infinite linear;*/
+/*}*/
+/*---------------动画效果---------*/
+@-webkit-keyframes rotate {
+    0% {
+        transform:rotate(0deg)
+    }
+    50% {
+        transform:rotate(180deg)
+    }
+    100% {
+        transform:rotate(360deg)
+    }
+}
+@keyframes rotate {
+       0% {
+           transform:rotate(0deg)
+       }
+       50% {
+           transform:rotate(180deg)
+       }
+       100% {
+           transform:rotate(360deg)
+       }
+}
+/*单选框*/
+.wenjuanbox{
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    height: auto;
+}
+input[type="radio"] + label::before {
+    content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    width: 0.6em;
+    height: 0.6em;
+    margin-right: .4em;
+    border-radius: 50%;
+    border: 1px solid #cac8c4;;
+    text-indent: .15em;
+    line-height: 1;
+    background: #DEDEDE;
+}
+input[type="radio"]:checked + label::before {
+    background-color:#11A5F9;
+    background-clip: content-box;
+    padding: .12em;
+    width: 0.4em;
+    height: 0.4em;
+}
+input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+/*=============*/
+.imgSize {
+    width: 100%;
+    display: block;
+}
+.bgColor{
+    /*background:#F1F2F6;*/
+}
+/*loading*/
+.loading {
+    width:100%;
+    height:100%;
+    z-index:100;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#fff;
+}
