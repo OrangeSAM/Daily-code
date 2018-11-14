@@ -31,10 +31,13 @@
             top: 0%;
             left: 50%;
             background: black;
+            /* 黑点的位置和颜色 */
             border: 18px solid white;
-            border-radius: 100%;
+            /* 需要和黑点的大小配合相加等于一半的div高度 */
+            border-radius: 50%;
             width: 12px;
             height: 12px;
+            /* 黑点的大小 */
             box-sizing: content-box;
         }
         #yinyang::after {
@@ -42,9 +45,11 @@
             position: absolute;
             top: 50%;
             left: 50%;
+            /* 距上距左都得是50%的距离 */
             background: white;
             border: 18px solid black;
-            border-radius: 100%;
+            /* 需要和白点的大小配合相加等于一半的div高度 */
+            border-radius: 50%;
             width: 12px;
             height: 12px;
             box-sizing: content-box;
