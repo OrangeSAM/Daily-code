@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>太极图</title>
+    <style>
+        #yinyang{
+            width: 48px;
+            height: 96px;
+            /* 左半边圆的由来 */
+            box-sizing: content-box;
+            /* 省事 */
+            background-color: white;
+            border-color: black;
+            border-style: solid;
+            /* 使用其他style会出现怪异的图形 */
+            border-width: 2px 50px 2px 2px;
+            border-radius: 50%;
+            /* 通过border构造出左右两边颜色不同的圆形
+               其中右边圆是由其中一边的border宽度比其
+               他边异常大形成的。 
+            
+            */
+            position: absolute;
+        }
+        #yinyang::before{
+            content: "";
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            background: black;
+            border: 18px solid white;
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+            box-sizing: content-box;
+        }
+        #yinyang::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: white;
+            border: 18px solid black;
+            border-radius: 100%;
+            width: 12px;
+            height: 12px;
+            box-sizing: content-box;
+    }
+    </style>
+</head>
+<body>
+    <div id="yinyang">
+
+    </div>
+</body>
+</html>
