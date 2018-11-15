@@ -1,0 +1,138 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #efefef;
+}
+$color:#e6686a;
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+header{
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.wrapper{
+    padding: 0 16px;
+}
+header .logo{
+    font-family: 'Arial Black';
+    font-size: 24px;
+}
+.logo {
+    span:nth-child(1){
+        color: $color;
+        margin-right: 4px;
+    }
+    span:nth-child(2){
+        color: #9a9da2;
+    }
+}
+header nav{
+    float: right;
+}
+nav>ul>li{
+    float: left;
+    margin: 0 17px;
+    font-weight: bold;
+    a{
+        color: #b7b7b7;
+        font-size: 12px;
+        padding: 5px 0;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+    }
+    &:hover a{
+        border-bottom: 3px solid #e06567;
+    }
+}
+
+// banner图
+.banner{
+    background-image: url(../img/rs-cover.jpg);
+    height: 515px;
+    background-position: center center;
+    background-size: cover;
+    .mask{
+        background-color: rgba(0,0,0,0.7);
+        height: 515px;
+    }
+}
+
+//信息展示卡片
+.introcard{
+    max-width: 940px;
+    margin: 0 auto;
+    background-color: white;
+}
+.innercard{
+    padding: 50px;
+    >div{
+        float: left;
+    }
+    >div:first-child{
+        margin-right: 10%;
+    }
+    >div:nth-child(2){
+        width: 50%;
+    }
+    .hello{
+        display: inline-block;
+        padding: 4px 16px;
+        background-color: $color;
+        color: white;
+        position: relative;
+        margin-bottom: 20px;
+        border-radius: 2px;
+        &::after{
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            width: 0px;
+            border-top-width: 0px;
+            border-left-color: $color;
+            bottom: -10px;
+            left: 7px;
+        }
+    }
+    h1,h4{
+        margin: 0;
+        padding: 0;
+    }
+    hr{
+        margin: 1.5rem 0;
+        height: 0;
+        border: none;
+        border-top: 1px solid #DEDEDE;
+    }
+    tr {
+        td{
+            padding: 0 30px 10px 0;
+            &:first-child{
+                font-weight: bolder;
+            }
+            &:nth-child(2){
+                color: #9da0a7;
+            }
+        }
+    }
+}
+footer{
+    background-color: $color;
+    text-align: center;
+}
