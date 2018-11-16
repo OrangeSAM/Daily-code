@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            border:1px solid salmon;
+        }
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper1{
+            width: 500px;
+            margin-bottom: 100px;
+        }
+        .wrapper1>div{
+            float: left;
+            height: 50px;
+        }
+        .wrapper1>div:first-child{
+            margin-right: 30px;
+        }
+
+        .wrapper2{
+            width: 600px;
+            margin-bottom: 100px;
+        }
+        .wrapper2>div:first-child{
+            float: left;
+        }
+        .wrapper2>div{
+            float: right;
+        }
+        .wrapper3{
+            width: 600px;
+            margin-bottom: 100px;
+        }
+        .wrapper3>div:first-child{
+            float: left;
+        }
+        .wrapper3>div:nth-child(2){
+            width: 200px;
+        }
+        .wrapper3>div:nth-child(3){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- 左右布局 -->
+    <div class="wrapper1 clearfix">
+        <div>the first div element</div>
+        <div>the second div element</div>
+    </div>
+
+    <!-- 左中右布局 -->
+    <div class="wrapper2 clearfix">
+        <div>the first div element</div>
+        <div>the second div element</div>
+        <div>the third div element</div>
+    </div>
+    <!-- 尚未实现的效果 -->
+    <!-- <div class="wrapper3 clearfix">
+        <div>the first div element</div>
+        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam eum minima commodi saepe suscipit unde sit nihil est vitae voluptatibus eveniet reprehenderit id provident iste sequi delectus placeat, maiores sed.</div>
+        <div>the third div element</div>
+    </div> -->
+
+</body>
+</html>
