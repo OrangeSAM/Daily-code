@@ -73,66 +73,191 @@ nav>ul>li{
         height: 515px;
     }
 }
-
-//信息展示卡片
-.introcard{
+main{
+    //信息展示卡片
+    .introcard{
+        max-width: 940px;
+        margin: 0 auto;
+        background-color: white;
+        margin-top: -360px;
+        margin-bottom: 32px;
+        box-shadow: 0px 1px 5px 0px rgba(0,0,0,.5);
+        border-radius: 1px;
+    }
+    .innercard{
+        padding: 50px;
+        >div{
+            float: left;
+        }
+        >div:first-child{
+            margin-right: 10%;
+        }
+        >div:nth-child(2){
+            width: 50%;
+        }
+        .hello{
+            display: inline-block;
+            padding: 4px 16px;
+            background-color: $color;
+            color: white;
+            position: relative;
+            margin-bottom: 20px;
+            border-radius: 2px;
+            &::after{
+                content: '';
+                position: absolute;
+                border: 10px solid transparent;
+                width: 0px;
+                border-top-width: 0px;
+                border-left-color: $color;
+                bottom: -10px;
+                left: 7px;
+            }
+        }
+        h1,h4{
+            margin: 0;
+            padding: 0;
+        }
+        hr{
+            margin: 1.5rem 0;
+            height: 0;
+            border: none;
+            border-top: 1px solid #DEDEDE;
+        }
+        tr {
+            td{
+                padding: 0 30px 10px 0;
+                &:first-child{
+                    font-weight: bolder;
+                }
+                &:nth-child(2){
+                    color: #9da0a7;
+                }
+            }
+        }
+    }
+    //icon
+    footer{
+        background-color: $color;
+        text-align: center;
+    }
+    //下载链接
+    p{
+        text-align: center;
+        .download{
+            display: inline-block;
+            padding: 21px 55px;
+            border: 1px solid #cdcfd1;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s;
+            &:hover{
+                box-shadow: 0px 4px 13px 0px rgba(0,0,0,.2);
+            }
+        }
+    }
+    .details{
+        font-family: 楷体;
+        text-align: center;
+        line-height: 1.8;
+        font-size: 18px;
+        margin-top: 40px;
+    }
+}
+.introduction{
     max-width: 940px;
     margin: 0 auto;
-    background-color: white;
-}
-.innercard{
-    padding: 50px;
-    >div{
-        float: left;
+    margin-top: 60px;
+    h2{
+        text-align: center;
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1.2;
     }
-    >div:first-child{
-        margin-right: 10%;
-    }
-    >div:nth-child(2){
-        width: 50%;
-    }
-    .hello{
-        display: inline-block;
-        padding: 4px 16px;
-        background-color: $color;
-        color: white;
-        position: relative;
-        margin-bottom: 20px;
-        border-radius: 2px;
-        &::after{
-            content: '';
-            position: absolute;
-            border: 10px solid transparent;
-            width: 0px;
-            border-top-width: 0px;
-            border-left-color: $color;
-            bottom: -10px;
-            left: 7px;
-        }
-    }
-    h1,h4{
+    ol{
         margin: 0;
         padding: 0;
-    }
-    hr{
-        margin: 1.5rem 0;
-        height: 0;
-        border: none;
-        border-top: 1px solid #DEDEDE;
-    }
-    tr {
-        td{
-            padding: 0 30px 10px 0;
-            &:first-child{
-                font-weight: bolder;
+        background-color: white;
+        box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+        padding: 22px 50px 42px;
+        li{
+            float: left;
+            width: 48%;
+            div{
+                height: 5px;
+                border-radius: 2px;
+                background-color: #FaE1E1;
+                div{
+                    width: 30%;
+                    background-color: $color;
+                }
             }
-            &:nth-child(2){
-                color: #9da0a7;
-            }
+        }
+        li:nth-child(even){
+            float: right;
         }
     }
 }
-footer{
-    background-color: $color;
+.reels{
+    max-width: 940px;
+    margin: 0 auto;
     text-align: center;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    h2{
+        text-align: center;
+        font-size: 34px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    nav{
+        display: inline-block;
+        //这里为什么要加上inline-block
+        //内部的div才会继承他的宽度
+        //答案，因为navblock时继承section的宽度，所以要通过inline-block使其收缩
+        text-align: center;
+        ol{
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            li{
+                float: left;
+                cursor: pointer;
+            }      
+            li:not(:first-child){
+                margin-left: 40px;
+            }
+        } 
+        >div{
+            height: 5px;
+            background-color: white;
+            border-radius: 2px;
+            margin-top:5px;
+            margin-bottom: 28px;
+            >div{
+                height: 5px;
+                background-color: $color;
+                border-radius: 2px;
+                transition: all 0.3s;
+            }
+            >div.state1{
+                width: 25%;
+            }
+            >div.state2{
+                width: 30%;
+                margin-left: 25%;
+            }
+            >div.state3{
+                width: 35%;
+                margin-left: 65%;
+            }
+        }
+    }
+    .reelswork{
+        height: 597px;
+        position: relative;
+        >div{
+            position: absolute;
+        }
+    }
 }
