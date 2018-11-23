@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>navigationBar</title>
+    <style>
+        main{
+            margin-top: 300px;
+            background-color: beige;
+            text-align: center;
+        }
+        #wrap>div{
+            margin: 0.5rem 0;
+        }
+        #wrap kbd{
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            margin: 0 0.1rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: bolder;
+            border: 1px solid gray;
+            border-radius: 5px;
+            position: relative;
+        }
+        kbd>button{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: none;
+            padding: 0;
+        }
+        kbd:hover>button{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="wrapper" id="wrap"></div>
+    </main>
+    <footer></footer>
+    <script>
+        var alphabet={
+            '0':{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p'},
+            '1':{0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l'},
+            '2':{0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m',}
+        }
+        var links={
+            q:'qq.com',s:'stackoverflow.com',v:'v2ex.com',t:'t.tt',p:'pingwest',g:'geekpark.net',y:'youtube.com'
+        }
+        var linksstorage=JSON.parse(localStorage.getItem('links')|| 'null');
+        if(linksstorage){
+            links=linksstorage;
+        }
+        //遍历所有字母
+        alparr=Object.keys(alphabet);//获取对象key长度
+        var i=0; 
+        while(i<alparr.length){
+            var div=document.createElement('div');
+            wrap.append(div);
+            var j=0;
+            arrleng=Object.keys(alphabet[i]);//获取每一个row的长度
+            //console.log(arrleng);
+            while(j<arrleng.length){
+                var kbd=document.createElement('kbd');
+                kbd.textContent=alphabet[i][j];//犯了alphabet[i][j].value的错误
+                var ebtn=document.createElement('button');
+                ebtn.textContent='e';
+                ebtn.id=kbd.textContent;
+                ebtn.onclick=function(event){
+                    let key=event.target['id'];
+                    var edited=prompt("请输入替换的网址");
+                    links[key]=edited;
+                    localStorage.setItem('links',JSON.stringify(links));
+                }
+                kbd.appendChild(ebtn);
+                div.appendChild(kbd);
+                j=j+1;
+            }
+            i=i+1;
+        }
+        document.onkeypress=function(event){
+            key=event.key;
+            console.log(key);
+            website=links[key];
+            //location.href='http:'+website;
+            window.open('http:'+website,'_blank');
+        }
+    </script>
+</body>
+</html>
