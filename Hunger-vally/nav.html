@@ -76,6 +76,7 @@
     </main>
     <footer></footer>
     <script>
+        //初始化键盘内容
         var alphabet={
             '0':{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p'},
             '1':{0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l'},
@@ -84,36 +85,39 @@
         var links={
             s:'stackoverflow.com',v:'v2ex.com',g:'google.com',y:'youtube.com'
         }
+        //获取本地缓存
         var linksstorage=JSON.parse(localStorage.getItem('links')|| 'null');
         if(linksstorage){
             links=linksstorage;
         }
+
         //遍历所有字母
         alparr=Object.keys(alphabet);//获取对象key长度
         var i=0; 
         while(i<alparr.length){
-            var div=document.createElement('div');
-            wrap.append(div);
+            var div=create('div');
+            
             var j=0;
-            arrleng=Object.keys(alphabet[i]);//获取每一个row的长度
+            var arrleng=Object.keys(alphabet[i]);//获取每一个row的长度
             //console.log(arrleng);
             while(j<arrleng.length){
-                var kbd=document.createElement('kbd');
-                var cont=document.createElement('span');
+                var kbd=create('kbd');
+                var cont=create('span');
                 cont.textContent=alphabet[i][j];//犯了alphabet[i][j].value的错误
-                var ebtn=document.createElement('button');
+                var ebtn=create('button');
                 ebtn.textContent='e';
                 ebtn.id=alphabet[i][j];
+                //更换字母对应url
                 ebtn.onclick=function(event){
                     let key=event.target;
-                    var imgsrc=key.previousSibling;
-                    var edited=prompt("请输入替换的网址");
+                    let imgsrc=key.previousSibling;
+                    let edited=prompt("请输入替换的网址");
                     links[key.id]=edited;
                     imgsrc.src='http://'+edited+'/favicon.ico';
-                    localStorage.setItem('links',JSON.stringify(links));
+                    localStorage.setItem('links',JSON.stringify(links));//并且存入本地缓存，保证刷新后可用
                 }
                 //还是会存在协议不对的情况
-                var img=document.createElement('img');
+                var img=create('img');
                 if(links[alphabet[i][j]]){
                     img.src='http://'+links[alphabet[i][j]]+'/favicon.ico';
                 }else{
@@ -125,16 +129,24 @@
                 kbd.appendChild(img);
                 kbd.appendChild(ebtn);
                 kbd.appendChild(cont);
+
                 div.appendChild(kbd);
+
+                wrap.appendChild(div);
                 j=j+1;
             }
             i=i+1;
         }
+        
+        //监听用户事件
         document.onkeypress=function(event){
             key=event.key;
             website=links[key];
             //location.href='http:'+website;
             window.open('http:'+website,'_blank');  
+        }
+        function create(ele){
+            return document.createElement(ele);
         }
     </script>
 </body>
