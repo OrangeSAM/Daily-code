@@ -7,19 +7,25 @@
     <title>navigationBar</title>
     <style>
         body{
-            background-image: url(./img/ocean.jpg);
+            background-image: url(./img/sky.jpg);
+            background-size: cover;
         }
         main{
-            margin-top: 300px;
             text-align: center;
+            margin-top: 15%;
+        }
+        .wrapper{
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
         }
         #wrap>div{
-            margin: 1rem 0;
+            margin: 10px 0;
         }
         #wrap kbd{
             display: inline-block;
             padding: 2px 10px 10px;
-            margin: 0 0.5rem;
+            margin: 0 6px;
             font-size: 14px;
             text-transform: uppercase;
             font-weight: bolder;
@@ -28,6 +34,10 @@
             position: relative;
             font-family: Helvetica, sans-serif;
             background-color: rgb(196, 198, 199);
+        }
+        .myactive{
+            position: relative;
+            top: 4px;
         }
         kbd>button{
             position: absolute;
@@ -45,11 +55,14 @@
             width: 15px;
             height: 15px;
             position: absolute;
-            right: 25px;
+            right: 24px;
             top:33px;
         }
         kbd>span{
             display:inline-block;
+            width: 44px;
+            height: 48px;
+            box-sizing: border-box;
             padding: 12px 18px 19px;
             background-color: rgb(239,241, 242);
             border-radius: 4px;
@@ -106,6 +119,9 @@
                 }else{
                     img.src='http://i.loli.net/2017/11/10/5a05afbc5e183.png';
                 }
+                img.onerror=function(event){
+                    event.target.src='http://i.loli.net/2017/11/10/5a05afbc5e183.png';
+                }
                 kbd.appendChild(img);
                 kbd.appendChild(ebtn);
                 kbd.appendChild(cont);
@@ -116,10 +132,9 @@
         }
         document.onkeypress=function(event){
             key=event.key;
-            console.log(key);
             website=links[key];
             //location.href='http:'+website;
-            window.open('http:'+website,'_blank');
+            window.open('http:'+website,'_blank');  
         }
     </script>
 </body>
