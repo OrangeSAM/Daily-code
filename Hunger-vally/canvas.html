@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://at.alicdn.com/t/font_940098_pvrvuanpysm.js"></script>
+    <title>my canvas</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .toolbar{
+            position: fixed;
+            top: 0;
+            display: flex;
+        }
+        .icon {
+            width: 2em; height: 2em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+            padding: 5px;
+        }
+        .basic>span{
+            display: inline-block;
+            width:33px;
+            height: 33px;
+            border-radius: 50%;
+            border:1px solid lightgray;
+        }
+        .basic .active{
+            transform: scale(1.1);
+            fill: red;
+            transition: all 0.3s;
+        }
+        .basic #black{
+            background-color: black;
+        }
+        .basic #dpgray{
+            background-color: rgb(128, 128, 128);
+        }
+        .basic #blue{
+            background-color: rgb(26,140,255);
+        }
+        .basic #red{
+            background-color: rgb(255,26,64);
+        }
+        .basic #green{
+            background-color: rgb(43,217,101);
+        }
+        .basic #yellow{
+            background-color: rgb(255,221,51);
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar">
+        <div class="leftbar">
+            <svg class="icon" id="can" aria-hidden="true">
+                <use xlink:href="#icon-lajitong"></use>
+            </svg>
+        </div>
+        <div class="basic">
+            <svg class="icon active" id="pen" aria-hidden="true" style="width:1.75em;height:1.75em;">
+                <use xlink:href="#icon-brush"></use>
+            </svg>
+            <svg class="icon" id="eraser" aria-hidden="true">
+                <use xlink:href="#icon-xiangpica"></use>
+            </svg>
+            <span id="black"></span>
+            <span id="dpgray"></span>
+            <span id="blue"></span>
+            <span id="red"></span>
+            <span id="green"></span>
+            <span id="yellow"></span>
+            <span id="lggray"></span>
+        </div>
+        <div class="rightbar">
+            <svg class="icon" id="save" aria-hidden="true">
+                <use xlink:href="#icon-save"></use>
+            </svg>
+        </div>
+    </div>
+    <canvas id="mycanvas" width="300" height="300">
+    </canvas>
+    
+    <script>
+        var cvs=document.getElementById('mycanvas');
+        setcanvassize();
+        window.onresize=setcanvassize();
+        
+        var ctxt=cvs.getContext('2d');
+        
+        var erasering=false;
+        eraser.onclick=function(){
+            erasering=!erasering;
+            eraser.classList.add('active');
+            pen.classList.remove('active');
+        }
+        pen.onclick=function(){
+            erasering=false;
+            eraser.classList.remove('active');
+            pen.classList.add('active');
+        }
+        can.onclick=function(){
+            ctxt.clearRect(0,0,cvs.width,cvs.height);
+            //cvs和ctxt的概念
+        }
+        save.onclick=function(){
+            var url=cvs.toDataURL("image/png")
+            var a=document.createElement('a');
+            document.body.appendChild(a);
+            a.href=url;
+            a.download='pating';
+            a.target='_blank';
+            a.click();
+        }
+
+        //更改画笔颜色
+
+        black.onclick=function(){
+            changeColor('black');
+        };
+        dpgray.onclick= function(){
+            changeColor('rgb(128,128,128)');    
+        }
+        blue.onclick=function () {
+            changeColor('rgb(26,140,255)');
+        }
+        red.onclick=function(){
+            changeColor('rgb(255,26,64)');
+        }
+        green.onclick=function () {
+            changeColor('rgb(43,217,101)');
+        }
+        yellow.onclick=function(){
+            changeColor('rgb(255,221,51)');
+        }
+        function changeColor(color){
+            ctxt.fillStyle=color;
+            ctxt.strokeStyle=color;
+        }
+
+        if(ctxt){
+            var using=false;
+            var lastpoint={x:undefined,y:undefined};
+
+            if(document.body.ontouchstart!==undefined){
+                //this is a tangible device
+                cvs.ontouchstart=function(event){
+                    let m=event.touches[0].clientX;
+                    let n=event.touches[0].clientY;
+                    if(erasering){
+                        using=true;
+                        ctxt.clearRect(m,n,10,10);
+                    }else{
+                        using=true;
+                        lastpoint={x:m,y:n};
+                        //draw(m,n,1);    
+                    }
+                }
+                cvs.ontouchmove=function(event){
+                    let p=event.touches[0].clientX;
+                    let q=event.touches[0].clientY;
+                    if(erasering&&using){
+                        ctxt.clearRect(p,q,10,10);
+                    }else if(using){
+                        var newpoint={x:p,y:q};
+                        //draw(p,q,1);
+                        line(lastpoint.x,lastpoint.y,newpoint.x,newpoint.y);
+                        lastpoint=newpoint;
+                    }
+                }
+                cvs.ontouchend=function(event){
+                    using=false;
+                }
+            }
+            else{
+                //here the code is for intangible device
+                cvs.onmousedown=function(event){
+                    let m=event.clientX;
+                    let n=event.clientY;
+                    if(erasering){
+                        using=true;
+                        ctxt.clearRect(m,n,10,10);
+                    }else{
+                        using=true;
+                        lastpoint={x:m,y:n};
+                        //draw(m,n,1);    
+                    }
+                }
+                cvs.onmousemove=function(event){
+                    let p=event.clientX;
+                    let q=event.clientY;
+                    if(erasering&&using){
+                        ctxt.clearRect(p,q,10,10);
+                    }else if(using){
+                        var newpoint={x:p,y:q};
+                        //draw(p,q,1);
+                        line(lastpoint.x,lastpoint.y,newpoint.x,newpoint.y);
+                        lastpoint=newpoint;
+                    }
+                }
+                cvs.onmouseup=function(event){
+                    using=false;
+                }
+            }
+
+            function line(x,y,m,n){
+                ctxt.beginPath();
+                ctxt.moveTo(x,y);
+                ctxt.lineWidth=3;
+                ctxt.lineTo(m,n);
+                ctxt.stroke();
+                ctxt.closePath();
+            }
+            // 画线 画圆
+            // function draw(x,y,radius) {  
+            //     ctxt.beginPath();
+            //     ctxt.arc(x,y,radius,0,Math.PI*2);
+            //     ctxt.fill();//当这里换成stroke,无论怎样调宽度都会有圆的痕迹  ？
+            // }
+            
+        }
+        function setcanvassize(){
+            var pagewidth=document.documentElement.clientWidth;
+            var pageheight=document.documentElement.clientHeight;  
+            cvs.width=pagewidth;
+            cvs.height=pageheight;
+        }
+    </script>
+</body>
+</html>
