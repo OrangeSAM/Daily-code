@@ -23,7 +23,10 @@
     </style>
 </head>
 <body>
-    <header>
+    <div id="sitewelc" class="active">
+        <div class="circle"></div>
+    </div>
+    <header id="header" class="">
         <div class="wrapper">
             <a href="#" class="logo">
                 <span>RS</span><span>card</span>
@@ -155,6 +158,9 @@
         </div>
     </section>
     <script>
+        setTimeout(function(){
+            sitewelc.classList.remove('active');
+        },3000)
         reall.onclick=function(){
             reelsbar.className='state1';
         }
@@ -163,6 +169,14 @@
         }
         renative.onclick=function(){
             reelsbar.className='state3';
+        }
+        window.onscroll=function(){
+            if(window.scrollY>0){
+                header.classList.add('sticky');
+                console.log(22);
+            }else{
+                header.classList.remove('sticky')
+            }
         }
     </script>
 </body>

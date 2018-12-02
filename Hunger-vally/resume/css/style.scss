@@ -20,47 +20,108 @@ ul{
 li{
     list-style: none;
 }
+//loading effect
+#sitewelc{
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;height: 100%;
+    background-color: lightgray;
+    z-index: 2;
+    justify-content: center;
+    align-items:center;
+    display: none;
+}
+//紧挨着
+#sitewelc.active{
+    display: flex;
+}
+.circle{
+    width: 200px;
+    height: 200px;
+    //border: 1px solid;
+    position: relative;
+}
+.circle::before,.circle::after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background: black;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: loading 2s linear infinite;
+}
+.circle::after{
+    animation-delay: 0.5s;
+}
+@keyframes loading{
+    0%{
+        width:0px;
+        height:0px;
+        opacity: 1;
+    }
+    100%{
+        width:100px;
+        height:100px;
+        opacity:0;
+    }
+}
 header{
     padding: 20px 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-}
-.wrapper{
-    padding: 0 16px;
-}
-header .logo{
-    font-family: 'Arial Black';
-    font-size: 24px;
-}
-.logo {
-    span:nth-child(1){
-        color: $color;
-        margin-right: 4px;
+    z-index: 1;
+    transition: .5s all;
+    .wrapper{
+        padding: 0 16px;
+        .logo{
+            font-family: 'Arial Black';
+            font-size: 24px;
+            span:nth-child(1){
+                color: $color;
+                margin-right: 4px;
+            }
+            span:nth-child(2){
+                color: #9a9da2;
+            }
+        }
+        nav{
+            float: right;
+            margin-top: 7px;
+            color: #b7b7b7;
+            >ul>li{
+                float: left;
+                margin: 0 17px;
+                font-weight: bold;
+                a{
+                    color: inherit;
+                    font-size: 12px;
+                    padding: 5px 0;
+                    border-top: 3px solid transparent;
+                    border-bottom: 3px solid transparent;
+                }
+                &:hover a{
+                    border-bottom: 3px solid #e06567;
+                }
+            }
+        }
     }
-    span:nth-child(2){
-        color: #9a9da2;
+}
+.sticky{
+    background-color: white;
+    padding: 12px 0;
+    box-shadow: 0 0 4px gray;
+    ul{
+        color: black;
     }
 }
-header nav{
-    float: right;
-}
-nav>ul>li{
-    float: left;
-    margin: 0 17px;
-    font-weight: bold;
-    a{
-        color: #b7b7b7;
-        font-size: 12px;
-        padding: 5px 0;
-        border-top: 3px solid transparent;
-        border-bottom: 3px solid transparent;
-    }
-    &:hover a{
-        border-bottom: 3px solid #e06567;
-    }
-}
+
 
 // banner图
 .banner{
@@ -69,7 +130,7 @@ nav>ul>li{
     background-position: center center;
     background-size: cover;
     .mask{
-        background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.8);
         height: 515px;
     }
 }
