@@ -98,6 +98,7 @@ header{
                 margin: 0 17px;
                 font-weight: bold;
                 position: relative;
+                white-space: nowrap;//解决子菜单宽度塌陷
                 a{
                     color: inherit;
                     font-size: 12px;
@@ -117,42 +118,30 @@ header{
                         animation: menuslide .3s;
                     }
                 }
-                
-                &:hover a::after{
-                    display: inline-block;
-                    //border-bottom: 3px solid #e06567;
+                &:hover {
+                    a::after{
+                        display: inline-block;
+                        //border-bottom: 3px solid #e06567;
+                    }
+                    .submenu{
+                        display: block;
+                        animation: submenuslide .3s;
+                    }
+                }
+                .submenu{
+                    position: absolute;
+                    top: 115%;
+                    right: 0;
+                    padding: 0.5rem;
+                    box-shadow: 0 0 5px black;
+                    color: black;
+                    background-color: white;
+                    display: none;
                 }
             }
         }
     }
 }
-
-//动画
-//navbar hover从左向右显示效果
-@keyframes menuslide {
-    0%{
-        width: 0;
-    }
-    100%{
-        width: 100%;
-    }
-    
-}
-//loading动画
-@keyframes loading{
-    0%{
-        width:0px;
-        height:0px;
-        opacity: 1;
-    }
-    100%{
-        width:100px;
-        height:100px;
-        opacity:0;
-    }
-}
-
-
 // banner图
 .banner{
     background-image: url(../img/rs-cover.jpg);
@@ -350,5 +339,38 @@ main{
         >div{
             position: absolute;
         }
+    }
+}
+
+//动画
+//navbar hover从左向右显示效果
+@keyframes menuslide {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+    
+}
+@keyframes submenuslide{
+    0%{
+        margin-right: 100%;
+    }
+    100%{
+        margin-right: 0%;
+    }
+}
+//loading动画
+@keyframes loading{
+    0%{
+        width:0px;
+        height:0px;
+        opacity: 1;
+    }
+    100%{
+        width:100px;
+        height:100px;
+        opacity:0;
     }
 }
