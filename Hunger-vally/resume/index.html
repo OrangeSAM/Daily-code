@@ -23,9 +23,11 @@
     </style>
 </head>
 <body>
+    <!-- loading animation -->
     <div id="sitewelc" class="active">
         <div class="circle"></div>
     </div>
+    <!-- top navbar -->
     <header id="header" class="">
         <div class="wrapper">
             <a href="#" class="logo">
@@ -33,9 +35,9 @@
             </a>
             <nav>
                 <ul class="clearfix">
-                    <li><a href="#" class="highlighted">关于</a></li>
-                    <li><a href="#">技能</a></li>
-                    <li><a href="#">作品</a></li>
+                    <li><a href="#siteabout">关于</a></li>
+                    <li><a href="#skills">技能</a></li>
+                    <li><a href="#portfolio">作品</a></li>
                     <li><a href="#">博客</a></li>
                     <li><a href="#">日历</a></li>
                     <li><a href="#">联系方式</a></li>
@@ -47,8 +49,9 @@
     <div class="banner">
         <div class="mask"></div>
     </div>
-    <main>
-        <div class="introcard">
+    <!-- basic information introduction -->
+    <main >
+        <div id="siteabout" class="introcard">
             <div class="innercard clearfix">
                 <div>
                     <img src="./img/avatar.jpg" alt="" width="299" height="347">
@@ -98,7 +101,8 @@
             技能：HTML CSS JavaScript .Net SqlServer
         </p>
     </main>
-    <section class="introduction">
+    <!-- skills -->
+    <section id="skills" class="skills">
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -139,7 +143,8 @@
             </li>
         </ol>
     </section>
-    <section class="reels">
+    <!-- portfolio -->
+    <section id="portfolio" class="portfolio">
         <h2>作品集</h2>
         <nav class="reels-title">
             <ol class="clearfix">
@@ -151,12 +156,13 @@
                 <div id="reelsbar" class="state1"></div>
             </div>
         </nav>
-        <div class="reelswork">
+        <div class="reels-work">
             <div style="top:0;left:0;"><img src="./img/3.jpg" alt="作品1" ></div>
             <div style="top:0;left:645px;"><img src="./img/4.jpg" alt="作品2" ></div>
             <div style="top:312px;left:645px;"><img src="./img/5.jpg" alt="作品3" ></div>
         </div>
     </section>
+
     <script>
         setTimeout(function(){
             sitewelc.classList.remove('active');
@@ -173,9 +179,20 @@
         window.onscroll=function(){
             if(window.scrollY>0){
                 header.classList.add('sticky');
-                console.log(22);
             }else{
                 header.classList.remove('sticky')
+            }
+        }
+
+        //queryselector和加 all 的区别
+        let tags=document.querySelectorAll('.wrapper > nav > ul >li a');
+        for(let i=0;i<tags.length;i++){
+            tags[i].onclick=function(x){
+                //在这里使用 tags[i].  和x. 的本质区别是什么
+                x.preventDefault();
+                let anchor=tags[i].hash;
+                let distance=(document.querySelector(anchor)).offsetTop;
+                window.scrollTo(0,distance-70);
             }
         }
     </script>

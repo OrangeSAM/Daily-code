@@ -20,6 +20,7 @@ ul{
 li{
     list-style: none;
 }
+
 //loading effect
 #sitewelc{
     position: fixed;
@@ -30,46 +31,43 @@ li{
     justify-content: center;
     align-items:center;
     display: none;
-}
-//紧挨着
-#sitewelc.active{
-    display: flex;
-}
-.circle{
-    width: 200px;
-    height: 200px;
-    //border: 1px solid;
-    position: relative;
-    &::before,&::after{
-        content: '';
-        position: absolute;
-        width: 0px;
-        height: 0px;
-        background: black;
-        border-radius: 50%;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        animation: loading 2s linear infinite;
+    //紧挨着
+    &.active{
+        display: flex;
     }
-    &::after{
-        animation-delay: 0.5s;
-    }
-}
-@keyframes loading{
-    0%{
-        width:0px;
-        height:0px;
-        opacity: 1;
-    }
-    100%{
-        width:100px;
-        height:100px;
-        opacity:0;
+    .circle{
+        width: 200px;
+        height: 200px;
+        //border: 1px solid;
+        position: relative;
+        &::before,&::after{
+            content: '';
+            position: absolute;
+            width: 0px;
+            height: 0px;
+            background: black;
+            border-radius: 50%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            animation: loading 2s linear infinite;
+        }
+        &::after{
+            animation-delay: 0.5s;
+        }
     }
 }
+.sticky{
+    background-color: white;
+    padding: 12px 0;
+    box-shadow: 0 0 4px gray;
+    ul{
+        color: black;
+    }
+}
+
 header{
     padding: 20px 0;
     position: fixed;
@@ -128,6 +126,9 @@ header{
         }
     }
 }
+
+//动画
+//navbar hover从左向右显示效果
 @keyframes menuslide {
     0%{
         width: 0;
@@ -137,12 +138,17 @@ header{
     }
     
 }
-.sticky{
-    background-color: white;
-    padding: 12px 0;
-    box-shadow: 0 0 4px gray;
-    ul{
-        color: black;
+//loading动画
+@keyframes loading{
+    0%{
+        width:0px;
+        height:0px;
+        opacity: 1;
+    }
+    100%{
+        width:100px;
+        height:100px;
+        opacity:0;
     }
 }
 
@@ -249,7 +255,7 @@ main{
         margin-top: 40px;
     }
 }
-.introduction{
+.skills{
     max-width: 940px;
     margin: 0 auto;
     margin-top: 60px;
@@ -283,7 +289,7 @@ main{
         }
     }
 }
-.reels{
+.portfolio{
     max-width: 940px;
     margin: 0 auto;
     text-align: center;
@@ -338,7 +344,7 @@ main{
             }
         }
     }
-    .reelswork{
+    .reels-work{
         height: 597px;
         position: relative;
         >div{
