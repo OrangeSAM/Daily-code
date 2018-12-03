@@ -40,23 +40,23 @@ li{
     height: 200px;
     //border: 1px solid;
     position: relative;
-}
-.circle::before,.circle::after{
-    content: '';
-    position: absolute;
-    width: 0px;
-    height: 0px;
-    background: black;
-    border-radius: 50%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    animation: loading 2s linear infinite;
-}
-.circle::after{
-    animation-delay: 0.5s;
+    &::before,&::after{
+        content: '';
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        background: black;
+        border-radius: 50%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        animation: loading 2s linear infinite;
+    }
+    &::after{
+        animation-delay: 0.5s;
+    }
 }
 @keyframes loading{
     0%{
@@ -99,19 +99,43 @@ header{
                 float: left;
                 margin: 0 17px;
                 font-weight: bold;
+                position: relative;
                 a{
                     color: inherit;
                     font-size: 12px;
+                    display: inline-block;//使其能够撑开上下padding
                     padding: 5px 0;
-                    border-top: 3px solid transparent;
-                    border-bottom: 3px solid transparent;
+                    //border-top: 3px solid transparent;
+                    //border-bottom: 3px solid transparent;
+                    &::after{
+                        content: '';
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        background-color: #e06567;
+                        height: 3px;
+                        animation: menuslide .3s;
+                    }
                 }
-                &:hover a{
-                    border-bottom: 3px solid #e06567;
+                
+                &:hover a::after{
+                    display: inline-block;
+                    //border-bottom: 3px solid #e06567;
                 }
             }
         }
     }
+}
+@keyframes menuslide {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+    
 }
 .sticky{
     background-color: white;
