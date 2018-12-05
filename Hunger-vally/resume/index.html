@@ -203,25 +203,22 @@
                 let anchor=this.hash;
                 //查找出点击元素对应区块距离页面（而不是视口）顶部的距离
                 let distance=(document.querySelector(anchor)).offsetTop;
-                let n=60;
-                let duration=5000/n;
-                let currenttop=window.screenY;
-                let targettop=distance-70;
+
+                let n=30;
+                let duration=700/n;
+                let currenttop=window.scrollY;
+                let targettop=distance-115;
                 let perdistance=(targettop-currenttop)/n;
-                console.log(duration);
-                console.log(currenttop);
-                console.log(targettop);
-                console.log(perdistance);
                 var i=0;
                 var myInterv=setInterval(()=>{
                     if(i===n){
                         window.clearInterval(myInterv);
-                        return;
+                        return
                     }
                     i=i+1;
-                    console.log(currenttop+perdistance*i);
-                    window.scrollTo(0,currenttop+perdistance*i)
-                })
+                    
+                    window.scrollTo(0,currenttop+perdistance*i)//
+                },duration)
                 //window.scrollTo(0,distance-70);
                 //because of the stick navbar,
                 //here should scroll less than the distance where the divsion to the (0,0)
@@ -229,4 +226,23 @@
         }
     </script>
 </body>
+<!-- 自己想到的愚蠢思路是直接从页面顶部开始算就好了，
+    let n=30;
+    let duration=600/n;
+    let currenttop=window.screenY;应该是scrollY....//已经滚动过的路程
+    let targettop=distance-115;//目标距离
+    let perdistance=(targettop-currenttop)/n;//1个单位时间N 要滚动的距离
+    var i=0;
+    var myInterv=setInterval(()=>{
+        if(i===n){
+            window.clearInterval(myInterv);
+            return;
+        }
+        i=i+1;
+        console.log(currenttop);
+        console.log('this is perdistance'+ '    ' + perdistance)
+        console.log('this is perdistance*i'+ '   ' + perdistance*i)
+        window.scrollTo(0,currenttop+perdistance*i)//可正可负
+    })
+-->
 </html>
