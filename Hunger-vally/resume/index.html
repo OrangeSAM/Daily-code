@@ -170,6 +170,7 @@
         </div>
     </section>
 
+
     <script>
         setTimeout(function(){
             sitewelc.classList.remove('active');
@@ -197,9 +198,33 @@
             tags[i].onclick=function(x){
                 //在这里使用 tags[i].  和x. 的本质区别是什么
                 x.preventDefault();
-                let anchor=tags[i].hash;
+                //获得点击元素的href属性值
+                //为什么突然用tags[i]就不行了
+                let anchor=this.hash;
+                //查找出点击元素对应区块距离页面（而不是视口）顶部的距离
                 let distance=(document.querySelector(anchor)).offsetTop;
-                window.scrollTo(0,distance-70);
+                let n=60;
+                let duration=5000/n;
+                let currenttop=window.screenY;
+                let targettop=distance-70;
+                let perdistance=(targettop-currenttop)/n;
+                console.log(duration);
+                console.log(currenttop);
+                console.log(targettop);
+                console.log(perdistance);
+                var i=0;
+                var myInterv=setInterval(()=>{
+                    if(i===n){
+                        window.clearInterval(myInterv);
+                        return;
+                    }
+                    i=i+1;
+                    console.log(currenttop+perdistance*i);
+                    window.scrollTo(0,currenttop+perdistance*i)
+                })
+                //window.scrollTo(0,distance-70);
+                //because of the stick navbar,
+                //here should scroll less than the distance where the divsion to the (0,0)
             }
         }
     </script>
