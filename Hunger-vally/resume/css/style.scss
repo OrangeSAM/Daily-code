@@ -67,6 +67,14 @@ li{
         color: black;
     }
 }
+
+[data-x].offset{
+    transform: translateY(100px);
+}
+[data-x]{
+    transform: translateY(0);
+    transition: all 0.5s;
+}
 header{
     padding: 20px 0;
     position: fixed;
@@ -116,8 +124,19 @@ header{
                         height: 3px;
                         animation: menuslide .3s;
                     }
+                    &.highlight{
+                        content: '';
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        background-color: #e06567;
+                        height: 3px;
+                        animation: menuslide .3s;
+                    }
                 }
-                &:hover {
+                &:hover,.highlight{
                     a::after{
                         display: inline-block;
                         //border-bottom: 3px solid #e06567;
