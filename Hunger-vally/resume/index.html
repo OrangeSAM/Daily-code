@@ -28,9 +28,9 @@
 
 <body>
     <!-- loading animation -->
-    <div id="sitewelc" class="active">
+    <!-- <div id="sitewelc" class="active">
         <div class="circle"></div>
-    </div>
+    </div> -->
     <!-- top navbar -->
     <header id="header" class="">
         <div class="wrapper">
@@ -176,9 +176,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
     <script>
-        setTimeout(function () {
-            sitewelc.classList.remove('active');
-        }, 3000)
+        //setTimeout(function () {
+        //    sitewelc.classList.remove('active');
+        //}, 3000)
         reall.onclick = function () {
             reelsbar.className = 'state1';
         }
@@ -208,14 +208,13 @@
                 //let li=a.parentNode;
                 //let brothersAndMe=a.parentNode.children;
                 let li=a.parentNode;
-                console.log(li);
+                //console.log(li);
                 let brothersAndMe=li.parentNode.children;
-                console.log(brothersAndMe);
-                //未完待续，如何成功删掉之前加的 highlight..
-                for(let q=0;q>brothersAndMe.length;q++){
-                    brothersAndMe[q].firstElementChild.classList.remove('highlight');
+                for(let q=0;q<brothersAndMe.length;q++){
+                    brothersAndMe[q].classList.remove('highlight');
+                    console.log(li[q]);
                 }
-                a.classList.add('highlight');
+                li.classList.add('highlight');
         }
         //实现滑动到对应区域，导航栏相应栏目样式改动
         //需要计算的是当每个目标区域滚动时，哪个距离顶部导航栏的距离最近，

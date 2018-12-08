@@ -124,28 +124,29 @@ header{
                         height: 3px;
                         animation: menuslide .3s;
                     }
-                    &.highlight{
-                        content: '';
-                        display: none;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        background-color: #e06567;
-                        height: 3px;
-                        animation: menuslide .3s;
-                    }
+                    // &.highlight{
+                    //     content: '';
+                    //     display: none;
+                    //     position: absolute;
+                    //     top: 100%;
+                    //     left: 0;
+                    //     width: 100%;
+                    //     background-color: #e06567;
+                    //     height: 3px;
+                    //     animation: menuslide .3s;
+                    // }
                 }
-                &:hover,.highlight{
+                &:hover,&.highlight{
                     a::after{
                         display: inline-block;
                         //border-bottom: 3px solid #e06567;
                     }
-                    .submenu{
+                }
+                &:hover .submenu{
                         display: block;
                         animation: submenuslide .3s;
                     }
-                }
+                
                 .submenu{
                     position: absolute;
                     top: 115%;
