@@ -119,37 +119,37 @@
             <li>
                 <h3>HTML 5 & CSS 3</h3>
                 <div>
-                    <div></div>
+                    <div class="progress"></div>
                 </div>
             </li>
             <li>
                 <h3>JavaScript</h3>
                 <div>
-                    <div></div>
+                    <div class="progress"></div>
                 </div>
             </li>
             <li>
                 <h3>jQuery</h3>
                 <div>
-                    <div></div>
+                    <div class="progress" style="width:30%"></div>
                 </div>
             </li>
             <li>
                 <h3>Vue.js</h3>
                 <div>
-                    <div></div>
+                    <div class="progress" style="width:40%"></div>
                 </div>
             </li>
             <li>
                 <h3>.Net</h3>
                 <div>
-                    <div></div>
+                    <div class="progress" style="width:50%"></div>
                 </div>
             </li>
             <li>
                 <h3>SqlServer</h3>
                 <div>
-                    <div></div>
+                    <div class="progress" style="width:60%"></div>
                 </div>
             </li>
         </ol>
@@ -179,6 +179,12 @@
         //setTimeout(function () {
         //    sitewelc.classList.remove('active');
         //}, 3000)
+
+        let specialTags=document.querySelectorAll('[data-x]');
+        for (let i=0;i<specialTags.length;i++){
+            specialTags[i].classList.add('offset');
+        }
+
         reall.onclick = function () {
             reelsbar.className = 'state1';
         }
@@ -203,6 +209,7 @@
                         minIndex = i;
                     }
                 }
+                specialTags[minIndex].classList.remove('offset');
                 let id=specialTags[minIndex].id;
                 let a=document.querySelector('a[href="#'+id+ '"]');
                 //let li=a.parentNode;
@@ -212,7 +219,6 @@
                 let brothersAndMe=li.parentNode.children;
                 for(let q=0;q<brothersAndMe.length;q++){
                     brothersAndMe[q].classList.remove('highlight');
-                    console.log(li[q]);
                 }
                 li.classList.add('highlight');
         }
