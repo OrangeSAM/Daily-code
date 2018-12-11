@@ -20,8 +20,18 @@ window.jquery=function(selectorornode){
     
     //nodes上的方法
 
+    function classesToArray(classes){
+        if(Array.isArray(classes)){
+            return classes;
+        }
+        if(typeof classes === 'string'){
+            return classes.match( /[^\x20\t\r\n\f]+/g ) || [];
+        }
+        return [];
+    }
     //classes形参供用户要设置的类名传入
     nodes.addClass=function(classes){
+        classes=classesToArray(classes);
         classes.forEach((value)=>{
             //遍历先前获取到的nodes对象，依次添加用户传入类名
             for(let i=0;i<nodes.length;i++){
@@ -32,7 +42,7 @@ window.jquery=function(selectorornode){
     nodes.setText=function(text){
         //依次遍历添加
         for(let i=0;i<nodes.length;i++){
-            nodes[i].length=text;
+            nodes[i].textContent=text;
         }
     };
     };
