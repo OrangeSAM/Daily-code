@@ -17,9 +17,8 @@ window.jquery=function(selectorornode){
             length:1
         };
     }
-    
-    //nodes上的方法
 
+    //以免传入的参数是字符串
     function classesToArray(classes){
         if(Array.isArray(classes)){
             return classes;
@@ -29,6 +28,8 @@ window.jquery=function(selectorornode){
         }
         return [];
     }
+
+    //nodes上的方法
     //classes形参供用户要设置的类名传入
     nodes.addClass=function(classes){
         classes=classesToArray(classes);
