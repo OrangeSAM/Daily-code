@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <title>简易轮播</title>
     <style>
         .images {
@@ -83,18 +81,26 @@
                 $('.wrap').css({
                     "transform": "translateX(" + p + "px)"
                 })
-                console.log(btns[i]);
-                //var n = index;
-                //btns.eq(n).addClass('red').siblings('.red').removeClass('red');
+                var n = index;
+                btns.eq(n).addClass('red').siblings('.red').removeClass('red');
             })
         }
         //feature automatic move
         var n = 0;
-        //btns.eq(n % 3).trigger('click');
-        setInterval(() => {
+        btns.eq(n % 3).trigger('click'); //使自动轮播从第一张开始
+        var timer = setInterval(() => {
             n = n + 1;
             btns.eq(n % 3).trigger('click');
         }, 2000)
+        $('.wrap').on('mouseenter', function () {
+            window.clearInterval(timer);
+        })
+        $('.wrap').on('mouseleave', function () {
+            timer = setInterval(() => {
+                n = n + 1;
+                btns.eq(n % 3).trigger('click');
+            }, 2000)
+        })
     </script>
 </body>
 
