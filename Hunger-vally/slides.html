@@ -1,55 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://libs.cdnjs.net/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <title>简易轮播</title>
     <style>
-        .images{
+        .images {
             width: 600px;
-            height: 400px;
-            border: 1px solid red;
+            height: 420px;
+            border: 1px solid;
             overflow: hidden;
+        }
+
+        .wrap {
             display: flex;
             align-items: flex-start;
+            transition: all 1s;
+        }
+
+        .red {
+            color: lightblue;
+            font-weight: bold;
+        }
+
+        .btns {
+            text-align: center;
+            padding: 0 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
     <!-- 实现逻辑
     固定大小的div承载多张横向排列的图片
     控制图片在可视div区域内的移动 -->
     <div class="images">
-        <img src="../Hunger-vally/img/ocean1.jpg" alt="" id="img1">
-        <img src="../Hunger-vally/img/ocean2.jpeg" alt="" id="img2">
-        <img src="../Hunger-vally/img/ocean3.jpg" alt="" id="img3">
-        <!-- 控制图片不行的原因是，他们不是一个整体，这样只有一张图片可以动一次 -->
+        <div class="wrap">
+            <img src="../Hunger-vally/img/ocean1.jpg" alt="" id="img1">
+            <img src="../Hunger-vally/img/ocean2.jpeg" alt="" id="img2">
+            <img src="../Hunger-vally/img/ocean3.jpg" alt="" id="img3">
+            <!-- 控制图片不行的原因是，他们不是一个整体，这样只有一张图片可以动一次 -->
+        </div>
+        <div class="btns">
+            <span id="btn1">1</span>
+            <span id="btn2">2</span>
+            <span id="btn3">3</span>
+        </div>
     </div>
-    <div>
-        <span id="btn1">1</span>
-        <span id="btn2">2</span>
-        <span id="btn3">3</span>
-    </div>
-    <script>
-        $('#btn1').on('click',function(){
-            $('#img1').css({
-                "transform":"translateX(0)"
-            })
-            console.log(2);
-        })
-        $('#btn2').on('click',function(){
-            $('#img2').css({
-                "transform":"translateX(-600px)"
-            })
-        })
-        $('#btn3').on('click',function(){
-            $('#img3').css({
-                "transform":"translateX(-1200px)"
-            })
-        })
 
+    <script>
+        //version 1
+        // $('#btn1').on('click',function(){
+        //     $('.wrap').css({
+        //         "transform":"translateX(0)"
+        //     })
+        // })
+        // $('#btn2').on('click',function(){
+        //     $('.wrap').css({
+        //         "transform":"translateX(-600px)"
+        //     })
+        // })
+        // $('#btn3').on('click',function(){
+        //     $('.wrap').css({
+        //         "transform":"translateX(-1200px)"
+        //     })
+        // })
+
+        //version2
+        var btns = $('.btns>span')
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function (x) {
+                var index = $(x.currentTarget).index();
+                var p = index * -600;
+                $('.wrap').css({
+                    "transform": "translateX(" + p + "px)"
+                })
+                //var n = index;
+                //btns.eq(n).addClass('red').siblings('.red').removeClass('red');
+            }
+        }
+        //feature automatic move
+        var n = 0;
+        btns.eq(n % 3).trigger('click');
+        setInterval(() => {
+            n = n + 1;
+            btns.eq(n % 3).trigger('click');
+            console.log(n % 3);
+        }, 2000)
     </script>
 </body>
+
 </html>
