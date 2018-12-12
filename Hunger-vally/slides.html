@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
     <title>简易轮播</title>
     <style>
         .images {
@@ -74,23 +77,23 @@
         //version2
         var btns = $('.btns>span')
         for (let i = 0; i < btns.length; i++) {
-            btns[i].onclick = function (x) {
+            $(btns[i]).on('click', function (x) {
                 var index = $(x.currentTarget).index();
                 var p = index * -600;
                 $('.wrap').css({
                     "transform": "translateX(" + p + "px)"
                 })
+                console.log(btns[i]);
                 //var n = index;
                 //btns.eq(n).addClass('red').siblings('.red').removeClass('red');
-            }
+            })
         }
         //feature automatic move
         var n = 0;
-        btns.eq(n % 3).trigger('click');
+        //btns.eq(n % 3).trigger('click');
         setInterval(() => {
             n = n + 1;
             btns.eq(n % 3).trigger('click');
-            console.log(n % 3);
         }, 2000)
     </script>
 </body>
