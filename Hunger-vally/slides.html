@@ -85,21 +85,22 @@
                 btns.eq(n).addClass('red').siblings('.red').removeClass('red');
             })
         }
+
         //feature automatic move
         var n = 0;
-        btns.eq(n % 3).trigger('click'); //使自动轮播从第一张开始
-        var timer = setInterval(() => {
-            n = n + 1;
-            btns.eq(n % 3).trigger('click');
-        }, 2000)
+        var size=btns.length
+        btns.eq(n % size).trigger('click'); //使自动轮播从第一张开始
+        function settimer() {
+            return setInterval(()=>{
+                n = n + 1;
+                btns.eq(n % size).trigger('click') ;    
+            },1000)    
+        }
         $('.wrap').on('mouseenter', function () {
             window.clearInterval(timer);
         })
         $('.wrap').on('mouseleave', function () {
-            timer = setInterval(() => {
-                n = n + 1;
-                btns.eq(n % 3).trigger('click');
-            }, 2000)
+            timer = settimer();
         })
     </script>
 </body>
