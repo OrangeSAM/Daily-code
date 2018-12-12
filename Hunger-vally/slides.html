@@ -90,6 +90,7 @@
         var n = 0;
         var size=btns.length
         btns.eq(n % size).trigger('click'); //使自动轮播从第一张开始
+        var timer=settimer();
         function settimer() {
             return setInterval(()=>{
                 n = n + 1;
