@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>infinite slides</title>
+    <style>
+        .wrap{
+            width: 450px;
+            height: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .images{
+            display: flex;
+            position: relative;
+        }
+        .images img{
+            width: 450px;
+            height: 300px;
+        }
+        .show{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .leave{
+            position: absolute;
+            left: -100%;
+            top: 0;
+        }
+        .enter{
+            position: absolute;
+            left: 100%;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="images">
+            <img id="img1" src="./img/ocean1.jpg" alt="图片1">
+            <img id="img2" src="./img/ocean2.jpeg" alt="图片2">
+            <img id="img3" src="./img/ocean3.jpg" alt="图片3">
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+        $('#img1').addClass('show');
+        $('#img2').addClass('enter');
+        $('#img3').addClass('enter');
+        setTimeout(function(){
+            $('#img1').removeClass('show').addClass('leave');
+            $('#img2').removeClass('enter').addClass('show')
+        },4000)
+        setTimeout(function(){
+            $('#img1').removeClass('leave').addClass('enter');
+            $('#img2').removeClass('show').addClass('leave');
+            $('#img3').removeClass('enter').addClass('show');
+        },8000)
+    </script>
+</body>
+</html>

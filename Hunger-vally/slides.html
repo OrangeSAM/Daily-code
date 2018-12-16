@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
     <title>简易轮播</title>
     <style>
         .images {
@@ -54,6 +51,8 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <script>
         //version 1
         // $('#btn1').on('click',function(){
@@ -86,7 +85,7 @@
             })
         }
 
-        //feature automatic move
+        //feature automatic move 
         var n = 0;
         var size=btns.length
         btns.eq(n % size).trigger('click'); //使自动轮播从第一张开始
