@@ -91,24 +91,26 @@
         setcanvassize();
         window.onresize=setcanvassize();
         
+        //创建context对象，getContext对象是内建的对象
+        //拥有多种绘制路径、矩形、圆形以及添加图像的方法
         var ctxt=cvs.getContext('2d');
         
-        var erasering=false;
-        eraser.onclick=function(){
+        var erasering=false;//橡皮擦初始化状态为不使用
+        eraser.onclick=function(){//橡皮擦变为使用状态，且加上相应样式
             erasering=!erasering;
             eraser.classList.add('active');
             pen.classList.remove('active');
         }
-        pen.onclick=function(){
+        pen.onclick=function(){//切换为使用笔的状态
             erasering=false;
             eraser.classList.remove('active');
             pen.classList.add('active');
         }
-        can.onclick=function(){
+        can.onclick=function(){//垃圾桶，清除全屏
             ctxt.clearRect(0,0,cvs.width,cvs.height);
             //cvs和ctxt的概念
         }
-        save.onclick=function(){
+        save.onclick=function(){//保存当前绘画为图片
             var url=cvs.toDataURL("image/png")
             var a=document.createElement('a');
             document.body.appendChild(a);
@@ -119,7 +121,6 @@
         }
 
         //更改画笔颜色
-
         black.onclick=function(){
             changeColor('black');
         };
@@ -138,7 +139,7 @@
         yellow.onclick=function(){
             changeColor('rgb(255,221,51)');
         }
-        function changeColor(color){
+        function changeColor(color){//更改画笔颜色
             ctxt.fillStyle=color;
             ctxt.strokeStyle=color;
         }
@@ -147,16 +148,17 @@
             var using=false;
             var lastpoint={x:undefined,y:undefined};
 
-            if(document.body.ontouchstart!==undefined){
+            if(document.body.ontouchstart!==undefined){//这是可触屏设备
                 //this is a tangible device
                 cvs.ontouchstart=function(event){
                     let m=event.touches[0].clientX;
                     let n=event.touches[0].clientY;
-                    if(erasering){
+                    if(erasering){//使用橡皮擦
                         using=true;
                         ctxt.clearRect(m,n,10,10);
                     }else{
                         using=true;
+                        //记录第一次触屏时的坐标
                         lastpoint={x:m,y:n};
                         //draw(m,n,1);    
                     }
@@ -164,17 +166,20 @@
                 cvs.ontouchmove=function(event){
                     let p=event.touches[0].clientX;
                     let q=event.touches[0].clientY;
-                    if(erasering&&using){
+                    if(erasering&&using){//正在使用橡皮擦，继续擦除
                         ctxt.clearRect(p,q,10,10);
                     }else if(using){
                         var newpoint={x:p,y:q};
                         //draw(p,q,1);
                         line(lastpoint.x,lastpoint.y,newpoint.x,newpoint.y);
+                        //在当前点和上一点间连线，解决空隙问题，
+                        //并更新上一个坐在位置
                         lastpoint=newpoint;
                     }
                 }
                 cvs.ontouchend=function(event){
                     using=false;
+                    //使用结束
                 }
             }
             else{
@@ -207,7 +212,8 @@
                     using=false;
                 }
             }
-
+            
+            //连接上一点和当前点
             function line(x,y,m,n){
                 ctxt.beginPath();
                 ctxt.moveTo(x,y);
@@ -224,6 +230,7 @@
             // }
             
         }
+        //设置当前画布宽度为设备宽度
         function setcanvassize(){
             var pagewidth=document.documentElement.clientWidth;
             var pageheight=document.documentElement.clientHeight;  
