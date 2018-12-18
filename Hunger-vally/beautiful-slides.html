@@ -24,10 +24,10 @@
             <span></span>
             <span></span>
         </nav>
-        <nav>
+        <!-- <nav>
             <span class="slideone">第一种轮播形式</span>
             <span class="slidetwo">第二种轮播形式</span>
-        </nav>
+        </nav> -->
     </div>
 
     <!-- this is for Apple -->
@@ -49,11 +49,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script>
-        $('.slideone').on('click', function () {
-            slide1();
-        })
+        // $('.slideone').on('click', function () {
+        //     slide1();
+        // })
 
-        function slide1() {
+        // function slide1() {
             var $btns = $('.btns>span');
             for (let i = 0; i < $btns.length; i++) {
                 $($btns[i]).on('click', function (e) {
@@ -66,10 +66,10 @@
                     $btns.eq(n).addClass('active').siblings('.active').removeClass('active');
                 })
             }
-        }
-        function slide2(){
+        // }
+        // function slide2(){
 
-        }
+        // }
         function appleslide(){
             var $abtns=$('.apple>nav>span');
             for(let i=0;i<$abtns.length;i++){
