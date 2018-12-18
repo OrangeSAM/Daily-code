@@ -70,8 +70,8 @@
         // function slide2(){
 
         // }
+        var $abtns=$('.apple>nav>span');
         function appleslide(){
-            var $abtns=$('.apple>nav>span');
             for(let i=0;i<$abtns.length;i++){
                 $($abtns[i]).on('click',function(e){
                     let index=$(e.currentTarget).index();
@@ -95,7 +95,7 @@
             return setInterval(()=>{
                 n = n+1;
                 $abtns.eq(n%size).trigger('click');
-            },1500)
+            },3000)
         }
         $('.apple').on('mouseenter',function(){
             window.clearInterval(timer);
