@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apple style slides</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper{
+            width: 600px;
+            height: 480px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 30px;
+            box-shadow: 0 0 3px #AAAAAA;
+            border-radius: 3px; 
+        } 
+        .slides{
+            width: 1800px;
+        }
+        .slides>div {
+            float: left;
+        }
+        .slides>div>img {
+            width: 600px;
+            height: 450px;
+        }
+        
+        nav{
+            text-align: center;
+        }
+        nav span{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: lightgray;
+            border-radius: 50%;
+            transition: all 0.5s;
+        }
+        nav span.active{
+            box-shadow: 0 0 5px #8a8a8a;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="slides clearfix">
+            <div><img src="./img/T2.png" alt=""></div> 
+            <!-- 给 slides>div>img{width:60%}外层div宽度为800原因 因为图片原尺寸为800(X) 但不理解为什么图片宽度缩小了 父div不跟着缩小 -->
+            <!-- 因为一开始设置最外层wrapper宽度为800，所以slides继承了，父div也继承了所以是800px -->
+            <div><img src="./img/R1-blue.png" alt=""></div>
+            <div><img src="./img/Pro2s-red.png" alt=""></div>
+        </div>
+        <nav>
+            <span></span>
+            <span></span>
+            <span class="active"></span>
+        </nav>
+    </div>
+</body>
+
+</html>
