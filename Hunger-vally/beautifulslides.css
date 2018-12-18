@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    background: url(./img/1.png) repeat;
+}
 .clearfix::after {
     content: '';
     display: block;
@@ -11,7 +13,7 @@
 
 .wrapper {
     width: 600px;
-    height: 550px;
+    height: 490px;
     overflow: hidden;
     margin: 0 auto;
     margin-top: 30px;
@@ -59,12 +61,11 @@ nav {
     border-radius: 4px;
     box-shadow: 0 0 3px #AAAAAA;
     overflow: hidden;
-    background:url(.img/panel.jpg) repeat-x bottom center #f5f5f5;
+    background:url(./img/panel.jpg) repeat-x bottom center #ffffff;
 }
 .aslides{
     width: 3680px;
     transition: all 0.5s;
-
 }
 .aslides>img{
     float: left;

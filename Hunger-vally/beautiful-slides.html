@@ -51,20 +51,18 @@
     <script>
         $('.slideone').on('click', function () {
             slide1();
-            console.log(1);
         })
 
         function slide1() {
             var $btns = $('.btns>span');
             for (let i = 0; i < $btns.length; i++) {
                 $($btns[i]).on('click', function (e) {
-                    var index = $(e.currentTarget).index();
-                    var p = index * -600;
-                    console.log(p);
+                    let index = $(e.currentTarget).index();
+                    let p = index * -600;
                     $('.slides').css({
                         "transform": "translateX(" + p + "px)"
                     })
-                    var n = index;
+                    let n = index;
                     $btns.eq(n).addClass('active').siblings('.active').removeClass('active');
                 })
             }
@@ -72,6 +70,21 @@
         function slide2(){
 
         }
+        function appleslide(){
+            var $abtns=$('.apple>nav>span');
+            for(let i=0;i<$abtns.length;i++){
+                $($abtns[i]).on('click',function(e){
+                    let index=$(e.currentTarget).index();
+                    let p=index * -920;
+                    $('.aslides').css({
+                        "transform":"translateX("+ p +"px)"
+                    })
+                    let n=index;
+                    $abtns.eq(n).addClass('active').siblings('.active').removeClass('active');
+                })
+            }
+        }
+        appleslide();
     </script>
 </body>
 
