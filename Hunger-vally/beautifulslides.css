@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wrapper {
+    width: 600px;
+    height: 550px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 30px;
+    box-shadow: 0 0 3px #AAAAAA;
+    border-radius: 3px;
+}
+
+.slides {
+    width: 1800px;
+    transition: all .5s;
+}
+
+.slides>div {
+    float: left;
+}
+
+.slides>div>img {
+    width: 600px;
+    height: 450px;
+}
+
+nav {
+    text-align: center;
+}
+
+.btns span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: lightgray;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+
+.btns span.active {
+    box-shadow: 0 0 5px #8a8a8a;
+    transform: scale(1.02);
+}
+
+/* this is for Apple */
+.apple{
+    width: 920px;
+    margin: 50px auto;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    box-shadow: 0 0 3px #AAAAAA;
+    overflow: hidden;
+    background:url(.img/panel.jpg) repeat-x bottom center #f5f5f5;
+}
+.aslides{
+    width: 3680px;
+    transition: all 0.5s;
+
+}
+.aslides>img{
+    float: left;
+    width: 920px;
+    height: 400px;
+}
+.apple nav{
+    font-size: 0;
+}
+.apple nav span{
+    display: inline-block;
+    width: 60px;
+    height: 45px;
+    background-color: white;
+    border-left:1px solid lightgrey;
+    border-right: 1px solid lightgray; 
+    position: relative;
+}
+.apple nav span::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 38%;
+    border-width: 8px;
+    border-style: dashed dashed solid;
+    border-color: white transparent transparent;
+}
+.apple nav span.active{
+    box-shadow: 0 0 20px 10px #d5d5d5 inset;
+}
+.apple nav span img{
+    width: 24px;
+    position: relative;
+    top: 26%;
+}

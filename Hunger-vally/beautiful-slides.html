@@ -6,63 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Apple style slides</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .clearfix::after {
-            content: '';
-            display: block;
-            clear: both;
-        }
-
-        .wrapper {
-            width: 600px;
-            height: 550px;
-            overflow: hidden;
-            margin: 0 auto;
-            margin-top: 30px;
-            box-shadow: 0 0 3px #AAAAAA;
-            border-radius: 3px;
-        }
-
-        .slides {
-            width: 1800px;
-            transition: all .5s;
-        }
-
-        .slides>div {
-            float: left;
-        }
-
-        .slides>div>img {
-            width: 600px;
-            height: 450px;
-        }
-
-        nav {
-            text-align: center;
-        }
-
-        .btns span {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: lightgray;
-            border-radius: 50%;
-            transition: all 0.5s;
-        }
-
-        .btns span.active {
-            box-shadow: 0 0 5px #8a8a8a;
-            transform: scale(1.02);
-        }
-    </style>
+    <link rel="stylesheet" href="./beautifulslides.css">      
 </head>
 
 <body>
+    <!-- this is for Smartisan -->
     <div class="wrapper">
         <div class="slides clearfix">
             <div><img src="./img/T2.png" alt=""></div>
@@ -79,6 +27,22 @@
         <nav>
             <span class="slideone">第一种轮播形式</span>
             <span class="slidetwo">第二种轮播形式</span>
+        </nav>
+    </div>
+
+    <!-- this is for Apple -->
+    <div class="apple">
+        <div class="aslides clearfix">
+            <img src="./img/imac.jpg" alt="">
+            <img src="./img/macbook.jpg" alt="">
+            <img src="./img/iphone.jpg" alt="">
+            <img src="./img/info.jpg" alt="">
+        </div>
+        <nav>
+            <span class="active"><img src="./img/thumb_imac.png" alt=""></span>
+            <span><img src="./img/thumb_macbook.png" alt="" style="transform:translateX(1.5)"></span>
+            <span><img src="./img/thumb_iphone.png" alt=""></span>
+            <span><img src="./img/thumb_about.png" alt=""></span>
         </nav>
     </div>
 
@@ -106,7 +70,7 @@
             }
         }
         function slide2(){
-            
+
         }
     </script>
 </body>
