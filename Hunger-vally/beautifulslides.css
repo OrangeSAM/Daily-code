@@ -13,7 +13,7 @@ body{
 
 .wrapper {
     width: 600px;
-    height: 490px;
+    height: 476px;
     overflow: hidden;
     margin: 0 auto;
     margin-top: 30px;
@@ -46,6 +46,7 @@ nav {
     background-color: lightgray;
     border-radius: 50%;
     transition: all 0.5s;
+    cursor: pointer;
 }
 
 .btns span.active {
@@ -83,6 +84,7 @@ nav {
     border-left:1px solid lightgrey;
     border-right: 1px solid lightgray; 
     position: relative;
+    cursor: pointer;
 }
 .apple nav span::after{
     content: '';
