@@ -85,6 +85,24 @@
             }
         }
         appleslide();
+        
+        //automatic slides feature
+        var n=0;
+        var size=$abtns.length;
+        $abtns.eq(n%size).trigger('click');
+        var timer=settimer();
+        function settimer() { 
+            return setInterval(()=>{
+                n = n+1;
+                $abtns.eq(n%size).trigger('click');
+            },1500)
+        }
+        $('.apple').on('mouseenter',function(){
+            window.clearInterval(timer);
+        });
+        $('.apple').on('mouseleave',function(){
+            timer=settimer();
+        })
     </script>
 </body>
 
