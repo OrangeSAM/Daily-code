@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #wrapper div {
+        #layer {
             display: none;
         }
     </style>
@@ -18,6 +18,8 @@
         <button id="click">click here</button>
         <div id="layer">i am a float layer</div>
     </div>
+        
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script>
@@ -42,10 +44,11 @@
         //方方工作第一年的方案，除基础效果外，点击浮层 浮层不会消失了
 
         // $('#click').on('click', function () {
+        //     console.log(11)
         //     $('#layer').show();
         //     //节省内存方案，只在浮层显示之后再创建一次性的监听
         //     $(document).one('click', function () {
-        //         console.log(11);
+        //         console.log(22);
         //         $('#layer').hide();
         //     })
         // })
@@ -55,24 +58,36 @@
         // $('#wrapper').on('click', function (e) {
         //     e.stopPropagation();
         // })
+        // $('#click').on('click', function () {
+        //     $('#layer').show();
+        //     console.log('show');
+        //     setTimeout(() => {
+        //         console.log('添加one click')
+        //         console.log('****************')
+        //         $(document).one('click',function(){
+        //             console.log('我觉得这里不会执行');
+        //             $('#layer').hide();
+        //             console.log('----------------')
+        //         })
+        //     }, 0);
+        // })
+        // //settimeout是异步的，会在捕获冒泡机制之后执行
+        // $(document).on('click',function(){
+        //     console.log('clicK事件走到了document');
+        // })
 
-        $('#click').on('click', function () {
-            $('#layer').show();
-            console.log('show');
-            setTimeout(() => {
-                console.log('添加one click')
-                console.log('****************')
-                $(document).one('click',function(){
-                    console.log('我觉得这里不会执行');
-                    console.log('hide');
-                    $('#layer').hide();
-                    console.log('----------------')
-                })
-            }, 0);
+        //但是会有一个bug,如果一直点击click来实现show hide
+        //在第二次点击click的时候，因为留有上一次保存的hide(),
+        //所以这一次的点击会让show 和 hide()同时进行，即又成功地实现了第一次的bug
+
+        $('#click').on('click',function () {
+            $('#layer').toggle();
         })
-        //settimeout是异步的，会在捕获冒泡机制之后执行
-        $(document).on('click',function(){
-            console.log('clicK事件走到了document');
+        $('#wrapper').on('click',function (e) {
+            e.stopPropagation();
+        })
+        $(document).on('click',function () {  
+            $('#layer').hide();
         })
     </script>
 </body>
