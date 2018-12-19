@@ -61,13 +61,16 @@
             console.log('show');
             setTimeout(() => {
                 console.log('添加one click')
+                console.log('****************')
                 $(document).one('click',function(){
                     console.log('我觉得这里不会执行');
                     console.log('hide');
                     $('#layer').hide();
+                    console.log('----------------')
                 })
             }, 0);
         })
+        //settimeout是异步的，会在捕获冒泡机制之后执行
         $(document).on('click',function(){
             console.log('clicK事件走到了document');
         })
