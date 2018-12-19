@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>float layer</title>
+    <title>Document</title>
+    <style>
+        #wrapper div {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="wrapper" class="wrapper">
-        <button id="clickhere">click here</button>
-        <div id="popover" class="popover" style="display:none">
-            <input type="checkbox">float layer
-        </div>
+    <div id="wrapper">
+        <button id="click">click here</button>
+        <div id="layer">i am a float layer</div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script>
-        $("#clickhere").on('click',function () {  
-            $("#popover").show();
+        // click.addEventListener('click',function () {
+        //     layer.style.display='block';
+        // })
+        // document.addEventListener('click',function(){
+        //     layer.style.display='none';
+        // },true)
+        //demo version 
+        //实现点击click,显示浮层，点击别处隐藏浮层，但这里别处包括了浮层本身，而且点击click不能隐藏浮层
+
+        // click.addEventListener('click',function () {
+        //     layer.style.display='block';
+        // })
+        // wrapper.addEventListener('click',function(e){
+        //     e.stopPropagation();
+        // })
+        // document.addEventListener('click',function(){
+        //     layer.style.display='none';
+        // })
+        //方方工作第一年的方案，除基础效果外，点击浮层 浮层不会消失了
+
+        // $('#click').on('click', function () {
+        //     $('#layer').show();
+        //     //节省内存方案，只在浮层显示之后再创建一次性的监听
+        //     $(document).one('click', function () {
+        //         console.log(11);
+        //         $('#layer').hide();
+        //     })
+        // })
+        // //如果注释掉下面这段，还是犯了和最开始一样的错误，
+        // //即给按钮添加完click事件后，由于冒泡机制的作用，
+        // //同时也给document对象添加了监听事件，且立即执行了
+        // $('#wrapper').on('click', function (e) {
+        //     e.stopPropagation();
+        // })
+
+        $('#click').on('click', function () {
+            $('#layer').show();
+            console.log('show');
             setTimeout(() => {
+                console.log('添加one click')
                 $(document).one('click',function(){
-                    $("#popover").hide();
+                    console.log('我觉得这里不会执行');
+                    console.log('hide');
+                    $('#layer').hide();
                 })
             }, 0);
         })
+        $(document).on('click',function(){
+            console.log('clicK事件走到了document');
+        })
     </script>
 </body>
+
 </html>
