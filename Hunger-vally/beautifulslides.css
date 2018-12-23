@@ -80,7 +80,7 @@ nav {
     display: inline-block;
     width: 60px;
     height: 45px;
-    background-color: white;
+    background-color: #ececec;
     border-left:1px solid lightgrey;
     border-right: 1px solid lightgray; 
     position: relative;
@@ -94,10 +94,13 @@ nav {
     left: 38%;
     border-width: 8px;
     border-style: dashed dashed solid;
-    border-color: white transparent transparent;
+    border-color: #ececec transparent transparent;
 }
 .apple nav span.active{
     box-shadow: 0 0 20px 10px #d5d5d5 inset;
+}
+.apple nav span.active::after{
+    border-color: white transparent transparent;
 }
 .apple nav span img{
     width: 24px;
