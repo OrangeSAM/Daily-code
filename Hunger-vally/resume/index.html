@@ -29,9 +29,10 @@
             width: 1000px;
             height: 500px;
             border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.19), 0 6px 10px rgba(0,0,0,0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.25);
         }
-        .swiper-container img{
+
+        .swiper-container img {
             width: 1000px;
             height: 500px;
         }
@@ -195,8 +196,21 @@
         </div>
     </section>
 
+    <section id="messages">
+        <h2>留言</h2>
+        <ul id="message-list">
+
+        </ul>
+        <form action="">
+            <input type="text" name="owner">
+            <input type="text" name="content">
+            <input type="submit" name="" id="">
+        </form>
+    </section>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.0/dist/av-min.js"></script>
     <script>
         //setTimeout(function () {
         //    sitewelc.classList.remove('active');
@@ -331,8 +345,40 @@
                 prevEl: '.swiper-button-prev',
             },
         })
+        // leancloud
+        // var {
+        //     Query,
+        //     User
+        // } = AV;
+        // //AV.init('appId', 'appKey');
+
+        var APP_ID = 'caqhKIo7XAUfUBR2CM9R2J0Y-gzGzoHsz';
+        var APP_KEY = 'qFYXhtt6yn12nlK3b7G5Q68G';
+        //var AV = require('leancloud-storage');
+
+        AV.init({
+            appId: APP_ID,
+            appKey: APP_KEY
+        });
+
+        var myMessage = AV.Object.extend('message');
+        var saveMessages = new myMessage();
+
+        let messageform = document.querySelector('#messages');
+        messageform.addEventListener('submit', function (e) {
+            e.preventDefault();
+            let owner=messageform.querySelector('input[name=owner]').value;
+            let content=messageform.querySelector('input[name=content]').value;
+            saveMessages.save({
+                user:owner,
+                words: content
+            }).then(function (object) {
+                //alert('LeanCloud Rocks!');
+            })
+        })
     </script>
 </body>
+
 <!-- 自己想到的愚蠢思路是直接从页面顶部开始算就好了，
     let n=30;
     let duration=600/n;
