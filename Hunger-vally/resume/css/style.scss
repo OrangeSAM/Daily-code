@@ -27,6 +27,21 @@ li {
     list-style: none;
 }
 
+.icon {
+    width: 30px;
+    height: 30px;
+    vertical-align: -0.15em;
+    fill: white;
+    overflow: hidden;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.icon:hover {
+    background-color: #CF5D5F;
+}
+
 @mixin centerh2 {
     text-align: center;
     font-size: 34px;
@@ -233,6 +248,12 @@ main {
 
         >div:first-child {
             margin-right: 10%;
+
+            img {
+                border-radius: 4px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19),
+                    0 6px 10px rgba(0, 0, 0, 0.25);
+            }
         }
 
         >div:nth-child(2) {
@@ -366,8 +387,6 @@ main {
     }
 }
 
-
-
 .portfolio {
     max-width: 1000px;
     margin: 0 auto;
@@ -375,69 +394,101 @@ main {
     margin-top: 60px;
     margin-bottom: 100px;
 
-    h2{
+    h2 {
         @include centerh2;
-
     }
 
-    nav {
-        display: inline-block;
-        //这里为什么要加上inline-block
-        //内部的div才会继承他的宽度
-        //答案，因为navblock时继承section的宽度，所以要通过inline-block使其收缩
+    // nav {
+    //     display: inline-block;
+    //     //这里为什么要加上inline-block
+    //     //内部的div才会继承他的宽度
+    //     //答案，因为navblock时继承section的宽度，所以要通过inline-block使其收缩
+    //     text-align: center;
+    //     ol {
+    //         margin: 0;
+    //         padding: 0;
+    //         display: inline-block;
+
+    //         li {
+    //             float: left;
+    //             cursor: pointer;
+    //         }
+
+    //         li:not(:first-child) {
+    //             margin-left: 40px;
+    //         }
+    //     }
+
+    //     >div {
+    //         height: 5px;
+    //         background-color: white;
+    //         border-radius: 2px;
+    //         margin-top: 5px;
+    //         margin-bottom: 28px;
+
+    //         >div {
+    //             height: 5px;
+    //             background-color: $color;
+    //             border-radius: 2px;
+    //             transition: all 0.3s;
+    //         }
+
+    //         >div.state1 {
+    //             width: 25%;
+    //         }
+
+    //         >div.state2 {
+    //             width: 30%;
+    //             margin-left: 25%;
+    //         }
+
+    //         >div.state3 {
+    //             width: 35%;
+    //             margin-left: 65%;
+    //         }
+    //     }
+    // }
+
+    // .reels-work {
+    //     height: 597px;
+    //     position: relative;
+
+    //     >div {
+    //         position: absolute;
+    //     }
+    // }
+    .swiper-container {
+        width: 1000px;
+        height: 500px;
+        border-radius: 4px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.25);
+
+        img {
+            width: 1000px;
+            height: 500px;
+        }
+    }
+}
+
+#messages {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    h2 {
+        @include centerh2;
+    }
+
+    form {
         text-align: center;
-
-        ol {
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-
-            li {
-                float: left;
-                cursor: pointer;
-            }
-
-            li:not(:first-child) {
-                margin-left: 40px;
-            }
-        }
-
-        >div {
-            height: 5px;
-            background-color: white;
-            border-radius: 2px;
-            margin-top: 5px;
-            margin-bottom: 28px;
-
-            >div {
-                height: 5px;
-                background-color: $color;
-                border-radius: 2px;
-                transition: all 0.3s;
-            }
-
-            >div.state1 {
-                width: 25%;
-            }
-
-            >div.state2 {
-                width: 30%;
-                margin-left: 25%;
-            }
-
-            >div.state3 {
-                width: 35%;
-                margin-left: 65%;
-            }
-        }
     }
 
-    .reels-work {
-        height: 597px;
-        position: relative;
-
-        >div {
-            position: absolute;
+    ul {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #f4f4f4;
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
         }
     }
 }
