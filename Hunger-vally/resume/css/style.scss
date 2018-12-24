@@ -480,6 +480,10 @@ main {
 
     form {
         text-align: center;
+        input{
+            outline: none;
+            margin-left: 5px;
+        }
     }
 
     ul {
