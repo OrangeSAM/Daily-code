@@ -10,11 +10,11 @@ function writeCode(prev, code, fn2) {
             window.clearInterval(codeinterval);
             fn2 && fn2.call(); //写博客记得介绍这个
         }
-    });
+    }, 20);
 }
 
 function writeMarkdown(markdown, fn) {
-    let dompaper = document.querySelector('#paper');
+    let dompaper = document.querySelector('#intro');
     let n = 0;
     let markdownInterval = setInterval(() => {
         n += 1;
@@ -23,12 +23,13 @@ function writeMarkdown(markdown, fn) {
         if (n >= markdown.length) {
             window.clearInterval(markdownInterval);
             fn && fn.call();
+            //用这个实现去除报null错的原理是不是，他先判断fn 是不是false，如果是 那后面的也不会执行了，也就不会报错  
         }
-    }, 0);
+    }, 20);
 }
 
-var markdowncontent = `
-# 自我介绍
+var markdowncontent =
+    `# 自我介绍
 我叫刘强东
 1998 年 1 月出生
 瑶湖女子学院毕业
@@ -69,7 +70,7 @@ body{
 }
 html{
     background:rgb(222,222,222);
-
+    font-size:14px;
 }
 
 /* 接下来我需要一点代码高亮 */
@@ -100,27 +101,31 @@ html{
     right:0;
     width:50%;
     height:100%;
-    background:lightgray;
+    background:#c5c5c5;
 }
 `;
 
 var result2 = `
-#paper{
-    /* width:100px;
-      height:100px;
-      background-color:green;
-*/}`;
+#intro{
+    background-color:rgb(222,222,222);
+    box-shadow:0 0 2px 3px rgb(222,222,222);
+}
+
+`;
 
 writeCode('', result, () => {
     createPaper(() => {
-        writeCode(result, result2,writeMarkdown(markdowncontent));
+        writeCode(result, result2, writeMarkdown(markdowncontent));
     });
 });
 
 
 function createPaper(fn) {
-    var paper = document.createElement('pre');
+    var paper = document.createElement('div');
     paper.id = 'paper';
+    var content = document.createElement('pre');
+    content.id = 'intro';
+    paper.appendChild(content);
     document.body.appendChild(paper);
     fn && fn.call(null);
 }
