@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sign_in</title>
+</head>
+
+<body>
+    <form action="" id="signInForm">
+        <input type="text" placeholder="请输入邮箱" name="email">
+        <input type="password" placeholder="请输入密码" name="password">
+        <input type="submit" value="登录">
+    </form>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        let hash = {}
+        $('#signInForm').on('submit', (e) => {
+            e.preventDefault();
+            let need = ['email', 'password'];
+            need.forEach((w) => {
+                let value = $('#signInForm').find(`[name=${w}]`).val();
+                hash[w] = value;
+            })
+            $.post('/sign_in', hash)
+                //不懂为什么这里是then
+            .then(() => {
+                console.log('登录成功');
+                window.location.href='/';
+            }, (request) => {
+                console.log(request);
+            });
+        })
+    </script>
+</body>
+
+</html>

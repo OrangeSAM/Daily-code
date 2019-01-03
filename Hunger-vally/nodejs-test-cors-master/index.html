@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>xhr test</title>
+</head>
+
+<body>
+  <button id="myButton">点我</button>
+  <form action="https://www.baidu.com" method="GET">
+    <input type="password" name="password">
+    <input type="submit">
+  </form>
+  <h1>你的密码是：__password__</h1>
+  <!-- <script src="./main.js"></script> -->
+  <script>
+    window.jQuery ={} 
+    // function (nodeOrSelector) {
+    //   let nodes = {}
+    //   nodes.addClass = function () {}
+    //   nodes.html = function () {}
+    //   return nodes;
+    // }
+    // 不写上面报错的原因是 ajax如下写是挂载在jquery对象上的一个属性，
+    //如果jquery对象没有声明，那ajax 也无处安放
+    window.jQuery.ajax = function ({path,method,body}){
+      return new Promise(function (resolve, reject) {
+        let xhr = new XMLHttpRequest();
+        xhr.open(method, path);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              resolve.call(undefined, xhr.responseText);
+            } else if (xhr.status >= 400) {
+              reject.call(undefined, xhr.responseText);
+            }
+          }
+        };
+        xhr.send(body);
+      });
+    };
+
+
+    myButton.addEventListener('click', function () {
+      window.jQuery.ajax({
+        path: "/xx",
+        method: 'get',
+        body:null
+      }).then(
+        (text) => {
+          console.log(text);
+          console.log('success')
+        },
+        (request) => {
+          console.log(request);
+          console.log('fail');
+        }
+      );
+    })
+  </script>
+</body>
+
+</html>
