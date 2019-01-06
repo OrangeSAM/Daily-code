@@ -25,7 +25,10 @@ var server = http.createServer(function (request, response) {
 
   if (path === '/') {
     let string = fs.readFileSync('./index.html', 'utf8')
-    let cookies = request.headers.cookie.split('; ');
+    let cookies='';
+    if(request.headers.cookie){
+      cookies= request.headers.cookie.split('; ');
+    } 
     console.log(cookies);
     let hash = {}
     for (let i = 0; i < cookies.length; i++) {
