@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>margin 合并</title>
+    <style>
+        .parent {
+            outline: 10px solid brown;
+            /* outine不会占据空间，故可用作调试用 */
+            /* border: 10px solid brown; */
+            /* padding: 1px solid; */
+            /* overflow:hidden */
+            /* 需要有东西挡在父子的margin之间 */
+            /* 不只是盒模型的属性，是父元素的内容也行 */
+        }
+
+        .child {
+            border: 10px solid green;
+            background-color: beige;
+            /* height: 200px;
+            line-height: 200px; */
+            /* 这两者都会撑开子元素高度且进一步撑开父div的高度 */
+            /* 但唯一不同是在line-height 在只有文本内容时使得文本呢内容垂直居中 */
+            margin: 20px;
+        }
+
+        .kkk {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .third {
+            border: 1px solid;
+            font-size: 20px;
+        }
+
+        span {
+            border: 1px solid brown;
+            display: inline-block;
+            width: 5em;
+            text-align: justify;
+            line-height: 20px;
+            overflow: hidden;
+            height: 20px;
+        }
+
+        span::after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            border: 1px solid black
+        }
+
+        .fourth {
+            border: 1px solid;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 如果父元素没有什么东西挡住margin,儿子元素的margin就会和父元素margin合并 -->
+    <div class="parent">
+        <div class="child">
+            这是儿子
+        </div>
+    </div>
+    <div class="kkk">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat accusamus qui aliquam ullam vel
+        quo nulla?
+        Necessitatibus ipsa quibusdam corporis iste ipsam quo quam cumque? Quis consectetur dolor illo repellendus.
+    </div>
+    <div class="third">
+        <span>姓名</span><br><span>联系方式</span>
+    </div>
+    <div class="fourth">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil doloremque possimus porro praesentium dicta
+        repellat, asperiores ullam! Illo laboriosam dolor, ratione eaque a harum quasi voluptatibus quos obcaecati
+        similique adipisci.
+    </div>
+</body>
+
+</html>
