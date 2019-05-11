@@ -1,0 +1,132 @@
+.guoqing{ background:url(images/guoqingBG1.jpg) repeat-x top;}
+.guoqing2{ background:url(images/guoqingBG2.jpg) no-repeat top center; padding-top:44px;}
+.newyear
+{
+	background: url(images/2012newyear.jpg) no-repeat center top;
+	padding-top: 65px;
+}
+
+table {
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+
+}
+.Title {
+	font-family: "Times New Roman", "Times", "serif";
+	font-size: 12px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+
+}
+.Title:link {
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.Title:visited {
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.Title:hover {
+	color: #FF0000;
+	text-decoration: none;
+
+}
+.TitleOA:link {
+	font-size: 11pt;
+	text-decoration: none;
+	color: #003399;
+}
+.TitleOA:visited {
+	font-size: 11pt;
+	text-decoration: none;
+	color: #003399;
+}
+.TitleOA:hover {
+	color: #00FF00;
+	text-decoration: underline;
+	font-size: 11pt;
+
+}
+
+.MainOA:link {
+	font-size: 11pt;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.MainOA:visited {
+	font-size: 11pt;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.MainOA:hover {
+	color: #00FF00;
+	text-decoration: underline;
+	font-size: 11pt;
+
+}
+
+
+a:link {
+	font-size: 12px;
+}
+a:visited {
+	font-size: 12px;
+}
+a:hover {
+	font-size: 12px;
+	color: #009900;
+}
+
+.GlowFont9 {
+	width=100%;
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+}
+.Big {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bolder;
+	color: #000000;
+	text-decoration: none;
+}
+.BlueLink_NoUnder {
+	font-size: 12px;
+	color: #0033CC;
+	text-decoration: none;
+}
+.BlueLink_NoUnder:link {
+	font-size: 12px;
+	color: #0033CC;
+	text-decoration: none;
+}
+.BlueLink_NoUnder:visited {
+	font-size: 12px;
+	text-decoration: none;
+	color: #0033CC;
+}
+.BlueLink_NoUnder:hover {
+	font-size: 12px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.Btn
+{
+	font-size: 14px;
+	color: #ffffff;
+	background-color: #f80000;
+	text-decoration: none;
+}
+.CopyRight {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+BODY
+{
+	margin: 0px;
+	font-size: 12px;
+}
