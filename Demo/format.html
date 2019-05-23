@@ -12,14 +12,38 @@
     </style>
 </head>
 <body>
+        <!-- // 获取代办列表
+            export function getTodoTask (params = {}) {
+            return fetch({
+                url: '/api/base/data/export/todo/common/todoTask',
+                params
+            })
+            }
+        -->
+        
     <input type="text" name="" id="" class="myInput">
     <button id="transfer">转换</button>
     <script>
         let transferBtn = document.getElementById('transfer')
-        function transfer () {
-            console.log(111)
+        let tobeTransfered = document.getElementsByClassName('myInput')
+        function transfer (content) {
+            let commentStartIndex = 3
+            let commentEndIndex = content.indexOf('接口')
+            let comment = content.slice(3, commentEndIndex)
+            console.log(commentStartIndex, commentEndIndex)
+            console.log(comment)
+            let url = ''
+            let template = `
+                // ${comment}
+                export function    () {
+                    return fetch({
+                        url: '/api/base/data/${url}'
+                    })
+                }
+            `
+            console.log(template)
         }
-        transferBtn.addEventListener('click', transfer)
+        transferBtn.addEventListener('click', () => {transfer(tobeTransfered[0].value)}, false)
     </script>
 </body>
 </html>
