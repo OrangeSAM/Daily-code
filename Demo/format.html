@@ -40,6 +40,7 @@
             let urlStartIndex = content.indexOf('/')
             let urlEndIndex =  content.indexOf('参数')
             let url = content.slice(urlStartIndex, urlEndIndex - 1)
+            // 请求方法获取
             let template = `
                 // ${comment}
                 export function () {
