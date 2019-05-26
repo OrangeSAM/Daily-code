@@ -6,62 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
+      * {
+        box-sizing: border-box;
+        font-family: initial;
+      }
       body {
         margin: 0;
         padding: 0;
+        background-color: beige;
       }
       textarea {
         resize: none;
         outline: none;
       }
       .wrapper {
+        width: 800px;
+        height: 300px;
+        border: 1px solid;
+        border-radius: 4px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -150px;
+        margin-left: -400px;
+      }
+      .wrapper .tool {
+        height: 25px;
+        background-color: lavender;
+        display: flex;
+        justify-content: space-around;
+      }
+      .wrapper .editArea {
+        height: 273px;
         display: flex;
         justify-content: center;
-        align-content: center;
-        background-color: antiquewhite;
-        width: 600px;
-        height: 300px;
+        align-items: center;
+      }
+      .wrapper .toBeTransfered,
+      .wrapper .transfered {
+        width: 50%;
+        height: 100%;
+      }
+      .toBeTransfered textarea,
+      .transfered textarea {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
         border-radius: 4px;
-        margin: 0 auto;
       }
       .wrapper #transfer {
-        height: 30px;
-        line-height: 30px;
-      }
-      .wrapper .myInput {
       }
     </style>
   </head>
   <body>
-    <!-- // 获取代办列表
-            export function getTodoTask (params = {}) {
-            return fetch({
-                url: '/api/base/data/export/todo/common/todoTask',
-                params
-            })
-            }
-        -->
-    <!-- 
-            功能：获取老师分组
-            接口：GET /analysis/view/tutor/teacher
-            参数：schoolId gradeId
-         -->
-
     <div class="wrapper">
-      <div>
-        <!-- 待转换区域 -->
-        <textarea name="" id="" class="myInput"></textarea>
+      <div class="tool">
+        <!-- 工具栏 -->
+        <span id="transfer">转换</span>
+        <span id="copyto">复制</span>
       </div>
-      <button id="transfer">转换</button>
-      <div>
-        <!-- 转换后的内容 -->
-        <textarea name="" id=""></textarea>
+      <div class="editArea">
+        <div class="toBeTransfered">
+          <!-- 待转换区域 -->
+          <textarea name="" id="" class="tobeArea"></textarea>
+        </div>
+        <div class="transfered">
+          <!-- 转换后的内容 -->
+          <textarea name="" id="" class="doneArea"></textarea>
+        </div>
       </div>
     </div>
 
     <script>
+      // export function getTodoTask (params = {}) {
+      // return fetch({
+      //     url: '/api/base/data/export/todo/common/todoTask',
+      //     params
+      //   })
+      // }
+
+      // 功能：获取老师分组
+      // 接口：GET /analysis/view/tutor/teacher
+      // 参数：schoolId gradeId
       let transferBtn = document.getElementById("transfer");
-      let tobeTransfered = document.getElementsByClassName("myInput");
+      let tobeTransfered = document.getElementsByClassName("tobeArea");
       function transfer(content) {
         // 注释获取
         let commentStartIndex = 3;
@@ -73,14 +101,15 @@
         let url = content.slice(urlStartIndex, urlEndIndex - 1);
         // 请求方法获取
         let template = `
-                // ${comment}
-                export function () {
-                  return fetch({
-                    url: '/api/base/data${url}'
-                  })
-                }
+// ${comment}
+export function () {
+  return fetch({
+  url: '/api/base/data${url}'
+  })
+}
             `;
-        console.log(template);
+        let doneArea = document.getElementsByClassName("doneArea");
+        doneArea[0].innerText = template;
       }
       transferBtn.addEventListener(
         "click",
