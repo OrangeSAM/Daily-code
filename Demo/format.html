@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>format tool</title>
+    <link
+      href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.css"
+      rel="stylesheet"
+    />
     <style>
       * {
         box-sizing: border-box;
@@ -60,7 +68,10 @@
     <div class="wrapper">
       <div class="tool">
         <!-- 工具栏 -->
-        <span id="transfer">转换</span>
+        <button class="button button-3d button-primary button-rounded">
+          <i class="fa fa-thumbs-up" id="transfer">转换</i>
+        </button>
+        <!-- <span id="transfer">转换</span> -->
         <span id="copyto">复制</span>
       </div>
       <div class="editArea">
@@ -99,14 +110,18 @@
         let urlEndIndex = content.indexOf("参数");
         let url = content.slice(urlStartIndex, urlEndIndex - 1);
         // 请求方法获取
-        let template = `
-// ${comment}
-export function () {
+        let methodStartIndex = commentEndIndex + 3;
+        let methodEndIndex = urlStartIndex;
+        let method = content.slice(methodStartIndex, methodEndIndex);
+        method = method === "GET" ? "params" : "data";
+        // 返回值
+        let template = `// ${comment}
+export function ( ${method} = {} ) {
   return fetch({
-  url: '/api/base/data${url}'
+  url:  '/api/base/data${url}',
+  ${method}
   })
-}
-            `;
+}`;
         let doneArea = document.getElementsByClassName("doneArea");
         doneArea[0].innerText = template;
       }
