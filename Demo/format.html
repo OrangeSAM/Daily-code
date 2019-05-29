@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>format tool</title>
     <link
-      href="https://cdn.bootcss.com/hover.css/2.3.1/css/hover-min.css"
-      rel="stylesheet"
-    />
-    <link
       href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.css"
       rel="stylesheet"
     />
@@ -68,10 +64,10 @@
     <div class="wrapper">
       <div class="tool">
         <!-- 工具栏 -->
-        <button class="button button-3d button-primary button-rounded">
+        <!-- <button class="button button-3d button-primary button-rounded">
           <i class="fa fa-thumbs-up" id="transfer">转换</i>
-        </button>
-        <!-- <span id="transfer">转换</span> -->
+        </button> -->
+        <span id="transfer">转换</span>
         <span id="copyto">复制</span>
       </div>
       <div class="editArea">
@@ -98,8 +94,17 @@
       // 功能：获取老师分组
       // 接口：GET /analysis/view/tutor/teacher
       // 参数：schoolId gradeId
+      // 功能：获取老师分组
+      // 接口：GET /analysis/view/tutor/teacher
+      // 参数：schoolId gradeId
       let transferBtn = document.getElementById("transfer");
-      let tobeTransfered = document.getElementsByClassName("tobeArea");
+      let tobeTransferedContent = document.getElementsByClassName("tobeArea");
+      let toBeTransfered = tobeTransferedContent[0].value;
+      function split(content) {
+        if (content.indexOf("功能")) {
+          // 如果有两个接口，那我如何判断第二个接口的开始位置
+        }
+      }
       function transfer(content) {
         // 注释获取
         let commentStartIndex = 3;
@@ -128,7 +133,7 @@ export function ( ${method} = {} ) {
       transferBtn.addEventListener(
         "click",
         () => {
-          transfer(tobeTransfered[0].value);
+          transfer(toBeTransfered);
         },
         false
       );
