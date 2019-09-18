@@ -8,21 +8,37 @@
 
 // 程序内数组等形式无法持久保存添加的任务，需要引进文件系统的概念
 let fs = require("fs");
+
+// 获取命令行中除前面两项路径外的参数
 let argus = process.argv.slice(2);
 
-let readContent = fs.readFileSync("F:\\Code\\Daily-code\\Demo\\todoDb");
-console.log(readContent.toString());
+// 获取命令行的动作
+const action = argus[0];
+
+// 获取数据库中的内容
+let readContent = fs.readFileSync(
+  "F:\\Code\\Daily-code\\Demo\\todoDb",
+  "utf-8"
+);
+// 如果不使用第二个参数即编码格式，可以通过对readContent toString获得，不然就是buffer格式。
+// console.log(readContent);
+
 // 用一个数组来保存添加的任务
-let taskList = [];
-if (argus[0] === "add") {
+let taskList = JSON.parse(readContent);
+
+if (action === "add") {
   taskList.push(argus[1]);
   // 直接存入貌似会有编码上的问题
   // fs.writeFileSync("F:\\Code\\Daily-code\\Demo\\todoDb", argus[1]);
-  fs.writeFileSync("F:\\Code\\Daily-code\\Demo\\todoDb", taskList);
+  fs.writeFileSync(
+    "F:\\Code\\Daily-code\\Demo\\todoDb",
+    JSON.stringify(taskList)
+  );
+  // 序列化，变成数组的样子
 }
-if (argus[0] === "delete") {
+if (action === "delete") {
 }
-if (argus[0] !== "add" && argus[0] !== "delete") {
+if (action !== "add" && argus[0] !== "delete") {
   console.log("oops, it seems the action is wrong");
 }
 console.log(taskList);
