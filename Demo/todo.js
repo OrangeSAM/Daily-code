@@ -8,9 +8,9 @@
 
 // 程序内数组等形式无法持久保存添加的任务，需要引进文件系统的概念
 let fs = require("fs");
-
 // 获取命令行中除前面两项路径外的参数
 let argus = process.argv.slice(2);
+
 // 获取命令行的动作
 const action = argus[0];
 const content = argus[1];
@@ -19,10 +19,21 @@ const dbPath = "F:\\Code\\Daily-code\\Demo\\todoDb";
 let readContent;
 let taskList = [];
 
+fs.readFile(dbPath, "utf-8", function(err, data) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+
 fs.stat(dbPath, function(err, stat) {
+  console.log(1);
   if (err === null) {
+    console.log(stat.isFile());
     // 存在则获取数据库中的内容
     readContent = fs.readFileSync(dbPath, "utf-8");
+    // 用一个数组来保存添加的任务，将字符串数组转为数组
     taskList = JSON.parse(readContent);
 
     if (action === "add") {
@@ -41,40 +52,15 @@ fs.stat(dbPath, function(err, stat) {
       taskList[content - 1][0] = content1;
     }
     fs.writeFileSync(dbPath, JSON.stringify(taskList));
+    console.log(taskList);
   } else if (err.code === "ENOENT") {
     // 不存在则新建立数据库
-    // fs.writeFileSync(dbPath, "");
     if (action === "add") {
       taskList.push([content, false]);
       fs.writeFileSync(dbPath, JSON.stringify(taskList));
+      // 序列化，变成数组的样子
     }
   } else {
     console.log("oops, something wrong, please try again");
   }
 });
-
-// 获取数据库中的内容
-// let readContent = fs.readFileSync(
-//   dbPath,
-//   "utf-8"
-// );
-// 如果不使用第二个参数即编码格式，可以通过对readContent toString获得，不然就是buffer格式。
-// console.log(readContent);
-
-// 用一个数组来保存添加的任务，将字符串数组转为数组
-// let taskList = JSON.parse(readContent);
-
-// if (action === "add") {
-//   taskList.push(argus[1]);
-// 直接存入貌似会有编码上的问题
-// fs.writeFileSync(dbPath, argus[1]);
-//   fs.writeFileSync(
-// dbPath,
-// JSON.stringify(taskList)
-//   ); // 序列化，变成数组的样子
-// }
-// if (action === "delete") {
-// }
-// if (action !== "add" && argus[0] !== "delete") {
-//   console.log("oops, it seems the action is wrong");
-// }
