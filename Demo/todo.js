@@ -7,7 +7,9 @@
 // Node.js 以process.argv的形式把每一个运行中程序的该数组暴露出来。
 
 // 程序内数组等形式无法持久保存添加的任务，需要引进文件系统的概念
-let fs = require("fs");
+const fs = require("fs");
+// 保证数据库文件永远与当前命令文件处于相同路径
+const path = require("path");
 // 获取命令行中除前面两项路径外的参数
 let argus = process.argv.slice(2);
 
@@ -15,10 +17,11 @@ let argus = process.argv.slice(2);
 const action = argus[0];
 const content = argus[1];
 const content1 = argus[2];
-const dbPath = "F:\\Code\\Daily-code\\Demo\\todoDb";
+const dbPath = path.join(__dirname + "/db");
 let readContent;
 let taskList = [];
 
+// 使用fs.readFile判断数据文件是否存在
 fs.readFile(dbPath, "utf-8", function(err, data) {
   if (err) {
     console.log(err);
@@ -27,10 +30,9 @@ fs.readFile(dbPath, "utf-8", function(err, data) {
   }
 });
 
+// 使用fs.stat判断数据文件是否存在
 fs.stat(dbPath, function(err, stat) {
-  console.log(1);
   if (err === null) {
-    console.log(stat.isFile());
     // 存在则获取数据库中的内容
     readContent = fs.readFileSync(dbPath, "utf-8");
     // 用一个数组来保存添加的任务，将字符串数组转为数组
@@ -52,7 +54,7 @@ fs.stat(dbPath, function(err, stat) {
       taskList[content - 1][0] = content1;
     }
     fs.writeFileSync(dbPath, JSON.stringify(taskList));
-    console.log(taskList);
+    displayData(taskList);
   } else if (err.code === "ENOENT") {
     // 不存在则新建立数据库
     if (action === "add") {
@@ -64,3 +66,10 @@ fs.stat(dbPath, function(err, stat) {
     console.log("oops, something wrong, please try again");
   }
 });
+
+function displayData(list) {
+  list.forEach(e => {
+    let map = e[1] === true ? "[X]" : "[-]";
+    console.log(map + "  " + "任务内容" + e[0]);
+  });
+}
