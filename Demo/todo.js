@@ -22,13 +22,17 @@ let readContent;
 let taskList = [];
 
 // 使用fs.readFile判断数据文件是否存在
-fs.readFile(dbPath, "utf-8", function(err, data) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(data);
-  }
-});
+// fs.readFile(dbPath, "utf-8", function(err, data) {
+// if (err) {
+// console.log(err);
+// } else {
+// console.log(data);
+// console.log(2, data);
+// let convertedData = JSON.parse(data);
+// displayData(convertedData);
+// 为什么这里的data会少一个]呢
+// }
+// });
 
 // 使用fs.stat判断数据文件是否存在
 fs.stat(dbPath, function(err, stat) {
@@ -42,7 +46,7 @@ fs.stat(dbPath, function(err, stat) {
       taskList.push([content, false]);
     }
     if (action === "list") {
-      console.log(taskList);
+      displayData(taskList);
     }
     if (action === "delete") {
       taskList.splice(content - 1, 1);
@@ -54,7 +58,9 @@ fs.stat(dbPath, function(err, stat) {
       taskList[content - 1][0] = content1;
     }
     fs.writeFileSync(dbPath, JSON.stringify(taskList));
-    displayData(taskList);
+    if (action !== "list") {
+      displayData(taskList);
+    }
   } else if (err.code === "ENOENT") {
     // 不存在则新建立数据库
     if (action === "add") {
@@ -62,6 +68,7 @@ fs.stat(dbPath, function(err, stat) {
       fs.writeFileSync(dbPath, JSON.stringify(taskList));
       // 序列化，变成数组的样子
     }
+    displayData(taskList);
   } else {
     console.log("oops, something wrong, please try again");
   }
@@ -70,6 +77,6 @@ fs.stat(dbPath, function(err, stat) {
 function displayData(list) {
   list.forEach(e => {
     let map = e[1] === true ? "[X]" : "[-]";
-    console.log(map + "  " + "任务内容" + e[0]);
+    console.log(map + " " + "任务内容：" + e[0]);
   });
 }
