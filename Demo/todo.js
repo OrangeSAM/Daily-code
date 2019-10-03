@@ -21,21 +21,9 @@ const dbPath = path.join(__dirname + "/db");
 let readContent;
 let taskList = [];
 
-// 使用fs.readFile判断数据文件是否存在
-// fs.readFile(dbPath, "utf-8", function(err, data) {
-// if (err) {
-// console.log(err);
-// } else {
-// console.log(data);
-// console.log(2, data);
-// let convertedData = JSON.parse(data);
-// displayData(convertedData);
-// 为什么这里的data会少一个]呢
-// }
-// });
 
 // 使用fs.stat判断数据文件是否存在
-fs.stat(dbPath, function(err, stat) {
+fs.stat(dbPath, function (err, stat) {
   if (err === null) {
     // 存在则获取数据库中的内容
     readContent = fs.readFileSync(dbPath, "utf-8");
