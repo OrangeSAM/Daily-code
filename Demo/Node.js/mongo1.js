@@ -50,3 +50,17 @@ db.workmate.update({ name: "MinJie" }, { sex: 0 });
 print("修改成功");
 
 // 这会导致workmate的记录只有sex: 0了
+// 正确修改需要有完整的数据，这太麻烦。
+// var workmate3 = {
+//   name: "MinJie",
+//   age: 20,
+//   sex: 1,
+//   job: "UI设计",
+//   skill: {
+//     skillOne: "PhotoShop",
+//     SkillTwo: "UI",
+//     SkillThree: "Word+Excel+PPT"
+//   },
+//   regeditTime: new Date()
+// };
+// db.workmate.update({ name: "Minjie" }, workmate3);

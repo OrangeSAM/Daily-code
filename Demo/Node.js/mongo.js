@@ -1,3 +1,5 @@
+// 往数据库中插入数据
+
 // let userName = "sam";
 // let timeStamp = Date.parse(new Date());
 // let jsonDataBase = { loginName: userName, loginTime: timeStamp };
@@ -5,8 +7,10 @@
 // var db = connect("log");
 // db.login.insert(jsonDataBase);
 
-var startTime = new Date().getTime();
+// 往数据库中批量插入数据
+// 循环单个插入 和 单次批量插入
 
+var startTime = new Date().getTime();
 var db = connect("log");
 
 // 循环操作  时间 358ms
