@@ -7,7 +7,7 @@ class Meta {
 
 // 定义商品 Item 类
 class Item extends Meta {
-  int count;
+  int count; // 商品数量属性
   Item(name, price, [this.count = 1]) : super(name, price);
   Item operator +(Item item) =>
       Item(name + item.name, price + item.price * count, count + item.count);
@@ -31,6 +31,12 @@ class ShoppingCart extends Meta with PrintHelper {
   ShoppingCart.withCode({name, this.code})
       : date = DateTime.now(),
         super(name, 0);
+  String get cartInfo {
+    String str = '';
+    bookings.forEach((e) =>
+        str += '${e.name}--${e.price}元--${e.count}个, 共${e.price * e.count}元\t');
+    return str;
+  }
 
   getInfo() => '''
           购物车信息:
@@ -39,8 +45,9 @@ class ShoppingCart extends Meta with PrintHelper {
            优惠码:  ${code ?? '没有'} 
            总价:    $price
            日期:    $date
-           ********* 商品详情 *********
-           
+           >>>>>>>>> 商品详情 <<<<<<<<<<
+           $cartInfo
+           >>>>>>>>> 商品详情 <<<<<<<<<<
           -----------------------------
           ''';
 }
