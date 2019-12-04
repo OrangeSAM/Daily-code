@@ -9,8 +9,8 @@ class Meta {
 class Item extends Meta {
   int count; // 商品数量属性
   Item(name, price, [this.count = 1]) : super(name, price);
-  Item operator +(Item item) =>
-      Item(name + item.name, price + item.price * count, count + item.count);
+  Item operator +(Item item) => Item(name + item.name,
+      count * price + item.price * item.count, count + item.count);
 }
 
 abstract class PrintHelper {
