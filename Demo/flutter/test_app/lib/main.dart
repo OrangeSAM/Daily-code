@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'flutter 底部栏demo',
         theme: ThemeData.light(),
-        home: BottomNavigation());
+        home: BottomNavigation()
+    );
   }
 }
