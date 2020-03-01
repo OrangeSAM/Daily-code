@@ -1,0 +1,16 @@
+<view class="login">
+  <input type="number" 
+        class="phone-number {{numberFocus ? 'shadow' : ''}}" 
+        placeholder="请输入手机号" 
+        bindfocus="phoneFocus" 
+        bindblur="phoneBlur">
+  </input>
+  <view class="code-wrap">
+    <input type="number" class="phone-code" placeholder="请输入验证码"></input>
+    <button bindtap="getCode" class="code-btn">获取验证码</button>
+  </view>
+
+  <view>
+    <button bindtap="login" class="login-btn">登录</button>
+  </view>
+</view>

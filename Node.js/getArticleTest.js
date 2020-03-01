@@ -16,15 +16,6 @@ const getHref = function () {
             })
         }
     }
-    // const tempArr = Object.keys(hrefs)
-    // tempArr.forEach(e => {
-    //     if (hrefs[e].attribs && hrefs[e].attribs['href']) {
-    //         hrefArr.push({
-    //             index: e,
-    //             href: hrefs[e].attribs['href']
-    //         })
-    //     }
-    // })
     // fs.writeFile('hrefJson.json', JSON.stringify(hrefArr))
 }
 
@@ -35,9 +26,10 @@ const saveToPdf = function () {
         });
 
         let i = 0
+        const page = await browser.newPage();
         async function getPage() {
-            const page = await browser.newPage();
             await page.goto(hrefArr[i]['href'], { waitUntil: 'domcontentloaded' });
+            
             let pageTitle
 
             if (hrefArr[i]['href'].includes('weixin')) {
@@ -53,16 +45,17 @@ const saveToPdf = function () {
             let titleb = titlea.replace(/\|/g, "");
             
             await page.pdf({ path: `${i}${titleb}.pdf` });
-
+            console.log(1)
             i++
-
-            if (i < hrefArr.length) {
-                getPage()
-            } else {
-                await browser.close();
-            }
         }
-        getPage()
+        console.log(2)
+        if (i < hrefArr.length) {
+            getPage()
+            console.log(3)
+        } else {
+            console.log(4)
+            await browser.close();
+        }
     })();
 }
 getHref()
