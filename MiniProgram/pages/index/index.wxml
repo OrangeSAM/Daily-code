@@ -16,8 +16,10 @@
   </swiper>
 </view>
 <view class="nav">
-  <view wx:for="{{navList}}" class="nav-wrap" wx:key="{{index}}">
-    <text>{{item.title}}</text>
-    <image src="{{item.src}}"></image>
+  <view class="nav-wrap">
+    <view wx:for="{{navList}}" class="nav-item" wx:key="index">
+      <text>{{item.title}}</text>
+      <image src="{{item.src}}"></image>
+    </view>
   </view>
 </view>

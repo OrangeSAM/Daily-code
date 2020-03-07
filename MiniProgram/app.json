@@ -7,7 +7,7 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#986DB2",
+    "navigationBarBackgroundColor": "#b5d6ce",
     "navigationBarTitleText": "Sam's Store",
     "navigationBarTextStyle": "white"
   },
@@ -17,15 +17,21 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "/images/tab-home.png",
+        "selectedIconPath": "/images/tab-home-current.png"
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "text": "日志",
+        "iconPath": "/images/tab-home.png",
+        "selectedIconPath": "/images/tab-home-current.png"
       },
       {
         "pagePath": "pages/login/login",
-        "text": "登录"
+        "text": "我的",
+        "iconPath": "/images/tab-my.png",
+        "selectedIconPath": "/images/tab-my-current.png"
       }
     ]
   }
