@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>第一个vue小程序</title>
+    <style>
+      .item {
+        color: burlywood;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h4>{{ msg }}</h4>
+      <input type="text" name="" id="" v-model="info" />
+      <button @click="handleClick">添加</button>
+      <ul>
+        <li v-for="(item, index) in items">{{ item }}</li>
+        <todo-item v-for="(item,index) in items" :item="item"></todo-item>
+      </ul>
+    </div>
+    <!-- 这样的缺点
+    现在的组件是全局的，
+    编写template时无法像正常编写代码一样，
+    没有热更新 -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script>
+      Vue.component("todo-item", {
+        props: ["item"],
+        template: '<li class="item">{{item}}</li>'
+      });
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            msg: "hello sam",
+            info: "",
+            items: []
+          };
+        },
+        methods: {
+          handleClick() {
+            this.items.push(this.info);
+            this.info = " ";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
