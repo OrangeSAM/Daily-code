@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     // 单入口 entry是一个字符串，单页面应用
@@ -19,7 +20,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name]_[hash:8].js'
     },
     module: {
         rules: [
@@ -44,11 +45,28 @@ module.exports = {
                     'css-loader',
                     'less-loader'
                 ]
+            },
+            {
+                test: /.(png|jpg|gif|jpeg)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10240
+                    }
+                }]
+            },
+            {
+                test: /.(woff|woff2|eot|ttf)$/,
+                use: 'file-loader'
             }
         ]
     },
     plugins: [
-
+        new webpack.HotModuleReplacementPlugin()
     ],
+    devServer: {
+        contentBase: './dist',
+        hot: true
+    },
     mode: 'production'
 }
