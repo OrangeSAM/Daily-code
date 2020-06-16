@@ -23,7 +23,28 @@ module.exports = {
     },
     module: {
         rules: [
-
+            // 配置babel
+            {
+                test: /.js$/,
+                use: 'babel-loader'
+            },
+            {
+                test: /.css$/,
+                // 从右到左执行。
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /.less$/,
+                // 从右到左执行。
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader'
+                ]
+            }
         ]
     },
     plugins: [
