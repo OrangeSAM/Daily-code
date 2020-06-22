@@ -2,6 +2,9 @@
 
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     // 单入口 entry是一个字符串，单页面应用
@@ -69,7 +72,42 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name]_[contenthash:8].css'
-        })
+        }),
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano')
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/index.html'),
+            fileName: 'index.html',
+            chunks: ['index'],
+            inject: true,
+            minify: {
+                html5: true,
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                minifyCSS: true,
+                minifyJS: true,
+                minifyJS: true,
+                removeComments: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/search.html'),
+            fileName: 'search.html',
+            chunks: ['search'],
+            inject: true,
+            minify: {
+                html5: true,
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                minifyCSS: true,
+                minifyJS: true,
+                minifyJS: true,
+                removeComments: false
+            }
+        }),
+        new CleanWebpackPlugin()
     ],
     mode: 'production'
 }
