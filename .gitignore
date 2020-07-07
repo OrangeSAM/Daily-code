@@ -4,4 +4,5 @@
 /GeekTime/Node.js开发实战/第三章实战篇/node_modules
 /Node.js/node_modules
 /Node.js/chrome-win
-/Demo/webpack/node_modules
+/node_modules/
+/Webpack/dist/
