@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 
-fs.readdir('../MiniProgram', function (err, file) {
+fs.readdir('../Node.js', function (err, file) {
     if (err) {
         console.log(err)
     } else {
@@ -19,8 +19,8 @@ fs.readdir('../MiniProgram', function (err, file) {
             if (i === file.length) {
                 return false
             } else {
-                fs.stat('../MiniProgram/' + file[i], function (error, stats) {
-                    console.log(`../MiniProgram/${file[i]}`)
+                fs.stat('../Node.js/' + file[i], function (error, stats) {
+                    console.log(`../Node.js/${file[i]}`)
                     if (error) {
                         console.log(error)
                     }
