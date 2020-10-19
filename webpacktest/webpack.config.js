@@ -7,6 +7,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // 用于复制文件的插件
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+// 自行编写的移除注释插件
+const RemoveCommentsPlugin = require('./remove-comments-plugin')
+
 module.exports = {
     // entry: './src/index.js', index.js 配合heading.js使用的
     entry: './src/main.js',
@@ -48,6 +51,7 @@ module.exports = {
             from: 'public'
           }
         ]
-      })
+      }),
+      new RemoveCommentsPlugin()
     ]
   }

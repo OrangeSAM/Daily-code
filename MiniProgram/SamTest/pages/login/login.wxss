@@ -1,0 +1,36 @@
+.login {
+  padding: 10px;
+}
+.phone-number {
+  border: 1px solid #986DB2;
+  border-radius: 2px;
+  font-size: 15px;
+  padding: 0 5px;
+}
+.phone-number.shadow {
+  box-shadow: 0px 0px 5px 0px #986DB2;
+}
+.code-wrap {
+  margin:10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+.phone-code {
+  border: 1px solid #986DB2;
+  border-radius: 2px;
+  padding: 0 5px;
+  flex: 1;
+  margin-right: 10px;
+}
+.phone-code.shadow {
+  box-shadow: 0px 0px 5px 0px #986DB2
+}
+.code-btn{
+  border: none;
+  font-size: 14px
+}
+.login-btn{
+  font-size: 14px
+}

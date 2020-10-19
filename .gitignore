@@ -8,3 +8,6 @@
 /Webpack/dist/
 /webpacktest/node_modules/
 /webpacktest/node_modules/
+/cloudfunctions/
+/Vue/snabbdom-demo/node_modules/
+/MiniProgram/cloudTest/cloudfunctions/
