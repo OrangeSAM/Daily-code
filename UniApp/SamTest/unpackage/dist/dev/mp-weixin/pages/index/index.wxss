@@ -1,37 +1,67 @@
 
-.content {
+.card-wrapper {
+	margin: 20px;
+	border: 2px solid #333333;
+	border-radius: 2rpx;
+	font-family: 'Times New Roman', Times, serif;
+}
+.card-title {
+	line-height: 80rpx;
+	height: 80rpx;
+	text-align: center;
+	font-weight: 600;
+	font-family: cursive;
+	border-bottom: 1px solid #333333;
+}
+.card-date {
+	text-align: center;
+}
+.card-date .date-month {
+	margin: 30rpx;
+	font-weight: 800;
+}
+.card-date .date-detail {
+	font-size: 300rpx;
+}
+.card-content{
+	border-top: 1rpx solid #333333;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-webkit-flex-direction: column;
-	        flex-direction: column;
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	        align-items: center;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
 }
-.logo {
-	height: 200rpx;
-	width: 200rpx;
-	margin-top: 200rpx;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50rpx;
+.card-content .content-intro {
+	padding: 15px;
+	position: relative;
 }
-.text-area {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
+.card-content .content-intro image {
+	width: 100rpx;
+	height: 100rpx;
 }
-.title {
+.card-content .content-intro .tips {
+	font-size: 12px;
+	text-align: center;
+}
+.card-content .content-detail {
+	padding: 15px;
 	font-size: 36rpx;
-	color: #8f8f94;
+	color: #dd524d;
+	font-weight: 800;
+	font-family: 'fangsong';
+	border-right: 1px solid #f1f1f1;
+}
+.card-content .cover {
+	position: absolute;
+	z-index: 2;
+	top: 15px;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	opacity: 0.5;
 }
 

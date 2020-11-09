@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Html2Canvas msg="Welcome to Your Vue.js App"/>
+    <solar-lunar></solar-lunar>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Html2Canvas from '@/components/html2Canvas.vue'
+import SolarLunar from '@/components/solarLunar.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Html2Canvas,
+    SolarLunar
   }
 }
 </script>

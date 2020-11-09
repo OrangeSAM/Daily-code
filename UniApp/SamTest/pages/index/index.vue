@@ -1,6 +1,6 @@
 <template>
 	<view class="card-wrapper">
-		<view class="card-title">九月初五 庚子年 鼠年 丙戌月 丁酉日</view>
+		<view class="card-title">{{lunarData.monthCn}}{{lunarData.dayCn}} {{lunarData.gzYear}}年 {{lunarData.animal}}年 {{lunarData.gzMonth}}月 {{lunarData.gzDay}}日</view>
 		<view class="card-date">
 			<view class="date-month">十月 OCTOBER</view>
 			<view class="date-detail">21</view>
@@ -11,25 +11,40 @@
 			</view>
 			<view class="content-intro">
 				<image src="../../static/qrcode.png" mode=""></image>
-				<!-- <view class="tips">明式金句</view> -->
+				<view class="tips">秦小明</view>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import solarLunar from 'solarlunar'
 	export default {
 		data() {
 			return {
-				title: 'heihei'
+				formatedDate: {},
+				// 转换为农历后的数据
+				lunarData: {}
 			}
 		},
-		onLoad() {
-
+		computed: {
+			
 		},
 		methods: {
-
-		}
+			// 今天的日期：年月日
+			todayDate () {
+				const date = new Date()
+				this.formatedDate.year = date.getFullYear()
+				this.formatedDate.month = date.getMonth() + 1
+				this.formatedDate.day = date.getDate()
+			},
+		},
+		mounted() {
+			this.todayDate()
+			console.log(this.formatedDate)
+			this.lunarData = solarLunar.solar2lunar(this.formatedDate.year, this.formatedDate.month, this.formatedDate.day)
+			console.log(this.lunarData)
+		},
 	}
 </script>
 
@@ -45,6 +60,7 @@
 		height: 80rpx;
 		text-align: center;
 		font-weight: 600;
+		font-family: cursive;
 		border-bottom: 1px solid #333333;
 	}
 	.card-date {
@@ -59,10 +75,13 @@
 	}
 	.card-content{
 		border-top: 1rpx solid #333333;
-		padding: 30rpx;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+	.card-content .content-intro {
+		padding: 15px;
+		position: relative;
 	}
 	.card-content .content-intro image {
 		width: 100rpx;
@@ -70,14 +89,24 @@
 	}
 	.card-content .content-intro .tips {
 		font-size: 12px;
-		color: #C0C0C0;
 		text-align: center;
 	}
 	.card-content .content-detail {
-		margin-right: 30rpx;
-		font-size: 30rpx;
+		padding: 15px;
+		font-size: 36rpx;
 		color: #dd524d;
 		font-weight: 800;
-		font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		font-family: 'fangsong';
+		border-right: 1px solid #f1f1f1;;
 	}
+	// 遮罩区样式, 作废
+	/* .card-content .cover {
+		position: absolute;
+		z-index: 2;
+		top: 15px;
+		width: 50px;
+		height: 50px;
+		background-color: white;
+		opacity: 0.5;
+	} */
 </style>
