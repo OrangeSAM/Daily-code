@@ -1,0 +1,12 @@
+
+page {
+	background-color: #FFCCFF;
+}
+.content {}
+.popup-content {
+	text-align: center;
+}
+.popup-content-btn {
+	margin: 0 20rpx;
+}
+

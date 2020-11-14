@@ -1,0 +1,1 @@
+<view><canvas style="{{('width:'+boardWidth+'; height:'+boardHeight+';'+customStyle)}}" canvas-id="{{id}}"></canvas></view>

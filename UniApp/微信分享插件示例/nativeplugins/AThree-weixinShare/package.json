@@ -1,0 +1,19 @@
+{  
+    "name": "weixinShare",  
+    "id": "AThree-weixinShare",  
+    "version": "1.0",  
+    "description": "weixinShare",  
+    "_dp_type":"nativeplugin",  
+    "_dp_nativeplugin":{  
+        "android": {    
+            "plugins": [  
+             {
+                       "type": "module",
+                       "name": "AThree-weixinShare",
+                       "class": "com.test.plugin.PluginModule"
+                     }
+            ],   
+            "integrateType": "aar" 
+        } 
+    }  
+}
