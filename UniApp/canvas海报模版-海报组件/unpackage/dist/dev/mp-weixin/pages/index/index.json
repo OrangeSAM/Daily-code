@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "基础用法",
-  "usingComponents": {
-    "lyz-canvas": "/components/lyz-canvas/lyz-canvas"
-  }
-}

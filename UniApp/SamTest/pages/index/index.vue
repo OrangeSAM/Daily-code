@@ -9,8 +9,8 @@
 			<view class="date-detail">{{formatedDate.day}}</view>
 		</view>
 		<view class="card-content">
-			<view class="content-detail">
-				我最近越来越觉得，金融市场里的成功，全都是运气和意外，做错和失败是必然，差别在乎如何止损。
+			<view class="content-detail" v-if="sentenceData">
+				{{sentenceData.sentenceContent}}
 			</view>
 			<view class="content-intro">
 				<image src="../../static/qrcode.png" mode=""></image>
@@ -34,9 +34,12 @@
 
 <script>
 	import solarLunar from 'solarlunar'
+	import AV from 'leancloud-storage'
 	export default {
 		data() {
 			return {
+				// 金句数据
+				sentenceData: null,
 				formatedDate: {},
 				// 转换为农历后的数据
 				lunarData: {},
@@ -93,7 +96,9 @@
 			}
 		},
 		computed: {
-
+			dateForCompare() {
+				return `${this.formatedDate.year}${this.formatedDate.month}${this.formatedDate.day}`
+			}
 		},
 		methods: {
 			// 今天的日期：年月日
@@ -103,17 +108,89 @@
 				this.formatedDate.month = date.getMonth() + 1
 				this.formatedDate.day = date.getDate()
 			},
+			// 本地存储逻辑
+			// 获取到数据之后,先本地存一份
+			// 如果本地有数据之后,就不在发起请求获取
+			getSentence() {
+				let res = this.fromLocal('sentence')
+				// 成功拿到了
+				if (res) {
+					// 等于当天的日期，就不再发起请求了
+					if (res.date === this.dateForCompare) {
+						this.sentenceData = res.sentenceData
+					} else {
+						this.fromRequest()
+					}
+				} else {
+				// 本地获取失败
+					this.fromRequest()
+				}
+			},
+			saveToLocal(data) {
+				try {
+					const res = uni.setStorageSync('sentence', data)
+					console.log(res)
+				} catch (e) {
+					console.log(res)
+				}
+				// uni.setStorage({
+				// 	key: 'sentence',
+				// 	data,
+				// 	success(res) {
+				// 		console.log('数据保存本地成功', res)
+				// 	}
+				// })
+			},
+			// 从leancloud获取数据
+			fromRequest() {
+				const query = new AV.Query('sentence')
+				query.find().then(e => { 
+					let totalLength
+					if (e) {
+						totalLength = e.length
+					}
+					// 获取sentence的长度，从中随机取1
+					let randomNum = Math.floor(Math.random() * totalLength)
+					let finalData = e[randomNum].attributes
+					// 拿到之后，本地存一份
+					this.saveToLocal({
+						sentenceData: finalData,
+						date: this.dateForCompare
+					})
+					this.sentenceData = finalData
+				})
+			},
+			// 从本地获取数据
+			fromLocal(key) {
+				try {
+				    const store = uni.getStorageSync(key);
+					if (store) {
+						return store
+					}
+				} catch (e) {
+				    return false
+				}
+			},
+			initQuery() {
+				AV.init({
+				        appId: "dfquIAfzpAmmR0BHWR6WjbD4-gzGzoHsz",
+				        appKey: "hLMkIJTCWO6AjY7i261JOfmC",
+				        serverURL: 'https://sentence.yibi.host'
+				      });
+			}
 		},
 		mounted() {
+			this.initQuery()
 			this.todayDate()
 			this.lunarData = solarLunar.solar2lunar(this.formatedDate.year, this.formatedDate.month, this.formatedDate.day)
+			this.getSentence()
 		},
 	}
 </script>
 
 <style>
 	.card-wrapper {
-		margin: 20px;
+		margin: 40px 20px 20px 20px;
 		border: 2px solid #333333;
 		border-radius: 2rpx;
 		font-family: 'Times New Roman', Times, serif;
@@ -141,6 +218,8 @@
 
 	.card-date .date-detail {
 		font-size: 300rpx;
+		font-family: 'fangsong';
+		font-family: 600;
 	}
 
 	.card-content {

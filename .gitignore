@@ -11,3 +11,5 @@
 /cloudfunctions/
 /Vue/snabbdom-demo/node_modules/
 /MiniProgram/cloudTest/cloudfunctions/
+/UniApp/SamTest/node_modules
+/UniApp/SamTest/unpackage/dist

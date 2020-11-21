@@ -31,14 +31,13 @@
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
     "useMultiFrameRuntime": false,
     "useApiHook": true
   },
   "compileType": "miniprogram",
   "libVersion": "",
   "appid": "wxc3ec43a7f22bbaed",
-  "projectname": "SamTest",
+  "projectname": "一笔日历",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {

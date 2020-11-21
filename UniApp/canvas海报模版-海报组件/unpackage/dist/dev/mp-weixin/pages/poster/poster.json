@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "海报图片",
-  "usingComponents": {
-    "lyz-canvas": "/components/lyz-canvas/lyz-canvas",
-    "uni-popup": "/components/uni-popup/uni-popup"
-  }
-}

@@ -1,5 +1,5 @@
 {
-    "name" : "SamTest",
+    "name" : "一笔日历",
     "appid" : "__UNI__5C936B3",
     "description" : "",
     "versionName" : "1.0.0",
@@ -57,7 +57,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wxc3ec43a7f22bbaed",
         "setting" : {
             "urlCheck" : false
         },
