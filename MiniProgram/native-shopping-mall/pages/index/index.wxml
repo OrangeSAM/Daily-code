@@ -23,3 +23,6 @@
     </view>
   </view>
 </view>
+<view>
+  <button open-type="getUserInfo">click here</button>
+</view>

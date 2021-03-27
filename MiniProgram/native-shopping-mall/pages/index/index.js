@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     navList: []
@@ -24,6 +23,9 @@ Page({
         }
       }
     })
+  },
+  getUserInfo(e){
+    console.log(e)
   },
   onLoad: function () {
     this.getNavList()
