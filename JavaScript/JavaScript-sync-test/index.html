@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 同步异步测试</title>
+</head>
+<body>
+    <div class="content">
+        22
+    </div>
+    <script src="./1.js"></script>
+    <script src="./2.js"></script>
+    <script type="module" src="./index.js"></script>
+    <script>
+        // 测试alert的执行顺序
+        setTimeout(()=> {
+            alert('222')
+            console.log('timeout 222')
+        }, 10000)
+        setTimeout(() => {
+            console.log('timeout 111')
+        }, 3000)
+        function fn(params) {
+            console.log('fn')
+        }
+        fn()
+
+        console.log('alert之前')
+        alert('-----')
+        console.log('alert之后')
+
+        // alert 会阻塞主流程，阻塞不了定时器线程，定时器到了，会正常把函数推倒事件队列依次执行
+
+        
+    </script>
+</body>
+</html>

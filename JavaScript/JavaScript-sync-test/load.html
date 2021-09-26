@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>test</title>
+</head>
+<body>
+<script id="script">
+setTimeout(function() {
+  var scriptNode = document.getElementById("script");
+  document.body.removeChild(scriptNode)
+  console.log(0)
+}, 0);
+setTimeout(function() {
+  var scriptNode = document.getElementById("script");
+  console.log(scriptNode,1);
+}, 0);
+</script>
+</body>
+</html>
