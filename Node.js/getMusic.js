@@ -51,12 +51,12 @@ const getMusic = async () => {
 
     // 截图
     await page.screenshot({
-        path: '歌曲.png',
+        path: 'getMusic歌曲.png',
         fullPage: true,
     });
 
     // 写入文件
-    let writerStream = fs.createWriteStream('歌词.txt');
+    let writerStream = fs.createWriteStream('getMusic歌词.txt');
     writerStream.write(lyricCtn, 'UTF8');
     writerStream.end();
 

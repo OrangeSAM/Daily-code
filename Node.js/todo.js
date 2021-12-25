@@ -17,7 +17,7 @@ let argus = process.argv.slice(2);
 const action = argus[0];
 const content = argus[1];
 const content1 = argus[2];
-const dbPath = path.join(__dirname + "/db");
+const dbPath = path.join(__dirname + "/TodoDb");
 let readContent;
 let taskList = [];
 

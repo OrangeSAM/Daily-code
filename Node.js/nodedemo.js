@@ -1,3 +1,4 @@
+// 读取文件流
 var fs = require("fs");
 
 // 读取文件状态
@@ -14,7 +15,7 @@ var fs = require("fs");
 // });
 
 // 读取文件流
-var rs = fs.createReadStream("demo.html", "utf-8");
+var rs = fs.createReadStream("index.html", "utf-8");
 rs.on("data", function (chunk) {
   console.log("data", chunk);
 });
