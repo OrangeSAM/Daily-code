@@ -35,3 +35,18 @@
 _馒头音乐_
 
 收起
+
+1.prev = null
+1.next = 2
+
+2.prev = 1
+2.next = 3
+
+3.prev = 2
+3.next = 4
+
+4.prev = 3
+4.next = 5
+
+5.prev = 4
+5.next = null
