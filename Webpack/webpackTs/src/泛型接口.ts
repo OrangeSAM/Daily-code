@@ -32,6 +32,7 @@
       return user
     }
 
+    // @ts-ignore
     getUserId(id: number | undefined):T {
       return this.data.find(user => user.id === id)
     }
@@ -42,7 +43,7 @@
   const {id} = userCrud.add(new User('aurora', 91))
   userCrud.add(new User('son', 3))
   console.log(userCrud)
- const user1 = userCrud.getUserId(id)
+  const user1 = userCrud.getUserId(id)
   console.log(user1)
 
 
