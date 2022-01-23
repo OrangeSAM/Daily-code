@@ -7,7 +7,7 @@
   interface IBaseCrud<T> {
     data: Array<T>
     add: (t: T) => T
-    getUserId: (id: number) => T
+    getUserId: (id: number | undefined) => T
   }
 
 //  定义一个用户信息的类
@@ -32,7 +32,7 @@
       return user
     }
 
-    getUserId(id: number):User {
+    getUserId(id: number | undefined):T {
       return this.data.find(user => user.id === id)
     }
   }
