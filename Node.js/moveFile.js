@@ -14,6 +14,7 @@ function getDirContent(dir, callback) {
     if (err) {
       console.log(err)
     } else {
+      // 这里由于cb还需要用到原始的dir数据，故包装一层
       let obj = {
         originalPath: dir,
         detail: tar

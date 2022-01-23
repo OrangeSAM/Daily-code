@@ -7,9 +7,10 @@
 /node_modules/
 /Webpack/time_webpack/dist/
 /webpacktest/node_modules/
-/webpacktest/node_modules/
 /cloudfunctions/
 /Vue/snabbdom-demo/node_modules/
 /MiniProgram/cloudTest/cloudfunctions/
 /UniApp/SamTest/node_modules
 /UniApp/SamTest/unpackage/dist
+Webpack/webpackTs/node_modules/
+Webpack/webpackTs/.idea/
