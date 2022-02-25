@@ -1,11 +1,13 @@
 /**
- * Author：
- * Date: 22.2.22
- * Description: 获取有知有行官网E大文章金句
+ * Author：刘一笔
+ * Date: 22.2.25
+ * Description: 获取E大干货合集热门划线版
  */
+
 import * as cheerio from 'cheerio';
-import fetch from "node-fetch"
 import fs from 'fs'
+import puppeteer from 'puppeteer-core'
+import fetch from "node-fetch";
 
 const tabRequestHeader = {
   "headers": {
@@ -46,46 +48,42 @@ for (let i = 0; i < titleList.length; i++) {
   })
 }
 
+const browser = await puppeteer.launch({
+  executablePath: './chrome-win/chrome.exe',
+});
+
 let count = 0
-let emLength = 0
-// 依次访问页面，获取标题和热门划线并写入文件。
-// 能不能做到，异步同时访问，然后本地排序，加快效率
-urlAndName.forEach(async function(item) {
-  count += 1
-  const articlePage = await fetch(`https://youzhiyouxing.cn${item.url}`, tabRequestHeader)
-  const articlePageText = await articlePage.text()
-  let getArticlePage = cheerio.default.load(articlePageText)
+async function getHotLine(item) {
+  const page = await browser.newPage()
+  await page.goto(`https://youzhiyouxing.cn${item.url}`, {waitUntil: 'networkidle0'})
+  item.hotLine = await page.$$eval('.zx-rangy-hot', function sam(ww) {
+    return ww.map(e => e.innerText)
+  })
 
-  const em = getArticlePage('em')
-  emLength += em.length
-  console.log('length:', em.length, item.name)
-  // 服务端渲染的页面没有对应标签
-  // const hotLine = getArticlePage('.zx-rangy-hot')
-
-  item.cont = {}
-  item.cont.em = []
-  item.cont.hotLine = []
-
-  for(let i = 0; i < em.length; i++) {
-    item.cont.em.push(em.eq(i).text())
-  }
-  // for(let n = 0; n < hotLine.length; n++) {
-  //   item.cont.hotLine.push(hotLine.eq(i).text())
-  // }
+  count +=1
+}
+urlAndName.forEach(e => {
+  getHotLine(e)
 })
-setTimeout(() => {
-  if (count === urlAndName.length) {
-    console.log('emlength', emLength)
-    writeFile()
-  }
-}, 20000)
 
 function writeFile() {
+  console.log('开始写文件')
   urlAndName.forEach((e, i) => {
-    // 标题
-    fs.writeFileSync('sam.md',  '## ' + i + '.' + e.name + '\n' + '\n', {flag: 'a+'})
-    e.cont?.em.forEach(t =>{
+    console.log(i, 'here')
+    fs.writeFileSync('sam.md', '## ' + i + '.' + e.name + '\n' + '\n', {flag: 'a+'})
+
+    console.log(typeof e.hotLine)
+    e.hotLine.forEach(t =>{
       fs.writeFileSync('sam.md', t + '\n'  + '\n', { flag: 'a+' })
     })
   })
 }
+
+const ass = setInterval(() => {
+  console.log(count)
+  if (count === urlAndName.length) {
+    writeFile()
+    clearInterval(ass)
+  }
+}, 1500)
+
