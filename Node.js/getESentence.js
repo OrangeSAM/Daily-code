@@ -38,7 +38,7 @@ let getArticleList = cheerio.default.load(data)
 let titleList = getArticleList('.materials li a')
 
 const urlAndName = []
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < titleList.length; i++) {
   const url = titleList.eq(i).attr('href')
   urlAndName.push({
     url,
@@ -46,16 +46,21 @@ for (let i = 0; i < 2; i++) {
   })
 }
 
+let count = 0
+let emLength = 0
 // 依次访问页面，获取标题和热门划线并写入文件。
 // 能不能做到，异步同时访问，然后本地排序，加快效率
 urlAndName.forEach(async function(item) {
+  count += 1
   const articlePage = await fetch(`https://youzhiyouxing.cn${item.url}`, tabRequestHeader)
   const articlePageText = await articlePage.text()
-
   let getArticlePage = cheerio.default.load(articlePageText)
 
   const em = getArticlePage('em')
-  const hotLine = getArticlePage('.zx-rangy-hot')
+  emLength += em.length
+  console.log('length:', em.length, item.name)
+  // 服务端渲染的页面没有对应标签
+  // const hotLine = getArticlePage('.zx-rangy-hot')
 
   item.cont = {}
   item.cont.em = []
@@ -64,21 +69,23 @@ urlAndName.forEach(async function(item) {
   for(let i = 0; i < em.length; i++) {
     item.cont.em.push(em.eq(i).text())
   }
-  for(let n = 0; n < hotLine.length; n++) {
-    item.cont.hotLine.push(hotLine.eq(i).text())
-  }
+  // for(let n = 0; n < hotLine.length; n++) {
+  //   item.cont.hotLine.push(hotLine.eq(i).text())
+  // }
 })
 setTimeout(() => {
-  writeFile()
-  console.log(urlAndName)
-}, 5000)
+  if (count === urlAndName.length) {
+    console.log('emlength', emLength)
+    writeFile()
+  }
+}, 20000)
 
 function writeFile() {
-  urlAndName.forEach(e => {
-    fs.writeFileSync('sam.txt', e.name + '\n' + '\n')
-    e.cont.em.forEach(t =>{
-      fs.writeFileSync('sam.txt', t + '\n', { flag: 'a+' })
+  urlAndName.forEach((e, i) => {
+    // 标题
+    fs.writeFileSync('sam.md',  '## ' + i + '.' + e.name + '\n' + '\n', {flag: 'a+'})
+    e.cont?.em.forEach(t =>{
+      fs.writeFileSync('sam.md', t + '\n'  + '\n', { flag: 'a+' })
     })
-
   })
 }
