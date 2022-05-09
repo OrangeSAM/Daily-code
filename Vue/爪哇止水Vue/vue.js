@@ -10,6 +10,7 @@ const utils = {
   setValue(expr, vm, newValue) {
     vm.$data[expr] = newValue
   },
+  // v-model指令
   model(node, value, vm) {
     const initialValue = this.getValue(value, vm)
 
@@ -24,6 +25,7 @@ const utils = {
 
     this.modelUpdater(node, initialValue)
   },
+  // v-text {{ xx }}
   text(node, value, vm) {
     let result
     if (value.includes('{{')) {
@@ -41,9 +43,11 @@ const utils = {
     }
     this.textUpdater(node, result)
   },
+  // 事件
   on(node, value, vm, eventName) {
 
   },
+  // 更新文本内容
   textUpdater(node, value) {
     node.textContent = value
   },
@@ -58,6 +62,7 @@ class Watcher {
     this.expr = expr
     this.vm = vm
     this.cb = cb
+
     // 通过getter 对数据进行绑定 标记当前的watcher
     this.oldValue = this.getOldValue()
   }
@@ -66,6 +71,7 @@ class Watcher {
     Dep.target = this
     const oldValue = utils.getValue(this.expr, this.vm)
     Dep.target = null
+
     return oldValue
   }
 
@@ -74,7 +80,6 @@ class Watcher {
     if (newValue !== this.oldValue) {
       this.cb(newValue)
     }
-
   }
 }
 
@@ -183,9 +188,12 @@ class Observer {
   }
 
   defineReactive (obj, key, value) {
+    // data一开始就是对象，如果data中的key仍然是对象，需要继续进行处理
     this.observe(value);
+
     // 处理每一个数据的dom依赖
     const dep = new Dep()
+
     Object.defineProperty(obj, key, {
       get () {
         const target = Dep.target
@@ -194,9 +202,14 @@ class Observer {
         return value;
       },
       set: (newVal) => {
+        // 新旧相等，不处理
         if (value === newVal) return;
+
         this.observe(newVal);
+
         value = newVal;
+
+        // 通知更新
         dep.notify()
       },
     });
@@ -222,6 +235,8 @@ class Vue {
   // 可以通过this.xx 更改 this.$data.xx的结果
   proxyData (data) {
     Object.keys(data).forEach((key) => {
+      // 当前的this就是Vue实例，因此此方法可以将定义在data上的属性
+      // 代理到this上存取
       Object.defineProperty(this, key, {
         get () {
           return data[key];
