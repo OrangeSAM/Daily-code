@@ -57,6 +57,7 @@ const utils = {
 }
 
 // 收集DOM的依赖，data和哪些dom有关系
+// 理解为观察者Observer
 class Watcher {
   constructor (expr, vm , cb) {
     this.expr = expr
@@ -84,6 +85,7 @@ class Watcher {
 }
 
 // 有哪些watcher, 一个数据和多个watcher绑定
+// 理解为目标subject
 class Dep {
   constructor () {
     this.collect = []
@@ -171,7 +173,6 @@ class Compiler {
   isElementNode(el) {
     return el.nodeType === 1
   }
-
 }
 
 class Observer {

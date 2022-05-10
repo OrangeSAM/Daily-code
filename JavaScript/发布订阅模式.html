@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>发布订阅模式</title>
+</head>
+<body>
+
+快速理解发布订阅模式
+佩奇和她的爸爸妈妈还有弟弟，四个人都很喜欢女王，他们都希望当女王演讲的时候自己能做点什么。
+比如佩奇希望女王演讲的时候，他能一边踩泥巴一边听
+比如佩奇弟弟希望女王演讲的时候，他能一边写作业一边听
+比如佩奇爸爸希望女王演讲的时候，他能一边健身一边听
+比如佩奇妈妈希望女王演讲的时候，他能一边做饭一边听
+
+那么，他们都可以叫村长帮自己一个忙，当女王要演讲的时候，你就通知我们。
+
+那放到这里，佩奇一家人就是使用这个这个Eventbus的人，村长就是$on和$emit，女王演讲就是这里的事件`type`。
+一个事件的发生会让别的事件也发生，这里别的事件就是`fn`。
+<script>
+  class Vue {
+    constructor () {
+      // 用来存储事件
+      // 存储的 例子 this.subs = { 'myclick': [fn1, fn2, fn3] ,'inputchange': [fn1, fn2] }
+      this.subs = {}
+    }
+
+    // 实现 $on 方法 type是任务队列的类型 ,fn是方法
+    $on (type, fn) {
+      // 判断在 subs是否有当前类型的 方法队列存在
+      if (!this.subs[type]) {
+        // 没有就新增一个 默认为空数组
+        this.subs[type] = []
+      }
+      // 把方法加到该类型中
+      this.subs[type].push(fn)
+      return this.subs
+    }
+
+    // 实现 $emit 方法
+    $emit (type) {
+      // 首先得判断该方法是否存在
+      if (this.subs[type]) {
+        // 获取到参数
+        const args = Array.prototype.slice.call(arguments, 1)
+        // 循环队列调用 fn
+        this.subs[type].forEach((fn) => fn(...args))
+      }
+    }
+  }
+
+  const eventHub = new Vue()
+
+  // 使用 $on 添加一个 sum 类型的 方法到 subs['sum']中
+  let a = eventHub.$on('sum', function () {
+    // 这里隐藏了一个arguments的前置知识点
+    let count = [...arguments].reduce((x, y) => x + y)
+    console.log(count)
+  })
+  console.log(a, 229)
+
+  eventHub.$on('sum', function (val) {
+    console.log(val)
+  })
+
+  // 触发 sum 方法
+  eventHub.$emit('sum', 1, 2, 4, 5, 6, 7, 8, 9, 10)
+</script>
+</body>
+</html>
