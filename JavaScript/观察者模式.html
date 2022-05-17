@@ -5,6 +5,16 @@
   <title>观察者模式</title>
 </head>
 <body>
+The objects participating in this pattern are:
+
+Subject -- In example code: Click
+maintains list of observers. Any number of Observer objects may observe a Subject
+implements an interface that lets observer objects subscribe or unsubscribe
+sends a notification to its observers when its state changes
+
+Observers -- In example code: clickHandler
+has a function signature that can be invoked when Subject changes (i.e. event occurs)
+
 <script>
   // 目标
   class Subject {
