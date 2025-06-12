@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixabay 视频下载器</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🎬 Pixabay 视频下载器</h1>
+        <p>搜索并下载来自 Pixabay 的免费视频</p>
+      </header>
+
+      <div class="search-section">
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="输入搜索关键词（例如：nature, technology, people）"
+          />
+          <button id="searchBtn">🔍 搜索</button>
+        </div>
+        <div class="search-options">
+          <select id="perPageSelect">
+            <option value="9">每页9个</option>
+            <option value="18">每页18个</option>
+            <option value="30">每页30个</option>
+          </select>
+          <button id="clearBtn" class="secondary-btn">清空结果</button>
+          <button
+            id="batchDownloadBtn"
+            class="batch-download-btn"
+            style="display: none"
+          >
+            📥 一键下载整页
+          </button>
+        </div>
+      </div>
+
+      <div class="stats" id="statsSection" style="display: none">
+        <span id="statsText"></span>
+      </div>
+
+      <div class="loading" id="loadingSection" style="display: none">
+        <div class="spinner"></div>
+        <p>正在搜索视频...</p>
+      </div>
+
+      <div class="error-message" id="errorSection" style="display: none"></div>
+
+      <div class="results-section">
+        <div id="videoResults" class="video-grid"></div>
+
+        <div class="pagination" id="paginationSection" style="display: none">
+          <button id="prevBtn" class="page-btn">← 上一页</button>
+          <span id="pageInfo"></span>
+          <button id="nextBtn" class="page-btn">下一页 →</button>
+        </div>
+      </div>
+
+      <div class="downloads-section">
+        <h2>📁 下载历史</h2>
+        <button id="refreshDownloadsBtn" class="secondary-btn">刷新列表</button>
+        <div id="downloadsList" class="downloads-list"></div>
+      </div>
+    </div>
+
+    <div id="downloadModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-header">
+          <h3>下载视频</h3>
+        </div>
+        <div class="modal-body">
+          <div class="video-preview">
+            <video
+              id="modalVideo"
+              controls
+              style="width: 100%; max-height: 300px"
+            ></video>
+          </div>
+          <div class="video-info">
+            <p><strong>标题:</strong> <span id="modalTitle"></span></p>
+            <p><strong>时长:</strong> <span id="modalDuration"></span> 秒</p>
+            <p><strong>分辨率:</strong> <span id="modalResolution"></span></p>
+            <p><strong>大小:</strong> <span id="modalSize"></span></p>
+          </div>
+          <div class="download-options">
+            <label>选择质量:</label>
+            <select id="qualitySelect"></select>
+          </div>
+          <div
+            class="download-progress"
+            id="downloadProgress"
+            style="display: none"
+          >
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+            <p class="progress-text">正在下载...</p>
+          </div>
+          <button id="confirmDownloadBtn" class="download-btn">开始下载</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
